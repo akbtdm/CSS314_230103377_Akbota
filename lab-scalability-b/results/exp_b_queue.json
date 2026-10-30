@@ -1,0 +1,85 @@
+{
+  "experiment": "exp_b_queue",
+  "generated_at_utc": "2026-10-30T08:59:24.873292+00:00",
+  "host": {
+    "cpu_model": "Apple M4",
+    "execution_cores": 10,
+    "physical_cores": 10,
+    "performance_cores": 4,
+    "efficiency_cores": 6,
+    "cache_line_bytes": 128,
+    "os": "Darwin 24.5.0",
+    "macos_version": "15.5",
+    "python": "CPython 3.13.5",
+    "default_start_method": "spawn"
+  },
+  "repeats": 3,
+  "cores": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "total_items": 400000,
+  "rows": [
+    {
+      "P": 1,
+      "T_s": 1.7867674579993036,
+      "T_min_s": 1.7518435000001773,
+      "speedup": 1.0,
+      "efficiency_pct": 100.0,
+      "karp_flatt_e": null
+    },
+    {
+      "P": 2,
+      "T_s": 2.6739852919999976,
+      "T_min_s": 2.595590417000494,
+      "speedup": 0.6682039214444958,
+      "efficiency_pct": 33.41019607222479,
+      "karp_flatt_e": 1.9930982680803222
+    },
+    {
+      "P": 4,
+      "T_s": 2.740560791000462,
+      "T_min_s": 2.710834707999311,
+      "speedup": 0.6519714738190613,
+      "efficiency_pct": 16.299286845476534,
+      "karp_flatt_e": 1.711745917639183
+    },
+    {
+      "P": 8,
+      "T_s": 3.0361910829997214,
+      "T_min_s": 2.9820499170000403,
+      "speedup": 0.5884897917011198,
+      "efficiency_pct": 7.356122396263998,
+      "karp_flatt_e": 1.7991597943501099
+    }
+  ],
+  "all_times": {
+    "1": [
+      1.7867674579993036,
+      1.7518435000001773,
+      1.820575916000962
+    ],
+    "2": [
+      2.595590417000494,
+      2.681883207998908,
+      2.6739852919999976
+    ],
+    "4": [
+      2.7478527080002095,
+      2.740560791000462,
+      2.710834707999311
+    ],
+    "8": [
+      3.049056207999456,
+      3.0361910829997214,
+      2.9820499170000403
+    ]
+  },
+  "t8_over_t1": 1.699264820056346,
+  "runtime_monotonic_increase": true,
+  "karp_flatt_monotonic_increase": false,
+  "items_per_second_p1": 223867.9679379721,
+  "diagnosis": "Surging e(p): lock, pipe and context-switch thrashing on the shared queue, not serial code."
+}
