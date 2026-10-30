@@ -1,0 +1,210 @@
+{
+  "student_id": "230103377",
+  "kernel": "5-point Jacobi stencil, float64, row-block domain decomposition over processes",
+  "backend": "numba-njit row-block stencil",
+  "arithmetic_intensity": {
+    "flops_per_point": 4,
+    "bytes_per_point_ideal_streaming": 16,
+    "bytes_per_point_with_write_allocate": 24,
+    "ai_flop_per_byte_ideal": 0.25,
+    "ai_flop_per_byte_with_write_allocate": 0.16666666666666666
+  },
+  "working_set": {
+    "N": 1280,
+    "grid_bytes": 13107200,
+    "two_grids_bytes": 26214400,
+    "l1d_bytes": 65536,
+    "l2_bytes_performance_cluster": 16777216,
+    "l3_bytes": null,
+    "fits_in_l2": false,
+    "comment": "Two grids exceed the largest on-chip cache, so every sweep streams from DRAM."
+  },
+  "machine_ceilings": {
+    "source": "public Apple M4 specifications (assumed, not measured)",
+    "dram_bandwidth_gbps": 120.0,
+    "peak_fp64_gflops_p_cores": 281.6,
+    "peak_fp64_gflops_e_cores": 139.2,
+    "peak_fp64_gflops_total": 420.8,
+    "assumptions": {
+      "p_core_ghz": 4.4,
+      "e_core_ghz": 2.9,
+      "p_core_fp64_flop_per_cycle": 16,
+      "e_core_fp64_flop_per_cycle": 8
+    },
+    "ridge_point_flop_per_byte": 3.506666666666667,
+    "measured_single_core_stream_read_gbps": 52.262
+  },
+  "roofline_position": {
+    "attainable_gflops_memory_roof": 30.0,
+    "best_measured_gflops": 28.647744333083935,
+    "regime": "memory-bandwidth-bound",
+    "reasoning": "AI = 0.250 FLOP/B is far below the ridge point 3.51 FLOP/B; the kernel can reach at most 30.0 GFLOP/s from DRAM bandwidth, versus 421 GFLOP/s of peak compute. Strong-scaling runs at N=1280 (2 x 12.5 MiB) get partial help from the 16 MiB performance-cluster L2 and the system-level cache, which is why the best measured value can sit slightly above the DRAM-only roof; weak-scaling grids are far larger than any cache and plateau at the DRAM roof."
+  },
+  "strong_scaling": {
+    "amdahl_serial_fraction_fit": 0.4322878443334447,
+    "amdahl_serial_fraction_at_max_P": 0.5565588960240765,
+    "S_max_from_fit": 2.3132734660673253,
+    "max_speedup_measured": 2.0781505860814895,
+    "points": [
+      {
+        "P": 1,
+        "N": 1280,
+        "T_s": 0.094784708,
+        "T_min_s": 0.094765667,
+        "speedup": 1.0,
+        "efficiency_pct": 100.0,
+        "amdahl_s": NaN,
+        "gflops": 13.785211006821903,
+        "effective_bandwidth_gbps": 55.14084402728761,
+        "checksum": 819441.7755850396,
+        "digest_matches_P1": true,
+        "digest": "cdee6ab051aadd8a167776f1744ce82f4f7b1810fe18ed4937182d72f7d98bf1"
+      },
+      {
+        "P": 2,
+        "N": 1280,
+        "T_s": 0.055364125,
+        "T_min_s": 0.055095917,
+        "speedup": 1.71202395052753,
+        "efficiency_pct": 85.60119752637651,
+        "amdahl_s": 0.16820795607662808,
+        "gflops": 23.600611406754826,
+        "effective_bandwidth_gbps": 94.4024456270193,
+        "checksum": 819441.7755850396,
+        "digest_matches_P1": true,
+        "digest": "cdee6ab051aadd8a167776f1744ce82f4f7b1810fe18ed4937182d72f7d98bf1"
+      },
+      {
+        "P": 4,
+        "N": 1280,
+        "T_s": 0.045610125,
+        "T_min_s": 0.045417708,
+        "speedup": 2.0781505860814895,
+        "efficiency_pct": 51.953764652037236,
+        "amdahl_s": 0.3082627772966641,
+        "gflops": 28.647744333083935,
+        "effective_bandwidth_gbps": 114.59097733233574,
+        "checksum": 819441.7755850396,
+        "digest_matches_P1": true,
+        "digest": "cdee6ab051aadd8a167776f1744ce82f4f7b1810fe18ed4937182d72f7d98bf1"
+      },
+      {
+        "P": 8,
+        "N": 1280,
+        "T_s": 0.051505458,
+        "T_min_s": 0.051445625,
+        "speedup": 1.840284732542326,
+        "efficiency_pct": 23.003559156779076,
+        "amdahl_s": 0.47816476894142035,
+        "gflops": 25.368713350728772,
+        "effective_bandwidth_gbps": 101.47485340291509,
+        "checksum": 819441.7755850396,
+        "digest_matches_P1": true,
+        "digest": "cdee6ab051aadd8a167776f1744ce82f4f7b1810fe18ed4937182d72f7d98bf1"
+      },
+      {
+        "P": 10,
+        "N": 1280,
+        "T_s": 0.056956416,
+        "T_min_s": 0.056421208,
+        "speedup": 1.6641620849177026,
+        "efficiency_pct": 16.641620849177023,
+        "amdahl_s": 0.5565588960240765,
+        "gflops": 22.9408254901432,
+        "effective_bandwidth_gbps": 91.7633019605728,
+        "checksum": 819441.7755850396,
+        "digest_matches_P1": true,
+        "digest": "cdee6ab051aadd8a167776f1744ce82f4f7b1810fe18ed4937182d72f7d98bf1"
+      }
+    ]
+  },
+  "weak_scaling": {
+    "gustafson_speedup_at_max_P": 1.4758189893718385,
+    "gustafson_serial_fraction_at_max_P": 0.947131223403129,
+    "weak_efficiency_pct_at_max_P": 14.691055372891887,
+    "aggregate_gflops_plateau": 20.093840523281294,
+    "points": [
+      {
+        "P": 1,
+        "N_P": 1280,
+        "T_s": 0.094784708,
+        "T_min_s": 0.094765667,
+        "work_ratio": 1.0,
+        "scaled_speedup_lab_formula": 1.0,
+        "gustafson_speedup": 1.0,
+        "gustafson_serial_fraction": NaN,
+        "weak_efficiency_pct": 100.0,
+        "gflops": 13.785211006821903,
+        "effective_bandwidth_gbps": 55.14084402728761,
+        "checksum": 819441.7755850396
+      },
+      {
+        "P": 2,
+        "N_P": 1811,
+        "T_s": 0.124514542,
+        "T_min_s": 0.123158042,
+        "work_ratio": 2.003620313429875,
+        "scaled_speedup_lab_formula": 0.7598585781339322,
+        "gustafson_speedup": 1.5252239883058734,
+        "gustafson_serial_fraction": 0.47477601169412664,
+        "weak_efficiency_pct": 75.98585781339322,
+        "gflops": 21.025534511462926,
+        "effective_bandwidth_gbps": 84.1021380458517,
+        "checksum": 1640163.36843684
+      },
+      {
+        "P": 4,
+        "N_P": 2560,
+        "T_s": 0.263802709,
+        "T_min_s": 0.261870458,
+        "work_ratio": 4.006262229961232,
+        "scaled_speedup_lab_formula": 0.35873986814059106,
+        "gustafson_speedup": 1.439456012706466,
+        "gustafson_serial_fraction": 0.853514662431178,
+        "weak_efficiency_pct": 35.87398681405911,
+        "gflops": 19.843204870197145,
+        "effective_bandwidth_gbps": 79.37281948078858,
+        "checksum": 3277404.4178355965
+      },
+      {
+        "P": 8,
+        "N_P": 3621,
+        "T_s": 0.541692584,
+        "T_min_s": 0.500899208,
+        "work_ratio": 8.018912203878811,
+        "scaled_speedup_lab_formula": 0.17456610223925265,
+        "gustafson_speedup": 1.403139482009762,
+        "gustafson_serial_fraction": 0.9424086454271768,
+        "weak_efficiency_pct": 17.456610223925264,
+        "gflops": 19.342573831507355,
+        "effective_bandwidth_gbps": 77.37029532602942,
+        "checksum": 6556969.122684491
+      },
+      {
+        "P": 10,
+        "N_P": 4048,
+        "T_s": 0.643717375,
+        "T_min_s": 0.598064417,
+        "work_ratio": 10.022822730155932,
+        "scaled_speedup_lab_formula": 0.14691055372891887,
+        "gustafson_speedup": 1.4758189893718385,
+        "gustafson_serial_fraction": 0.947131223403129,
+        "weak_efficiency_pct": 14.691055372891887,
+        "gflops": 20.34447617636544,
+        "effective_bandwidth_gbps": 81.37790470546176,
+        "checksum": 8195063.822868544
+      }
+    ]
+  },
+  "sweeps": 200,
+  "repeats": 3,
+  "digest_strong_P1": "cdee6ab051aadd8a167776f1744ce82f4f7b1810fe18ed4937182d72f7d98bf1",
+  "all_strong_digests_match": true,
+  "notes": [
+    "T_P is the slowest worker's sweep-loop time after a start barrier; spawn and JIT costs are excluded.",
+    "Speedup stalls beyond the 4 performance cores because efficiency cores are slower and the barrier waits for the slowest block.",
+    "Effective bandwidth assumes the ideal 16 B/point; with write-allocate the real DRAM traffic is ~24 B/point, so the ~80 GB/s weak-scaling plateau corresponds to ~120 GB/s of actual traffic, i.e. the DRAM specification.",
+    "Amdahl's s is an effective non-scaling fraction: it lumps together DRAM bandwidth saturation, slower efficiency cores and barrier synchronisation, not just serial code.",
+    "The lab's scaled-speedup formula equals T_1/T_P when Work(P) = P*Work(1) and therefore measures weak-scaling efficiency (ideal 1.0); the Gustafson speedup column has ideal value P."
+  ]
+}
