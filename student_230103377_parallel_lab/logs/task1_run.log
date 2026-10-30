@@ -1,0 +1,10 @@
+StudentID=230103377 SEED=230103377 N=8,770,000 PhysicalCores=10 repeats=3
+Generated 8,770,000 floats in [1.0, 100.0] in 0.43 s
+ChunkSize:      1 | tasks: 8,770,000 | trials: 117.457, 114.678, 116.162 | median: 116.1620 s
+ChunkSize:     10 | tasks:   877,000 | trials: 12.148, 12.069, 12.090 | median: 12.0903 s
+ChunkSize:    100 | tasks:    87,700 | trials: 1.636, 1.645, 1.630 | median: 1.6365 s
+ChunkSize:   1000 | tasks:     8,770 | trials: 0.402, 0.404, 0.404 | median: 0.4040 s
+ChunkSize:  10000 | tasks:       877 | trials: 0.329, 0.318, 0.317 | median: 0.3179 s
+ChunkSize: 100000 | tasks:        88 | trials: 0.327, 0.343, 0.331 | median: 0.3308 s
+Optimal chunk size: C=10000 (0.3179 s) | Time(C=1)/Time(C_opt) = 365.5x
+Wrote /Users/akbota/Downloads/CSS314_230103377_Akbota/student_230103377_parallel_lab/task1_results.csv
