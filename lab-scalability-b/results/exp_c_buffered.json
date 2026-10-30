@@ -1,0 +1,87 @@
+{
+  "experiment": "exp_c_buffered",
+  "generated_at_utc": "2026-10-30T08:59:56.958715+00:00",
+  "host": {
+    "cpu_model": "Apple M4",
+    "execution_cores": 10,
+    "physical_cores": 10,
+    "performance_cores": 4,
+    "efficiency_cores": 6,
+    "cache_line_bytes": 128,
+    "os": "Darwin 24.5.0",
+    "macos_version": "15.5",
+    "python": "CPython 3.13.5",
+    "default_start_method": "spawn"
+  },
+  "repeats": 3,
+  "cores": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "total_items": 10000000,
+  "batch_size": 10000,
+  "ipc_puts": 1000,
+  "rows": [
+    {
+      "P": 1,
+      "T_s": 0.3681769169998006,
+      "T_min_s": 0.35112241599927074,
+      "speedup": 1.0,
+      "efficiency_pct": 100.0,
+      "karp_flatt_e": null
+    },
+    {
+      "P": 2,
+      "T_s": 0.21801466699980665,
+      "T_min_s": 0.2158824590005679,
+      "speedup": 1.6887713201430026,
+      "efficiency_pct": 84.43856600715013,
+      "karp_flatt_e": 0.1842929685889283
+    },
+    {
+      "P": 4,
+      "T_s": 0.14041291699868452,
+      "T_min_s": 0.13555587500013644,
+      "speedup": 2.622101476627324,
+      "efficiency_pct": 65.5525369156831,
+      "karp_flatt_e": 0.1751646577697159
+    },
+    {
+      "P": 8,
+      "T_s": 0.14200083300056576,
+      "T_min_s": 0.13688037499923666,
+      "speedup": 2.5927799803704934,
+      "efficiency_pct": 32.409749754631164,
+      "karp_flatt_e": 0.29792732459074106
+    }
+  ],
+  "all_times": {
+    "1": [
+      0.3681769169998006,
+      0.3978058749999036,
+      0.35112241599927074
+    ],
+    "2": [
+      0.27520095799991395,
+      0.2158824590005679,
+      0.21801466699980665
+    ],
+    "4": [
+      0.13555587500013644,
+      0.14041291699868452,
+      0.14366695800163143
+    ],
+    "8": [
+      0.1455922080003802,
+      0.14200083300056576,
+      0.13688037499923666
+    ]
+  },
+  "items_per_second_p1": 27160855.388458304,
+  "items_per_second_p8": 70422122.10093273,
+  "rubric_s8_above_5": false,
+  "rubric_e8_at_most_0_05": false,
+  "diagnosis": "Collapsed e(p): one synchronisation per batch instead of per item; remaining loss is process start-up and the slower efficiency cores at P=8."
+}
