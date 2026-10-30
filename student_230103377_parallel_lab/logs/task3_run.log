@@ -1,0 +1,11 @@
+StudentID=230103377 | logical processors M=10 | performance cores=4 | repeats=3
+Compute_Bound            1 worker : 0.308 s  (trials 0.309, 0.308, 0.308)
+Compute_Bound             4 workers: 0.325 s  (trials 0.338, 0.322, 0.325) -> speedup 3.79x of ideal 4, efficiency 95%
+Compute_Bound            10 workers: 0.600 s  (trials 0.600, 0.588, 0.601) -> speedup 5.14x of ideal 10, efficiency 51%
+Memory_Bound             1 worker : 0.593 s  (trials 0.591, 0.593, 0.593)
+Memory_Bound              4 workers: 0.637 s  (trials 0.645, 0.637, 0.637) -> speedup 3.72x of ideal 4, efficiency 93%
+Memory_Bound             10 workers: 1.101 s  (trials 1.097, 1.101, 1.123) -> speedup 5.38x of ideal 10, efficiency 54%
+Memory_Bound_StreamCopy  1 worker : 0.157 s  (trials 0.154, 0.157, 0.157)
+Memory_Bound_StreamCopy   4 workers: 0.486 s  (trials 0.488, 0.486, 0.484) -> speedup 1.29x of ideal 4, efficiency 32%
+Memory_Bound_StreamCopy  10 workers: 1.168 s  (trials 1.188, 1.158, 1.168) -> speedup 1.34x of ideal 10, efficiency 13%
+Wrote /Users/akbota/Downloads/CSS314_230103377_Akbota/student_230103377_parallel_lab/task3_results.csv

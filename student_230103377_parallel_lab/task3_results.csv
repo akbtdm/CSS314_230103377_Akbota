@@ -1,0 +1,7 @@
+Workload,SingleProcessTime,MultiProcessTime,Speedup,Workers,EfficiencyPct,Description
+Compute_Bound,0.308402,0.325066,3.794955,4,94.873881,"20,000 floats x 500 sin/cos iterations per worker"
+Compute_Bound,0.308402,0.600012,5.139940,10,51.399397,"20,000 floats x 500 sin/cos iterations per worker"
+Memory_Bound,0.592831,0.637254,3.721160,4,93.029010,"20,000,000 doubles per worker, y = x * 1.0001 streamed through array('d')"
+Memory_Bound,0.592831,1.101213,5.383439,10,53.834386,"20,000,000 doubles per worker, y = x * 1.0001 streamed through array('d')"
+Memory_Bound_StreamCopy,0.156786,0.486106,1.290137,4,32.253435,40 memcpy passes over 128 MiB per worker (no arithmetic)
+Memory_Bound_StreamCopy,0.156786,1.168004,1.342339,10,13.423391,40 memcpy passes over 128 MiB per worker (no arithmetic)
