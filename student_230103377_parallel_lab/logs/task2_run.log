@@ -1,0 +1,22 @@
+StudentID=230103377 N=11,770,000 s=0.05 K=588,500 | physical cores=10 logical processors=10 | chunksize=10000 repeats=3
+Allocated dataset of 11,770,000 elements in 0.56 s (serial segment 588,500, parallel segment 11,181,500)
+Parent serialization floor (pickle 11,181,500 floats in 10000-element chunks + unpickle same-sized results): 0.2163 s
+[spec] p:  1 | Serial: 0.0620s | Parallel: 0.9124s | Total: 0.9745s | Speedup: 1.00x (Amdahl s=0.05 -> 1.00x) | Efficiency: 100% | e(p)=nan
+[spec] p:  2 | Serial: 0.0631s | Parallel: 0.5241s | Total: 0.5872s | Speedup: 1.66x (Amdahl s=0.05 -> 1.90x) | Efficiency: 83% | e(p)=0.205
+[spec] p:  3 | Serial: 0.0640s | Parallel: 0.4832s | Total: 0.5472s | Speedup: 1.78x (Amdahl s=0.05 -> 2.73x) | Efficiency: 59% | e(p)=0.342
+[spec] p:  4 | Serial: 0.0632s | Parallel: 0.4949s | Total: 0.5581s | Speedup: 1.75x (Amdahl s=0.05 -> 3.48x) | Efficiency: 44% | e(p)=0.430
+[spec] p:  6 | Serial: 0.0638s | Parallel: 0.5083s | Total: 0.5721s | Speedup: 1.70x (Amdahl s=0.05 -> 4.80x) | Efficiency: 28% | e(p)=0.504
+[spec] p:  8 | Serial: 0.0639s | Parallel: 0.5105s | Total: 0.5744s | Speedup: 1.70x (Amdahl s=0.05 -> 5.93x) | Efficiency: 21% | e(p)=0.531
+[spec] p: 12 | Serial: 0.0652s | Parallel: 0.5147s | Total: 0.5799s | Speedup: 1.68x (Amdahl s=0.05 -> 7.74x) | Efficiency: 14% | e(p)=0.558
+[spec] p: 16 | Serial: 0.0650s | Parallel: 0.5224s | Total: 0.5874s | Speedup: 1.66x (Amdahl s=0.05 -> 9.14x) | Efficiency: 10% | e(p)=0.576
+[heavy_x8] p:  1 | Serial: 0.0646s | Parallel: 4.8790s | Total: 4.9436s | Speedup: 1.00x (Amdahl s=0.05 -> 1.00x) | Efficiency: 100% | e(p)=nan
+[heavy_x8] p:  2 | Serial: 0.0651s | Parallel: 2.5080s | Total: 2.5732s | Speedup: 1.92x (Amdahl s=0.05 -> 1.90x) | Efficiency: 96% | e(p)=0.041
+[heavy_x8] p:  3 | Serial: 0.0656s | Parallel: 1.7584s | Total: 1.8240s | Speedup: 2.71x (Amdahl s=0.05 -> 2.73x) | Efficiency: 90% | e(p)=0.053
+[heavy_x8] p:  4 | Serial: 0.0650s | Parallel: 1.5090s | Total: 1.5740s | Speedup: 3.14x (Amdahl s=0.05 -> 3.48x) | Efficiency: 79% | e(p)=0.091
+[heavy_x8] p:  6 | Serial: 0.0652s | Parallel: 1.3062s | Total: 1.3715s | Speedup: 3.60x (Amdahl s=0.05 -> 4.80x) | Efficiency: 60% | e(p)=0.133
+[heavy_x8] p:  8 | Serial: 0.0656s | Parallel: 1.1948s | Total: 1.2604s | Speedup: 3.92x (Amdahl s=0.05 -> 5.93x) | Efficiency: 49% | e(p)=0.149
+[heavy_x8] p: 12 | Serial: 0.0654s | Parallel: 1.1360s | Total: 1.2014s | Speedup: 4.11x (Amdahl s=0.05 -> 7.74x) | Efficiency: 34% | e(p)=0.174
+[heavy_x8] p: 16 | Serial: 0.0655s | Parallel: 1.1808s | Total: 1.2463s | Speedup: 3.97x (Amdahl s=0.05 -> 9.14x) | Efficiency: 25% | e(p)=0.202
+[spec] theoretical ceiling 1/s = 20x | best measured 1.78x at p=3 | physical=10 logical=10
+[heavy_x8] theoretical ceiling 1/s = 20x | best measured 4.11x at p=12 | physical=10 logical=10
+Wrote /Users/akbota/Downloads/CSS314_230103377_Akbota/student_230103377_parallel_lab/task2_results.csv
