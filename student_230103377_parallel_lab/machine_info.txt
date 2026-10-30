@@ -1,0 +1,16 @@
+machdep.cpu.cores_per_package: 10
+machdep.cpu.core_count: 10
+machdep.cpu.logical_per_package: 10
+machdep.cpu.thread_count: 10
+machdep.cpu.brand_string: Apple M4
+
+# Supplementary core topology (sysctl hw.*), appended for physical vs logical core identification
+hw.physicalcpu: 10
+hw.logicalcpu: 10
+hw.ncpu: 10
+hw.perflevel0.physicalcpu: 4
+hw.perflevel0.name: Performance
+hw.perflevel1.physicalcpu: 6
+hw.perflevel1.name: Efficiency
+hw.cachelinesize: 128
+hw.memsize: 17179869184
