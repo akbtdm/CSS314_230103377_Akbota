@@ -1,0 +1,172 @@
+{
+  "experiment": "exp_c_fixed",
+  "generated_at_utc": "2026-10-30T06:20:11.156939+00:00",
+  "host": {
+    "cpu_model": "Apple M4",
+    "execution_cores": 10,
+    "physical_cores": 10,
+    "performance_cores": 4,
+    "efficiency_cores": 6,
+    "cache_line_bytes": 128,
+    "os": "Darwin 24.5.0",
+    "macos_version": "15.5",
+    "python": "CPython 3.13.5",
+    "default_start_method": "spawn"
+  },
+  "repeats": 3,
+  "cores": [
+    1,
+    2,
+    4
+  ],
+  "series": [
+    {
+      "start_method": "spawn",
+      "total_increments": 20000000,
+      "rows": [
+        {
+          "P": 1,
+          "T_s": 0.31146904199977143,
+          "T_min_s": 0.30582629200034717,
+          "speedup": 1.0,
+          "efficiency_pct": 100.0,
+          "karp_flatt_e": null
+        },
+        {
+          "P": 2,
+          "T_s": 0.17480499999965105,
+          "T_min_s": 0.17148687499957305,
+          "speedup": 1.7818085409478746,
+          "efficiency_pct": 89.09042704739373,
+          "karp_flatt_e": 0.12245505285099467
+        },
+        {
+          "P": 4,
+          "T_s": 0.1095916659996874,
+          "T_min_s": 0.10947574999954668,
+          "speedup": 2.8420869338792594,
+          "efficiency_pct": 71.05217334698149,
+          "karp_flatt_e": 0.1358054947015368
+        }
+      ],
+      "all_times": {
+        "1": [
+          0.31146904199977143,
+          0.3637945830005265,
+          0.30582629200034717
+        ],
+        "2": [
+          0.17480499999965105,
+          0.17842229200050497,
+          0.17148687499957305
+        ],
+        "4": [
+          0.10986583300018538,
+          0.10947574999954668,
+          0.1095916659996874
+        ]
+      },
+      "rubric_t4_below_t1": true,
+      "rubric_e4_efficiency_above_70": true
+    },
+    {
+      "start_method": "fork",
+      "total_increments": 20000000,
+      "rows": [
+        {
+          "P": 1,
+          "T_s": 0.2717068330002803,
+          "T_min_s": 0.26661699999931443,
+          "speedup": 1.0,
+          "efficiency_pct": 100.0,
+          "karp_flatt_e": null
+        },
+        {
+          "P": 2,
+          "T_s": 0.15742608400069003,
+          "T_min_s": 0.15468787500049075,
+          "speedup": 1.7259327431347995,
+          "efficiency_pct": 86.29663715673998,
+          "karp_flatt_e": 0.15879370615995958
+        },
+        {
+          "P": 4,
+          "T_s": 0.10307754199948249,
+          "T_min_s": 0.09325583400004689,
+          "speedup": 2.635945985223866,
+          "efficiency_pct": 65.89864963059665,
+          "karp_flatt_e": 0.17249392595327748
+        }
+      ],
+      "all_times": {
+        "1": [
+          0.2717068330002803,
+          0.26661699999931443,
+          0.2780639170005088
+        ],
+        "2": [
+          0.15468787500049075,
+          0.15742608400069003,
+          0.1575563329997749
+        ],
+        "4": [
+          0.10307754199948249,
+          0.09325583400004689,
+          0.10626108399992518
+        ]
+      },
+      "rubric_t4_below_t1": true,
+      "rubric_e4_efficiency_above_70": false
+    },
+    {
+      "start_method": "spawn",
+      "total_increments": 200000000,
+      "rows": [
+        {
+          "P": 1,
+          "T_s": 2.7752832500000295,
+          "T_min_s": 2.764946792000046,
+          "speedup": 1.0,
+          "efficiency_pct": 100.0,
+          "karp_flatt_e": null
+        },
+        {
+          "P": 2,
+          "T_s": 1.4225030830002652,
+          "T_min_s": 1.4189817910000784,
+          "speedup": 1.9509857540319384,
+          "efficiency_pct": 97.54928770159692,
+          "karp_flatt_e": 0.02512281079796086
+        },
+        {
+          "P": 4,
+          "T_s": 0.7805348750007397,
+          "T_min_s": 0.7691387089998898,
+          "speedup": 3.5556172297841266,
+          "efficiency_pct": 88.89043074460317,
+          "karp_flatt_e": 0.041660162075699926
+        }
+      ],
+      "all_times": {
+        "1": [
+          2.7752832500000295,
+          2.7766122079992783,
+          2.764946792000046
+        ],
+        "2": [
+          1.4332172919994264,
+          1.4225030830002652,
+          1.4189817910000784
+        ],
+        "4": [
+          0.7691387089998898,
+          0.7805348750007397,
+          0.8877215420006905
+        ]
+      },
+      "rubric_t4_below_t1": true,
+      "rubric_e4_efficiency_above_70": true
+    }
+  ],
+  "diagnosis": "Collapsed e(p): private accumulation with a single final reduction restores near-linear scaling; residual e comes from process start-up, which spawn makes visible at small workloads."
+}
