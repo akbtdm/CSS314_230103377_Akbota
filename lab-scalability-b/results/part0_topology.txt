@@ -1,0 +1,2 @@
+CPUs: 10 | Default Pool: 10
+Apple M4
