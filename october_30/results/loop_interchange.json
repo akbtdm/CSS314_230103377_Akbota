@@ -1,0 +1,90 @@
+{
+  "student_id": "230103377",
+  "N": 1280,
+  "seed": 30385,
+  "backend": "numba-njit compiled loops",
+  "runs_per_kernel": 3,
+  "primary_block_M": 640,
+  "T_naive_s": 0.15786387500065757,
+  "T_interchanged_s": 0.032597125000393135,
+  "speedup": 4.842877247571793,
+  "blocks": [
+    {
+      "M": 640,
+      "matrix_bytes": 3276800,
+      "naive_ijk": {
+        "times_s": [
+          0.15689654200014047,
+          0.15786387500065757,
+          0.15934516600009374
+        ],
+        "median_s": 0.15786387500065757,
+        "gflops": 3.321139811105081
+      },
+      "interchanged_ikj": {
+        "times_s": [
+          0.032193957999879785,
+          0.032806000000164204,
+          0.032597125000393135
+        ],
+        "median_s": 0.032597125000393135,
+        "gflops": 16.083872427205677
+      },
+      "speedup": 4.842877247571793,
+      "correctness": {
+        "naive_vs_interchanged_bitwise_equal": true,
+        "naive_vs_interchanged_max_abs_diff": 0.0,
+        "interchanged_vs_numpy_max_abs_diff": 6.252776074688882e-13,
+        "interchanged_vs_numpy_max_rel_diff": 3.886477595116425e-15,
+        "within_tolerance": true,
+        "rel_tolerance": 1e-12
+      },
+      "salted_sha256_rounded_6dp": "cbbce5e642daa8509c982a49e628ac6dbb58b0919c78a8ca67c14ad3b7b9f03b"
+    },
+    {
+      "M": 1280,
+      "matrix_bytes": 13107200,
+      "naive_ijk": {
+        "times_s": [
+          1.507333832999393,
+          1.3815277909998258,
+          1.3973257910001848
+        ],
+        "median_s": 1.3973257910001848,
+        "gflops": 3.001665056935491
+      },
+      "interchanged_ikj": {
+        "times_s": [
+          0.2661901660003423,
+          0.2623924999998053,
+          0.2605239580007037
+        ],
+        "median_s": 0.2623924999998053,
+        "gflops": 15.984847127883276
+      },
+      "speedup": 5.325326718565591,
+      "correctness": {
+        "naive_vs_interchanged_bitwise_equal": true,
+        "naive_vs_interchanged_max_abs_diff": 0.0,
+        "interchanged_vs_numpy_max_abs_diff": 1.8758328224066645e-12,
+        "interchanged_vs_numpy_max_rel_diff": 5.750459834722687e-15,
+        "within_tolerance": true,
+        "rel_tolerance": 1e-12
+      },
+      "salted_sha256_rounded_6dp": "d24496d1931cd9c3de4e55501986f813cf5386aa494dd88ae16fc0da69cc7df5"
+    }
+  ],
+  "pure_python_reference": {
+    "size": 128,
+    "naive_ijk_median_s": 0.14323020800020458,
+    "interchanged_ikj_median_s": 0.09354845799953182,
+    "speedup": 1.5310803733496217,
+    "max_abs_diff": 0.0
+  },
+  "host_caches": {
+    "cache_line_bytes": 128,
+    "l1d_bytes": 65536,
+    "l2_bytes": 4194304,
+    "l3_bytes": null
+  }
+}
