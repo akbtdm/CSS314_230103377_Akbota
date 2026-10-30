@@ -1,0 +1,78 @@
+{
+  "experiment": "exp_a_serial",
+  "generated_at_utc": "2026-10-30T06:23:40.682914+00:00",
+  "host": {
+    "cpu_model": "Apple M4",
+    "execution_cores": 10,
+    "physical_cores": 10,
+    "performance_cores": 4,
+    "efficiency_cores": 6,
+    "cache_line_bytes": 128,
+    "os": "Darwin 24.5.0",
+    "macos_version": "15.5",
+    "python": "CPython 3.13.5",
+    "default_start_method": "spawn"
+  },
+  "repeats": 5,
+  "cores": [
+    1,
+    2,
+    4
+  ],
+  "chunks": 16,
+  "chunk_size": 2000000,
+  "serial_pause_s": 0.4,
+  "rows": [
+    {
+      "P": 1,
+      "T_s": 2.3320458750004036,
+      "T_min_s": 2.3018054160002066,
+      "speedup": 1.0,
+      "efficiency_pct": 100.0,
+      "karp_flatt_e": null
+    },
+    {
+      "P": 2,
+      "T_s": 1.4131652910000412,
+      "T_min_s": 1.4094737079994957,
+      "speedup": 1.650228667412364,
+      "efficiency_pct": 82.5114333706182,
+      "karp_flatt_e": 0.2119532519914915
+    },
+    {
+      "P": 4,
+      "T_s": 0.964560999999776,
+      "T_min_s": 0.9613130830002774,
+      "speedup": 2.41772772795183,
+      "efficiency_pct": 60.443193198795754,
+      "karp_flatt_e": 0.21814867099593913
+    }
+  ],
+  "all_times": {
+    "1": [
+      2.4363934579996567,
+      2.3456022079999457,
+      2.3320458750004036,
+      2.3018054160002066,
+      2.303621334000127
+    ],
+    "2": [
+      1.453946583999823,
+      1.4094737079994957,
+      1.4126633340001717,
+      1.4131652910000412,
+      1.42742808300045
+    ],
+    "4": [
+      0.9613130830002774,
+      0.9698160419993656,
+      0.9623792909997064,
+      0.9731018329994185,
+      0.964560999999776
+    ]
+  },
+  "e_ratio_4_over_2": 1.0292301200676852,
+  "nominal_serial_fraction": 0.17152321242391116,
+  "rubric_flat_e": true,
+  "diagnosis": "Constant e(p): fixed Amdahl serialization (the 0.40 s pause plus pool start-up)."
+}
