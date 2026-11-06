@@ -1,0 +1,12 @@
+{
+  "T1_mean_s": 0.15845479999999998,
+  "alpha_observed": 0.7862335521260502,
+  "alpha_std_error": 0.010502786354165326,
+  "r2_gustafson_model": 0.690803759411293,
+  "free_linear_fit": {
+    "intercept": 1.1516744207822773,
+    "slope": 0.16568212305076221,
+    "implied_alpha": 0.8343178769492378
+  },
+  "n_points": 25
+}
