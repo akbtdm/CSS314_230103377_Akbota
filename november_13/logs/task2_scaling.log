@@ -1,0 +1,50 @@
+=== PHASE 2: scaling  P_phys=10 P_log=10 warmup=2 timed=7 ===
+[2A strong] p= 1 N=  1600000: T=  1090.58 ms (iqr 6.66)  stageA=15.19 ms stageB=1075.44 ms  sum=587281.924246
+[2A strong] p= 2 N=  1600000: T=   567.21 ms (iqr 7.66)  stageA=15.21 ms stageB=551.40 ms  sum=587281.924246
+[2A strong] p= 3 N=  1600000: T=   402.22 ms (iqr 2.19)  stageA=15.24 ms stageB=387.04 ms  sum=587281.924247
+[2A strong] p= 4 N=  1600000: T=   333.69 ms (iqr 7.88)  stageA=15.42 ms stageB=318.66 ms  sum=587281.924247
+[2A strong] p= 5 N=  1600000: T=   315.71 ms (iqr 4.68)  stageA=15.82 ms stageB=299.77 ms  sum=587281.924247
+[2A strong] p= 6 N=  1600000: T=   290.77 ms (iqr 6.86)  stageA=15.40 ms stageB=275.12 ms  sum=587281.924247
+[2A strong] p= 7 N=  1600000: T=   277.12 ms (iqr 34.31)  stageA=15.33 ms stageB=261.78 ms  sum=587281.924247
+[2A strong] p= 8 N=  1600000: T=   258.34 ms (iqr 3.40)  stageA=15.37 ms stageB=242.67 ms  sum=587281.924247
+[2A strong] p= 9 N=  1600000: T=   244.18 ms (iqr 10.09)  stageA=16.37 ms stageB=227.37 ms  sum=587281.924247
+[2A strong] p=10 N=  1600000: T=   237.92 ms (iqr 5.69)  stageA=15.90 ms stageB=221.81 ms  sum=587281.924247
+
+Table 2A — strong scaling, N=1600000  s=0.0139  S_inf=1/s=71.81
+  p       T_ms     iqr     S_p     E_p  Amdahl      dS
+  1    1090.58    6.66   1.000   1.000   1.000       -
+  2     567.21    7.66   1.923   0.961   1.973   0.923
+  3     402.22    2.19   2.711   0.904   2.919   0.789
+  4     333.69    7.88   3.268   0.817   3.840   0.557
+  5     315.71    4.68   3.454   0.691   4.736   0.186
+  6     290.77    6.86   3.751   0.625   5.609   0.296
+  7     277.12   34.31   3.935   0.562   6.460   0.185
+  8     258.34    3.40   4.221   0.528   7.289   0.286
+  9     244.18   10.09   4.466   0.496   8.098   0.245
+ 10     237.92    5.69   4.584   0.458   8.886   0.118
+[2B weak] p= 1 N=   250000: T=   170.80 ms (iqr 6.18)  stageA=2.39 ms stageB=168.19 ms  sum=91761.272059
+[2B weak] p= 2 N=   500000: T=   175.57 ms (iqr 1.94)  stageA=4.79 ms stageB=170.70 ms  sum=183523.760836
+[2B weak] p= 3 N=   750000: T=   194.53 ms (iqr 2.31)  stageA=7.34 ms stageB=187.37 ms  sum=275286.925113
+[2B weak] p= 4 N=  1000000: T=   213.55 ms (iqr 2.87)  stageA=10.14 ms stageB=203.59 ms  sum=367050.482812
+[2B weak] p= 5 N=  1250000: T=   254.74 ms (iqr 26.15)  stageA=12.27 ms stageB=242.51 ms  sum=458814.274517
+[2B weak] p= 6 N=  1500000: T=   277.75 ms (iqr 9.13)  stageA=16.70 ms stageB=261.07 ms  sum=550578.202599
+[2B weak] p= 7 N=  1750000: T=   297.46 ms (iqr 3.24)  stageA=19.42 ms stageB=278.18 ms  sum=642342.201340
+[2B weak] p= 8 N=  2000000: T=   317.15 ms (iqr 3.58)  stageA=21.93 ms stageB=295.78 ms  sum=734103.704580
+[2B weak] p= 9 N=  2250000: T=   336.72 ms (iqr 17.38)  stageA=24.91 ms stageB=311.80 ms  sum=825866.091752
+[2B weak] p=10 N=  2500000: T=   351.01 ms (iqr 7.89)  stageA=27.37 ms stageB=323.64 ms  sum=917629.198051
+
+Table 2B — weak scaling, N(p) = p * N0
+  p         N       T_ms     iqr  E_weak   alpha     S_G
+  1    250000     170.80    6.18   1.000  0.0140   1.000
+  2    500000     175.57    1.94   0.973  0.0273   1.973
+  3    750000     194.53    2.31   0.878  0.0377   2.925
+  4   1000000     213.55    2.87   0.800  0.0475   3.858
+  5   1250000     254.74   26.15   0.671  0.0482   4.807
+  6   1500000     277.75    9.13   0.615  0.0601   5.699
+  7   1750000     297.46    3.24   0.574  0.0653   6.608
+  8   2000000     317.15    3.58   0.539  0.0691   7.516
+  9   2250000     336.72   17.38   0.507  0.0740   8.408
+ 10   2500000     351.01    7.89   0.487  0.0780   9.298
+
+VERIFY_HASH[PHASE2]: E9F7D53A93BB7F67 (P_log=10)
+[saved] /Users/akbota/314 суфиян /parallel_lab/results/phase2.json

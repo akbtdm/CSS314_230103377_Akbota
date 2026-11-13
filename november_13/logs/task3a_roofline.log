@@ -1,0 +1,16 @@
+=== PHASE 3A: Roofline ceilings  P_phys=10  buffers=2x96 MB  FLOPs/worker=8.0e+07  rounds=3 ===
+[BW round 0] median worker copy = 1.006 ms  -> BW(lab formula) = 190.81 GB/s;  all 9 reps x 10 workers wall = 19.817 ms -> BW(wall-clock aggregate) = 87.20 GB/s  verified=True
+    per-worker ms: 1.058 0.973 1.016 1.008 2.331 0.999 0.995 1.879 0.994 1.005
+[BW round 1] median worker copy = 1.012 ms  -> BW(lab formula) = 189.69 GB/s;  all 9 reps x 10 workers wall = 18.994 ms -> BW(wall-clock aggregate) = 90.98 GB/s  verified=True
+    per-worker ms: 1.159 1.008 0.960 1.308 0.965 1.982 1.003 1.322 0.969 1.016
+[BW round 2] median worker copy = 0.895 ms  -> BW(lab formula) = 214.41 GB/s;  all 9 reps x 10 workers wall = 19.562 ms -> BW(wall-clock aggregate) = 88.34 GB/s  verified=True
+    per-worker ms: 0.841 0.864 0.914 0.875 1.198 0.830 2.149 0.877 2.064 1.278
+[FMA round 0] wall = 621.6 ms  -> P = 1.2871 GFLOP/s  checksum=253.456093
+    per-worker GFLOP/s: 0.1309 0.1364 0.1439 0.1353 0.1378 0.1559 0.1287 0.1377 0.1513 0.1417
+[FMA round 1] wall = 596.4 ms  -> P = 1.3413 GFLOP/s  checksum=253.456093
+    per-worker GFLOP/s: 0.1341 0.1369 0.1395 0.1352 0.1583 0.1356 0.1439 0.1377 0.1379 0.1477
+[FMA round 2] wall = 601.1 ms  -> P = 1.3309 GFLOP/s  checksum=253.456093
+    per-worker GFLOP/s: 0.1331 0.1421 0.1524 0.1469 0.1481 0.1402 0.1344 0.1400 0.1545 0.1361
+
+BW_sustained = 190.81 GB/s (lab formula; wall-clock aggregate of the same round = 87.20 GB/s)   P_sustained = 1.3309 GFLOP/s   ridge point I* = 0.006975 FLOP/Byte
+[saved] /Users/akbota/314 суфиян /parallel_lab/results/phase3a.json

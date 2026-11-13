@@ -1,0 +1,22 @@
+**Cache-line boundary (Table 1A).** With all ten workers writing adjacent 8-byte words (stride 1, all slots inside one 128-byte line) the sweep takes 501.09 ms (47.9 Mops/s). Moving the slots 16 bytes apart changes almost nothing (494.97 ms, −1.2 %). The largest single step is between 16 and 32 bytes of separation (−5.1 %, to 469.90 ms), a smaller step follows at 64 bytes (−1.9 %, 460.80 ms), and from 64 bytes onward the curve is flat: 128 bytes (463.93 ms) and 256 bytes (464.01 ms) are indistinguishable from 64 bytes within the run-to-run IQR of 6–16 ms. The total false-sharing penalty between the worst (8 B) and the plateau (64 B) is 40.3 ms, i.e. 8.7 % of the runtime, or 47.9 → 52.1 Mops/s.
+
+So the empirically observed contention boundary on this M4 is at **≤ 64 bytes of separation**, not at the 128-byte line that `hw.cachelinesize` reports and that the audit guide expects for Apple Silicon. Two readings are consistent with the data: (a) the store path tracks ownership at a 64-byte granularity (half of the reported line), so one writer per 64-byte sector already removes the contention; or (b) the residual difference between two writers per 128-byte line (stride 8) and one writer per line (stride 16) is only ≈3 ms and sits below the resolution of this measurement (IQR 6–13 ms). The penalty clearly scales with the number of writers per line: 10 writers/line → 501 ms, 8 → 495 ms, 4 → 470 ms, 2 → 461 ms, 1 → 464 ms.
+
+**Why the effect is only ≈9 %.** At p = 1 the loop costs 2314 ms for 2.4 × 10⁷ steps, i.e. 96 ns per read-modify-write step on a performance core. Almost all of that time is interpreter work on private objects (`acc * mult`, `+ (i | 1)`, `& mask`, the `ctypes` `__setitem__` conversion); only one 8-byte store per step reaches the shared line. A coherence miss that costs tens of nanoseconds is therefore issued only once every ~100 ns and is largely absorbed by the store buffer and out-of-order execution, so only a fraction of it surfaces as wall-clock time. In a compiled language the same loop would issue a store every few nanoseconds and the invalidation storm would dominate; in pure Python the interpreter is the bottleneck and the cache-coherence cost is a second-order effect.
+
+**Karp-Flatt trajectories (Table 1B).** The experimental serial fraction rises with p under both layouts, but faster under false sharing:
+
+| p | e(p), stride = 1 | e(p), stride = 16 | difference |
+|---|---|---|---|
+| 2 | 0.0376 | 0.0338 | 0.0038 |
+| 4 | 0.0561 | 0.0529 | 0.0032 |
+| 8 | 0.1303 | 0.1065 | 0.0238 |
+| 10 | 0.1521 | 0.1153 | 0.0368 |
+
+Three mechanisms are visible in these numbers:
+
+1. *Process spawn/join overhead is a fixed serial cost.* A separate run of the same script with M reduced 100× (`results_quick/phase1.json`) measured 60.4 ms at p = 1 and 93.7 ms at p = 10 while the compute part was only ≈23 ms and ≈2 ms respectively, so starting and joining the `spawn`-mode workers costs ≈40 ms for one process and ≈90 ms for ten. At p = 10 that is already ≈19 % of the 472 ms wall time, which Karp-Flatt reports as serial fraction. This is why e(p) is non-zero and growing even at stride 16.
+2. *Heterogeneous cores make the slowest worker the critical path.* With equal static partitioning (M/p per worker) the fifth and later workers land on efficiency cores, which finish last. e(p) jumps from 0.053 at p = 4 (all workers on performance cores) to 0.107 at p = 8 under stride 16, although no shared data is touched. Speedup saturates at 4.9 on ten cores (E₁₀ = 0.49) for the isolated layout.
+3. *Cache-line contention adds on top of that under stride 1.* Up to p = 4 the two layouts differ by ≤0.004 (≤0.8 % in runtime) because four writers on one line, each storing once per ~100 ns, are still absorbed. From p = 8 the extra coherence traffic becomes visible: stride 1 is 9.5 % slower at p = 8 and 16.1 % slower at p = 10 (548.07 vs 471.91 ms), and e(p) ends 0.037 higher. The sharp rise of e(p) under stride 1 is therefore the sum of a growing straggler effect (E-cores) and a contention term that grows with the number of writers per line.
+
+Note on measurement drift: the stride-1 point at p = 10 was measured twice, as 501 ms in the stride sweep and 548 ms in the scaling sweep two minutes later. The 9 % gap between two medians of seven runs each is the honest noise level of this laptop (background activity, clock management under sustained load) and should be kept in mind when reading differences of a few percent in Table 1A.

@@ -1,0 +1,19 @@
+=== PHASE 3B: GEMM N=384  footprint=3.54 MB  P_phys=10 warmup=2 timed=7 ===
+numerical check: max|C1-C2|=0.000e+00  max|C3(BS=16)-C2|=0.000e+00  sum(C)=14125500.235714
+[    V1 ijk] med=   579.00 ms iqr=   4.32 -> 0.1956 GFLOP/s
+[    V2 ikj] med=   268.31 ms iqr=   8.80 -> 0.4221 GFLOP/s
+[   V3 BS=4] med=   651.65 ms iqr=   7.94 -> 0.1738 GFLOP/s
+[   V3 BS=8] med=   524.64 ms iqr=   4.67 -> 0.2159 GFLOP/s
+[  V3 BS=12] med=   482.75 ms iqr=  27.32 -> 0.2346 GFLOP/s
+[  V3 BS=16] med=   467.80 ms iqr=   3.94 -> 0.2421 GFLOP/s
+[  V3 BS=24] med=   448.84 ms iqr=  13.33 -> 0.2523 GFLOP/s
+[  V3 BS=32] med=   443.29 ms iqr=   9.01 -> 0.2555 GFLOP/s
+[  V3 BS=48] med=   430.33 ms iqr=   6.55 -> 0.2632 GFLOP/s
+[  V3 BS=64] med=   430.70 ms iqr=   5.32 -> 0.2629 GFLOP/s
+[  V3 BS=96] med=   431.62 ms iqr=  20.99 -> 0.2624 GFLOP/s
+[ V3 BS=128] med=   426.50 ms iqr=  10.02 -> 0.2655 GFLOP/s
+
+best tile BS*=128 -> 0.2655 GFLOP/s (footprint 393216 B);  V1=0.1956  V2=0.4221 GFLOP/s
+
+VERIFY_HASH[PHASE3]: C691A3D9FC1D6707 (P_log=10)
+[saved] /Users/akbota/314 суфиян /parallel_lab/results/phase3b.json

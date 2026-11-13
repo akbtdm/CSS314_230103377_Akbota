@@ -1,0 +1,112 @@
+{
+  "student_id": 230103377,
+  "p_phys": 10,
+  "n": 96,
+  "footprint_bytes": 221184,
+  "warmup_runs": 1,
+  "timed_runs": 3,
+  "row_ranges": [
+    [
+      0,
+      10
+    ],
+    [
+      10,
+      20
+    ],
+    [
+      20,
+      30
+    ],
+    [
+      30,
+      40
+    ],
+    [
+      40,
+      50
+    ],
+    [
+      50,
+      60
+    ],
+    [
+      60,
+      69
+    ],
+    [
+      69,
+      78
+    ],
+    [
+      78,
+      87
+    ],
+    [
+      87,
+      96
+    ]
+  ],
+  "checks": {
+    "max_abs_diff_v1_vs_v2": 0.0,
+    "max_abs_diff_v3_bs16_vs_v2": 0.0,
+    "c_checksum": 221808.96902466408
+  },
+  "rows": [
+    {
+      "variant": "V1 ijk",
+      "min_ms": 8.97675,
+      "median_ms": 8.988375,
+      "iqr_ms": 0.37329200000000107,
+      "max_ms": 9.350042,
+      "gflops": 0.19686228044557552
+    },
+    {
+      "variant": "V2 ikj",
+      "min_ms": 4.546125,
+      "median_ms": 4.771916,
+      "iqr_ms": 0.48324999999999996,
+      "max_ms": 5.029375,
+      "gflops": 0.37080954484529904
+    },
+    {
+      "variant": "V3 BS=4",
+      "min_ms": 10.240584,
+      "median_ms": 10.273625,
+      "iqr_ms": 0.43329100000000054,
+      "max_ms": 10.673875,
+      "gflops": 0.1722344352650598,
+      "bs": 4,
+      "tile_footprint_bytes": 384,
+      "intensity_flop_per_byte": 0.3333333333333333
+    },
+    {
+      "variant": "V3 BS=16",
+      "min_ms": 7.29575,
+      "median_ms": 7.312959,
+      "iqr_ms": 0.20212499999999967,
+      "max_ms": 7.497875,
+      "gflops": 0.2419638890358882,
+      "bs": 16,
+      "tile_footprint_bytes": 6144,
+      "intensity_flop_per_byte": 1.3333333333333333
+    },
+    {
+      "variant": "V3 BS=32",
+      "min_ms": 6.721666,
+      "median_ms": 6.884667,
+      "iqr_ms": 0.2717090000000004,
+      "max_ms": 6.993375,
+      "gflops": 0.2570163524248885,
+      "bs": 32,
+      "tile_footprint_bytes": 24576,
+      "intensity_flop_per_byte": 2.6666666666666665
+    }
+  ],
+  "best_bs": 32,
+  "verify": "VERIFY_HASH[PHASE3]: 055CE22E0498C8D1 (P_log=10)",
+  "hash_inputs": {
+    "primary": 0.19686228044557552,
+    "secondary": 0.2570163524248885
+  }
+}

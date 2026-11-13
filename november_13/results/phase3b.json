@@ -1,0 +1,189 @@
+{
+  "student_id": 230103377,
+  "p_phys": 10,
+  "n": 384,
+  "footprint_bytes": 3538944,
+  "warmup_runs": 2,
+  "timed_runs": 7,
+  "row_ranges": [
+    [
+      0,
+      39
+    ],
+    [
+      39,
+      78
+    ],
+    [
+      78,
+      117
+    ],
+    [
+      117,
+      156
+    ],
+    [
+      156,
+      194
+    ],
+    [
+      194,
+      232
+    ],
+    [
+      232,
+      270
+    ],
+    [
+      270,
+      308
+    ],
+    [
+      308,
+      346
+    ],
+    [
+      346,
+      384
+    ]
+  ],
+  "checks": {
+    "max_abs_diff_v1_vs_v2": 0.0,
+    "max_abs_diff_v3_bs16_vs_v2": 0.0,
+    "c_checksum": 14125500.235713813
+  },
+  "rows": [
+    {
+      "variant": "V1 ijk",
+      "min_ms": 572.869209,
+      "median_ms": 578.995375,
+      "iqr_ms": 4.317915999999968,
+      "max_ms": 584.984125,
+      "gflops": 0.19559086806176992
+    },
+    {
+      "variant": "V2 ikj",
+      "min_ms": 263.618417,
+      "median_ms": 268.30975,
+      "iqr_ms": 8.802040999999974,
+      "max_ms": 277.091042,
+      "gflops": 0.42207265296918955
+    },
+    {
+      "variant": "V3 BS=4",
+      "min_ms": 638.464875,
+      "median_ms": 651.648792,
+      "iqr_ms": 7.942667000000029,
+      "max_ms": 672.575791,
+      "gflops": 0.17378411406615482,
+      "bs": 4,
+      "tile_footprint_bytes": 384,
+      "intensity_flop_per_byte": 0.3333333333333333
+    },
+    {
+      "variant": "V3 BS=8",
+      "min_ms": 518.241583,
+      "median_ms": 524.640125,
+      "iqr_ms": 4.6675840000000335,
+      "max_ms": 536.813625,
+      "gflops": 0.21585502633829237,
+      "bs": 8,
+      "tile_footprint_bytes": 1536,
+      "intensity_flop_per_byte": 0.6666666666666666
+    },
+    {
+      "variant": "V3 BS=12",
+      "min_ms": 476.917625,
+      "median_ms": 482.750125,
+      "iqr_ms": 27.319000000000017,
+      "max_ms": 509.00225,
+      "gflops": 0.234585559144081,
+      "bs": 12,
+      "tile_footprint_bytes": 3456,
+      "intensity_flop_per_byte": 1.0
+    },
+    {
+      "variant": "V3 BS=16",
+      "min_ms": 460.977459,
+      "median_ms": 467.798334,
+      "iqr_ms": 3.9366660000000024,
+      "max_ms": 475.284375,
+      "gflops": 0.2420833931400876,
+      "bs": 16,
+      "tile_footprint_bytes": 6144,
+      "intensity_flop_per_byte": 1.3333333333333333
+    },
+    {
+      "variant": "V3 BS=24",
+      "min_ms": 439.8535,
+      "median_ms": 448.844333,
+      "iqr_ms": 13.327375000000018,
+      "max_ms": 457.274959,
+      "gflops": 0.25230619988689934,
+      "bs": 24,
+      "tile_footprint_bytes": 13824,
+      "intensity_flop_per_byte": 2.0
+    },
+    {
+      "variant": "V3 BS=32",
+      "min_ms": 435.340625,
+      "median_ms": 443.286667,
+      "iqr_ms": 9.008250000000032,
+      "max_ms": 453.900917,
+      "gflops": 0.2554694657667202,
+      "bs": 32,
+      "tile_footprint_bytes": 24576,
+      "intensity_flop_per_byte": 2.6666666666666665
+    },
+    {
+      "variant": "V3 BS=48",
+      "min_ms": 424.965334,
+      "median_ms": 430.327375,
+      "iqr_ms": 6.547874999999976,
+      "max_ms": 436.825541,
+      "gflops": 0.2631629186964924,
+      "bs": 48,
+      "tile_footprint_bytes": 55296,
+      "intensity_flop_per_byte": 4.0
+    },
+    {
+      "variant": "V3 BS=64",
+      "min_ms": 421.195,
+      "median_ms": 430.704667,
+      "iqr_ms": 5.322291000000007,
+      "max_ms": 443.236625,
+      "gflops": 0.26293239121088974,
+      "bs": 64,
+      "tile_footprint_bytes": 98304,
+      "intensity_flop_per_byte": 5.333333333333333
+    },
+    {
+      "variant": "V3 BS=96",
+      "min_ms": 416.489333,
+      "median_ms": 431.622208,
+      "iqr_ms": 20.987625000000037,
+      "max_ms": 441.299333,
+      "gflops": 0.26237345044117844,
+      "bs": 96,
+      "tile_footprint_bytes": 221184,
+      "intensity_flop_per_byte": 8.0
+    },
+    {
+      "variant": "V3 BS=128",
+      "min_ms": 420.55225,
+      "median_ms": 426.497708,
+      "iqr_ms": 10.024041000000011,
+      "max_ms": 431.424292,
+      "gflops": 0.2655259474454198,
+      "bs": 128,
+      "tile_footprint_bytes": 393216,
+      "intensity_flop_per_byte": 10.666666666666666
+    }
+  ],
+  "best_bs": 128,
+  "verify": "VERIFY_HASH[PHASE3]: C691A3D9FC1D6707 (P_log=10)",
+  "hash_inputs": {
+    "primary": 0.19559086806176992,
+    "secondary": 0.2655259474454198
+  }
+}

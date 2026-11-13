@@ -1,0 +1,138 @@
+{
+  "student_id": 230103377,
+  "p_phys": 10,
+  "p_log": 10,
+  "m_total": 240000,
+  "warmup_runs": 1,
+  "timed_runs": 3,
+  "stride_sweep": [
+    {
+      "p": 10,
+      "stride": 1,
+      "sep_bytes": 8,
+      "min_ms": 92.7935,
+      "median_ms": 93.203625,
+      "iqr_ms": 1.2481250000000017,
+      "max_ms": 94.041625,
+      "mops": 2.575007141621369,
+      "slot0_final": "B5F4CE3EF07EBC00"
+    },
+    {
+      "p": 10,
+      "stride": 16,
+      "sep_bytes": 128,
+      "min_ms": 90.404375,
+      "median_ms": 94.834042,
+      "iqr_ms": 5.499459000000002,
+      "max_ms": 95.903834,
+      "mops": 2.53073680018827,
+      "slot0_final": "134F544BC80D7800"
+    },
+    {
+      "p": 10,
+      "stride": 32,
+      "sep_bytes": 256,
+      "min_ms": 91.626167,
+      "median_ms": 91.712708,
+      "iqr_ms": 2.628667000000007,
+      "max_ms": 94.254834,
+      "mops": 2.6168674465484103,
+      "slot0_final": "ABCE8A0246AC3400"
+    }
+  ],
+  "scaling": {
+    "1": [
+      {
+        "p": 1,
+        "stride": 1,
+        "sep_bytes": 8,
+        "min_ms": 59.804875,
+        "median_ms": 60.38125,
+        "iqr_ms": 1.1226249999999993,
+        "max_ms": 60.9275,
+        "mops": 3.9747438153400267,
+        "slot0_final": "A1558136EA0F4C00",
+        "speedup": 1.0,
+        "efficiency": 1.0,
+        "karp_flatt": null
+      },
+      {
+        "p": 2,
+        "stride": 1,
+        "sep_bytes": 8,
+        "min_ms": 50.646542,
+        "median_ms": 51.826583,
+        "iqr_ms": 1.2027910000000048,
+        "max_ms": 51.849333,
+        "mops": 4.630828160135504,
+        "slot0_final": "802423378C5C7800",
+        "speedup": 1.1650633035174247,
+        "efficiency": 0.5825316517587124,
+        "karp_flatt": 0.7166449187454713
+      },
+      {
+        "p": 10,
+        "stride": 1,
+        "sep_bytes": 8,
+        "min_ms": 92.709333,
+        "median_ms": 93.658208,
+        "iqr_ms": 7.827708999999999,
+        "max_ms": 100.537042,
+        "mops": 2.562508990135707,
+        "slot0_final": "0BD3B9854EFB3400",
+        "speedup": 0.6446978998359653,
+        "efficiency": 0.06446978998359652,
+        "karp_flatt": 1.612348995388101
+      }
+    ],
+    "16": [
+      {
+        "p": 1,
+        "stride": 16,
+        "sep_bytes": 128,
+        "min_ms": 59.034208,
+        "median_ms": 59.557958,
+        "iqr_ms": 0.8775010000000023,
+        "max_ms": 59.911709,
+        "mops": 4.029688190451392,
+        "slot0_final": "09932A329A5E4C00",
+        "speedup": 1.0,
+        "efficiency": 1.0,
+        "karp_flatt": null
+      },
+      {
+        "p": 2,
+        "stride": 16,
+        "sep_bytes": 128,
+        "min_ms": 51.767208,
+        "median_ms": 52.135083,
+        "iqr_ms": 0.8050840000000008,
+        "max_ms": 52.572292,
+        "mops": 4.603426065323422,
+        "slot0_final": "B2956C1790AB7800",
+        "speedup": 1.1423777343943233,
+        "efficiency": 0.5711888671971617,
+        "karp_flatt": 0.750734402277526
+      },
+      {
+        "p": 10,
+        "stride": 16,
+        "sep_bytes": 128,
+        "min_ms": 91.930708,
+        "median_ms": 93.115583,
+        "iqr_ms": 1.2618340000000074,
+        "max_ms": 93.192542,
+        "mops": 2.5774418445084537,
+        "slot0_final": "7F9F71FC974A3400",
+        "speedup": 0.6396132213444875,
+        "efficiency": 0.06396132213444874,
+        "karp_flatt": 1.626049838713409
+      }
+    ]
+  },
+  "verify": "VERIFY_HASH[PHASE1]: 9FE90F017C825CAD (P_log=10)",
+  "hash_inputs": {
+    "primary": 93.203625,
+    "secondary": 94.834042
+  }
+}

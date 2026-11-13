@@ -1,0 +1,45 @@
+=== PHASE 1: false sharing  M=24000000  P_phys=10  P_log=10 warmup=2 timed=7 ===
+[1A] p=10 stride= 1 (  8 B): med=501.09 ms iqr=15.92 47.896 Mops/s slot0=48BE6730CBE55C00
+[1A] p=10 stride= 2 ( 16 B): med=494.97 ms iqr=12.25 48.488 Mops/s slot0=0324BA0D925AB800
+[1A] p=10 stride= 4 ( 32 B): med=469.90 ms iqr=7.46 51.075 Mops/s slot0=29569A6C13601400
+[1A] p=10 stride= 8 ( 64 B): med=460.80 ms iqr=12.62 52.083 Mops/s slot0=A6A953220EF57000
+[1A] p=10 stride=16 (128 B): med=463.93 ms iqr=6.30 51.732 Mops/s slot0=ACFFD805451ACC00
+[1A] p=10 stride=32 (256 B): med=464.01 ms iqr=10.80 51.724 Mops/s slot0=9A26C5EB75D02800
+
+Table 1A — stride sensitivity at p = P_phys
+stride  bytes   median_ms    iqr_ms    Mops/s
+     1      8      501.09     15.92    47.896
+     2     16      494.97     12.25    48.488
+     4     32      469.90      7.46    51.075
+     8     64      460.80     12.62    52.083
+    16    128      463.93      6.30    51.732
+    32    256      464.01     10.80    51.724
+[1B] stride= 1 p= 1: med=2314.03 ms iqr=38.18
+[1B] stride= 1 p= 2: med=1200.47 ms iqr=12.48
+[1B] stride= 1 p= 4: med=675.89 ms iqr=13.10
+[1B] stride= 1 p= 8: med=553.07 ms iqr=5.10
+[1B] stride= 1 p=10: med=548.07 ms iqr=11.43
+
+Table 1B — process scaling, stride = 1 (8 B)
+  p   median_ms    iqr_ms     S_p     E_p     e(p)
+  1     2314.03     38.18   1.000   1.000        -
+  2     1200.47     12.48   1.928   0.964   0.0376
+  4      675.89     13.10   3.424   0.856   0.0561
+  8      553.07      5.10   4.184   0.523   0.1303
+ 10      548.07     11.43   4.222   0.422   0.1521
+[1B] stride=16 p= 1: med=2315.49 ms iqr=83.35
+[1B] stride=16 p= 2: med=1196.83 ms iqr=18.46
+[1B] stride=16 p= 4: med=670.69 ms iqr=11.92
+[1B] stride=16 p= 8: med=505.15 ms iqr=15.88
+[1B] stride=16 p=10: med=471.91 ms iqr=18.01
+
+Table 1B — process scaling, stride = 16 (128 B)
+  p   median_ms    iqr_ms     S_p     E_p     e(p)
+  1     2315.49     83.35   1.000   1.000        -
+  2     1196.83     18.46   1.935   0.967   0.0338
+  4      670.69     11.92   3.452   0.863   0.0529
+  8      505.15     15.88   4.584   0.573   0.1065
+ 10      471.91     18.01   4.907   0.491   0.1153
+
+VERIFY_HASH[PHASE1]: 75BD2207060C4A59 (P_log=10)
+[saved] /Users/akbota/314 суфиян /parallel_lab/results/phase1.json
