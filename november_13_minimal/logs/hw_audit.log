@@ -1,0 +1,25 @@
+# macOS hardware audit (lab section 1.1 commands)  Fri Nov 13 13:48:39 +05 2026
+$ sysctl -n machdep.cpu.brand_string
+Apple M4
+$ sysctl hw.physicalcpu hw.logicalcpu hw.cachelinesize hw.l1dcachesize hw.l2cachesize hw.l3cachesize
+hw.physicalcpu: 10
+hw.logicalcpu: 10
+hw.cachelinesize: 128
+hw.l1dcachesize: 65536
+hw.l2cachesize: 4194304
+$ sysctl hw.perflevel0.physicalcpu hw.perflevel0.name hw.perflevel1.physicalcpu hw.perflevel1.name hw.memsize
+hw.perflevel0.physicalcpu: 4
+hw.perflevel0.name: Performance
+hw.perflevel1.physicalcpu: 6
+hw.perflevel1.name: Efficiency
+hw.memsize: 17179869184
+$ sysctl hw.perflevel0.l1dcachesize hw.perflevel0.l2cachesize hw.perflevel1.l1dcachesize hw.perflevel1.l2cachesize
+hw.perflevel0.l1dcachesize: 131072
+hw.perflevel0.l2cachesize: 16777216
+hw.perflevel1.l1dcachesize: 65536
+hw.perflevel1.l2cachesize: 4194304
+$ python3 --version && sw_vers
+Python 3.13.5
+ProductName:		macOS
+ProductVersion:		15.5
+BuildVersion:		24F74

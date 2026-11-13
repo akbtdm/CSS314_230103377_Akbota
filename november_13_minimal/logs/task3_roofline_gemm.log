@@ -1,0 +1,29 @@
+=== PHASE 3: Roofline + GEMM  P_phys=10 ===
+--- Part 3A: ceilings  P_phys=10  buffers=2x64 MB  FLOPs/worker=6.0e+07  rounds=3
+[BW round 0] median worker copy = 1.121 ms  -> BW(lab formula) = 114.14 GB/s;  all 9 reps x 10 workers wall = 13.189 ms -> BW(wall-clock aggregate) = 87.34 GB/s  verified=True
+    per-worker ms: 0.369 0.613 1.300 0.618 1.248 0.995 1.644 1.267 1.268 0.621
+[BW round 1] median worker copy = 1.285 ms  -> BW(lab formula) = 99.63 GB/s;  all 9 reps x 10 workers wall = 12.213 ms -> BW(wall-clock aggregate) = 94.33 GB/s  verified=True
+    per-worker ms: 1.332 1.270 0.633 0.630 1.309 0.568 1.359 1.440 1.299 0.607
+[BW round 2] median worker copy = 1.193 ms  -> BW(lab formula) = 107.26 GB/s;  all 9 reps x 10 workers wall = 13.104 ms -> BW(wall-clock aggregate) = 87.91 GB/s  verified=True
+    per-worker ms: 1.338 0.637 1.257 1.283 1.297 0.610 1.193 0.622 1.194 0.598
+[FMA round 0] wall = 467.9 ms  -> P = 1.2824 GFLOP/s  checksum=259.483493
+    per-worker GFLOP/s: 0.1372 0.1345 0.1283 0.1338 0.1388 0.1520 0.1283 0.1353 0.1313 0.1391
+[FMA round 1] wall = 471.5 ms  -> P = 1.2724 GFLOP/s  checksum=259.483493
+    per-worker GFLOP/s: 0.1399 0.1454 0.1321 0.1272 0.1308 0.1453 0.1299 0.1364 0.1376 0.1385
+[FMA round 2] wall = 472.4 ms  -> P = 1.2701 GFLOP/s  checksum=259.483493
+    per-worker GFLOP/s: 0.1270 0.1458 0.1374 0.1446 0.1389 0.1358 0.1286 0.1297 0.1317 0.1393
+BW_sustained = 107.26 GB/s (lab formula; wall-clock aggregate of the same round = 87.91 GB/s)   P_sustained = 1.2724 GFLOP/s   ridge point I* = 0.011863 FLOP/Byte
+--- Part 3B: GEMM N=256  footprint=1.57 MB  P_phys=10 warmup=2 timed=7
+numerical check: max|C1-C2|=0.000e+00  max|C3(BS=16)-C2|=0.000e+00  sum(C)=4184016.701801
+[    V1 ijk] med=   161.26 ms iqr=   4.59 -> 0.2081 GFLOP/s
+[    V2 ikj] med=    73.11 ms iqr=   6.48 -> 0.4589 GFLOP/s
+[   V3 BS=8] med=   146.61 ms iqr=  10.94 -> 0.2289 GFLOP/s
+[  V3 BS=16] med=   130.29 ms iqr=   9.82 -> 0.2575 GFLOP/s
+[  V3 BS=32] med=   124.79 ms iqr=   6.22 -> 0.2689 GFLOP/s
+[  V3 BS=64] med=   122.94 ms iqr=   6.55 -> 0.2729 GFLOP/s
+[  V3 BS=96] med=   120.69 ms iqr=   4.72 -> 0.2780 GFLOP/s
+[ V3 BS=128] med=   120.82 ms iqr=   7.76 -> 0.2777 GFLOP/s
+best tile BS*=96 -> 0.2780 GFLOP/s (footprint 221184 B);  V1=0.2081  V2=0.4589 GFLOP/s
+
+VERIFY_HASH[PHASE3]: CB8BCA0533A4AEEA (P_log=10)
+[saved] /Users/akbota/314 суфиян /minimal_lab/results/phase3.json

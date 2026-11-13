@@ -1,0 +1,45 @@
+=== PHASE 1: false sharing  M=16000000  P_phys=10  P_log=10 warmup=2 timed=7 ===
+[1A] p=10 stride= 1 (  8 B): med=346.86 ms iqr=10.29 46.129 Mops/s slot0=43439B142EDDE800
+[1A] p=10 stride= 2 ( 16 B): med=333.34 ms iqr=36.59 47.999 Mops/s slot0=06162C9FCDFBD000
+[1A] p=10 stride= 4 ( 32 B): med=319.86 ms iqr=7.07 50.022 Mops/s slot0=BCA506CCDD59B800
+[1A] p=10 stride= 8 ( 64 B): med=314.28 ms iqr=13.10 50.910 Mops/s slot0=67DD0BC55CF7A000
+[1A] p=10 stride=16 (128 B): med=316.48 ms iqr=17.39 50.557 Mops/s slot0=6BEAADB34CD58800
+[1A] p=10 stride=32 (256 B): med=311.69 ms iqr=5.35 51.334 Mops/s slot0=66B9EEC0ACF37000
+
+Table 1A — stride sensitivity at p = P_phys
+stride  bytes   median_ms    iqr_ms    Mops/s
+     1      8      346.86     10.29    46.129
+     2     16      333.34     36.59    47.999
+     4     32      319.86      7.07    50.022
+     8     64      314.28     13.10    50.910
+    16    128      316.48     17.39    50.557
+    32    256      311.69      5.35    51.334
+[1B] stride= 1 p= 1: med=1516.65 ms iqr=37.88
+[1B] stride= 1 p= 2: med=794.49 ms iqr=6.50
+[1B] stride= 1 p= 4: med=433.85 ms iqr=5.26
+[1B] stride= 1 p= 8: med=359.17 ms iqr=9.07
+[1B] stride= 1 p=10: med=338.46 ms iqr=6.53
+
+Table 1B — process scaling, stride = 1 (8 B)
+  p   median_ms    iqr_ms     S_p     E_p     e(p)
+  1     1516.65     37.88   1.000   1.000        -
+  2      794.49      6.50   1.909   0.954   0.0477
+  4      433.85      5.26   3.496   0.874   0.0481
+  8      359.17      9.07   4.223   0.528   0.1278
+ 10      338.46      6.53   4.481   0.448   0.1368
+[1B] stride=16 p= 1: med=1518.71 ms iqr=26.53
+[1B] stride=16 p= 2: med=800.80 ms iqr=13.40
+[1B] stride=16 p= 4: med=430.61 ms iqr=3.73
+[1B] stride=16 p= 8: med=335.62 ms iqr=18.20
+[1B] stride=16 p=10: med=314.43 ms iqr=17.07
+
+Table 1B — process scaling, stride = 16 (128 B)
+  p   median_ms    iqr_ms     S_p     E_p     e(p)
+  1     1518.71     26.53   1.000   1.000        -
+  2      800.80     13.40   1.896   0.948   0.0546
+  4      430.61      3.73   3.527   0.882   0.0447
+  8      335.62     18.20   4.525   0.566   0.1097
+ 10      314.43     17.07   4.830   0.483   0.1189
+
+VERIFY_HASH[PHASE1]: 0139D42D8AEC25AD (P_log=10)
+[saved] /Users/akbota/314 суфиян /minimal_lab/results/phase1.json

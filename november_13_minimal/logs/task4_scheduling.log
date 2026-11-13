@@ -1,0 +1,12 @@
+=== PHASE 4: scheduling  N=8000  p=10  total inner iterations=106651060  K(0)=1  K(N-1)=39991  warmup=1 timed=5 ===
+[ S1 block static] T_wall med=   1524.9 ms iqr=   33.3  lambda=2.466  workers(ms)=13 58 162 255 386 573 775 961 1215 1491
+[S2 cyclic static] T_wall med=    918.9 ms iqr=    5.1  lambda=1.048  workers(ms)=801 765 800 755 790 852 836 823 808 803
+[  S3 dynamic C=1] T_wall med=    905.1 ms iqr=    2.1  lambda=1.006  workers(ms)=833 828 824 832 831 822 824 833 824 829
+[  S3 dynamic C=8] T_wall med=    916.1 ms iqr=    3.5  lambda=1.017  workers(ms)=831 824 828 842 826 840 837 823 827 833
+[ S3 dynamic C=64] T_wall med=    925.6 ms iqr=   20.0  lambda=1.084  workers(ms)=774 831 717 756 816 878 847 781 794 775
+[S3 dynamic C=512] T_wall med=   1195.4 ms iqr=   29.8  lambda=1.628  workers(ms)=923 357 531 1014 1108 869 438 671 723 286
+
+C* = 1  (T_wall 905.1 ms, lambda 1.006)
+
+VERIFY_HASH[PHASE4]: 0D6D193B95002213 (P_log=10)
+[saved] /Users/akbota/314 суфиян /minimal_lab/results/phase4.json

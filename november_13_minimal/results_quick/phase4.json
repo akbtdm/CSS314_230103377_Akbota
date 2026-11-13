@@ -1,0 +1,142 @@
+{
+  "student_id": 230103377,
+  "p": 10,
+  "n": 800,
+  "total_inner_iterations": 106906,
+  "warmup_runs": 1,
+  "timed_runs": 1,
+  "rows": [
+    {
+      "strategy": "S1 block static",
+      "min_ms": 85.035375,
+      "median_ms": 85.035375,
+      "iqr_ms": 0.0,
+      "lambda_median": 2.4250656247452698,
+      "lambda_runs": [
+        2.4250656247452698
+      ],
+      "worker_ms_last": [
+        0.050125,
+        0.120708,
+        0.093875,
+        0.510959,
+        0.268542,
+        0.404708,
+        0.537417,
+        0.715416,
+        0.913167,
+        1.157292
+      ],
+      "worker_ms_max": 1.157292,
+      "worker_ms_mean": 0.4772209,
+      "checksum": 935.2116463451013
+    },
+    {
+      "strategy": "S2 cyclic static",
+      "min_ms": 83.092125,
+      "median_ms": 83.092125,
+      "iqr_ms": 0.0,
+      "lambda_median": 1.5494701383239855,
+      "lambda_runs": [
+        1.5494701383239855
+      ],
+      "worker_ms_last": [
+        0.418791,
+        0.443541,
+        1.330834,
+        1.346125,
+        0.576417,
+        1.393542,
+        0.434167,
+        1.292667,
+        0.436459,
+        1.321125
+      ],
+      "worker_ms_max": 1.393542,
+      "worker_ms_mean": 0.8993667999999999,
+      "checksum": 935.2116463451013
+    },
+    {
+      "strategy": "S3 dynamic C=1",
+      "min_ms": 81.664125,
+      "median_ms": 81.664125,
+      "iqr_ms": 0.0,
+      "lambda_median": 9.84072393185141,
+      "lambda_runs": [
+        9.84072393185141
+      ],
+      "worker_ms_last": [
+        0.007959,
+        4.839917,
+        0.010917,
+        0.008459,
+        0.007125,
+        0.007459,
+        0.007792,
+        0.008542,
+        0.010625,
+        0.009458
+      ],
+      "worker_ms_max": 4.839917,
+      "worker_ms_mean": 0.4918253,
+      "checksum": 935.211646345095,
+      "chunk": 1,
+      "claims_per_worker_last": [
+        0,
+        800,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "strategy": "S3 dynamic C=512",
+      "min_ms": 83.030958,
+      "median_ms": 83.030958,
+      "iqr_ms": 0.0,
+      "lambda_median": 5.711827040145257,
+      "lambda_runs": [
+        5.711827040145257
+      ],
+      "worker_ms_last": [
+        0.006958,
+        3.084125,
+        2.2475,
+        0.008,
+        0.013709,
+        0.006875,
+        0.007917,
+        0.010625,
+        0.006708,
+        0.007125
+      ],
+      "worker_ms_max": 3.084125,
+      "worker_ms_mean": 0.5399541999999999,
+      "checksum": 935.2116463450963,
+      "chunk": 512,
+      "claims_per_worker_last": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "best_chunk": 1,
+  "verify": "VERIFY_HASH[PHASE4]: 94AD38CDFD364AFA (P_log=10)",
+  "hash_inputs": {
+    "primary": 85.035375,
+    "secondary": 81.664125
+  }
+}

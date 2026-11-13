@@ -1,0 +1,176 @@
+### task0_cal  start 13:48:39
+=== PHASE 0: hardware topology audit ===
+  cpu_count_logical    10
+  python               3.13.5
+  os                   Darwin 24.5.0 arm64
+  cpu_model            Apple M4
+  physical_cores       10
+  logical_threads      10
+  cache_line_bytes     128
+  l1d_bytes            65536
+  l2_bytes             4194304
+  l3_bytes             None
+  perf_cores           4
+  eff_cores            6
+  mem_bytes            17179869184
+  p_core_l1d_bytes     131072
+  p_core_l2_bytes      16777216
+  e_core_l1d_bytes     65536
+  e_core_l2_bytes      4194304
+  mp.cpu_count()       10
+  start method         spawn
+  sys.version          3.13.5
+
+=== timer calibration: 1000000 perf_counter_ns() reads ===
+  avg call latency     58.234 ns
+  min non-zero tick    41 ns
+  noise floor (empty fn through run_benchmark): min=0.083 med=0.083 iqr=0.167 us
+
+VERIFY_HASH[PHASE0]: 1B58F4333EB96678 (P_log=10)
+[saved] /Users/akbota/314 суфиян /minimal_lab/results/phase0.json
+### task0_cal  end   13:48:39
+### task1_falsesharing  start 13:48:39
+=== PHASE 1: false sharing  M=16000000  P_phys=10  P_log=10 warmup=2 timed=7 ===
+[1A] p=10 stride= 1 (  8 B): med=346.86 ms iqr=10.29 46.129 Mops/s slot0=43439B142EDDE800
+[1A] p=10 stride= 2 ( 16 B): med=333.34 ms iqr=36.59 47.999 Mops/s slot0=06162C9FCDFBD000
+[1A] p=10 stride= 4 ( 32 B): med=319.86 ms iqr=7.07 50.022 Mops/s slot0=BCA506CCDD59B800
+[1A] p=10 stride= 8 ( 64 B): med=314.28 ms iqr=13.10 50.910 Mops/s slot0=67DD0BC55CF7A000
+[1A] p=10 stride=16 (128 B): med=316.48 ms iqr=17.39 50.557 Mops/s slot0=6BEAADB34CD58800
+[1A] p=10 stride=32 (256 B): med=311.69 ms iqr=5.35 51.334 Mops/s slot0=66B9EEC0ACF37000
+
+Table 1A — stride sensitivity at p = P_phys
+stride  bytes   median_ms    iqr_ms    Mops/s
+     1      8      346.86     10.29    46.129
+     2     16      333.34     36.59    47.999
+     4     32      319.86      7.07    50.022
+     8     64      314.28     13.10    50.910
+    16    128      316.48     17.39    50.557
+    32    256      311.69      5.35    51.334
+[1B] stride= 1 p= 1: med=1516.65 ms iqr=37.88
+[1B] stride= 1 p= 2: med=794.49 ms iqr=6.50
+[1B] stride= 1 p= 4: med=433.85 ms iqr=5.26
+[1B] stride= 1 p= 8: med=359.17 ms iqr=9.07
+[1B] stride= 1 p=10: med=338.46 ms iqr=6.53
+
+Table 1B — process scaling, stride = 1 (8 B)
+  p   median_ms    iqr_ms     S_p     E_p     e(p)
+  1     1516.65     37.88   1.000   1.000        -
+  2      794.49      6.50   1.909   0.954   0.0477
+  4      433.85      5.26   3.496   0.874   0.0481
+  8      359.17      9.07   4.223   0.528   0.1278
+ 10      338.46      6.53   4.481   0.448   0.1368
+[1B] stride=16 p= 1: med=1518.71 ms iqr=26.53
+[1B] stride=16 p= 2: med=800.80 ms iqr=13.40
+[1B] stride=16 p= 4: med=430.61 ms iqr=3.73
+[1B] stride=16 p= 8: med=335.62 ms iqr=18.20
+[1B] stride=16 p=10: med=314.43 ms iqr=17.07
+
+Table 1B — process scaling, stride = 16 (128 B)
+  p   median_ms    iqr_ms     S_p     E_p     e(p)
+  1     1518.71     26.53   1.000   1.000        -
+  2      800.80     13.40   1.896   0.948   0.0546
+  4      430.61      3.73   3.527   0.882   0.0447
+  8      335.62     18.20   4.525   0.566   0.1097
+ 10      314.43     17.07   4.830   0.483   0.1189
+
+VERIFY_HASH[PHASE1]: 0139D42D8AEC25AD (P_log=10)
+[saved] /Users/akbota/314 суфиян /minimal_lab/results/phase1.json
+### task1_falsesharing  end   13:49:59
+### task2_scaling  start 13:49:59
+=== PHASE 2: scaling  P_phys=10 P_log=10 warmup=2 timed=7 ===
+[2A strong] p= 1 N=  1200000: T=   699.27 ms (iqr 2.97)  stageA=9.70 ms stageB=689.54 ms  sum=460846.751382
+[2A strong] p= 2 N=  1200000: T=   360.72 ms (iqr 1.25)  stageA=9.76 ms stageB=351.01 ms  sum=460846.751382
+[2A strong] p= 3 N=  1200000: T=   258.96 ms (iqr 7.32)  stageA=9.75 ms stageB=249.18 ms  sum=460846.751382
+[2A strong] p= 4 N=  1200000: T=   205.79 ms (iqr 4.58)  stageA=9.76 ms stageB=196.11 ms  sum=460846.751382
+[2A strong] p= 5 N=  1200000: T=   191.36 ms (iqr 8.28)  stageA=9.72 ms stageB=181.64 ms  sum=460846.751382
+[2A strong] p= 6 N=  1200000: T=   177.15 ms (iqr 6.40)  stageA=9.64 ms stageB=167.38 ms  sum=460846.751382
+[2A strong] p= 7 N=  1200000: T=   167.41 ms (iqr 1.43)  stageA=9.74 ms stageB=157.70 ms  sum=460846.751382
+[2A strong] p= 8 N=  1200000: T=   158.21 ms (iqr 2.38)  stageA=9.69 ms stageB=148.52 ms  sum=460846.751382
+[2A strong] p= 9 N=  1200000: T=   150.99 ms (iqr 3.02)  stageA=9.80 ms stageB=141.17 ms  sum=460846.751382
+[2A strong] p=10 N=  1200000: T=   142.71 ms (iqr 4.90)  stageA=9.88 ms stageB=132.44 ms  sum=460846.751382
+
+Table 2A — strong scaling, N=1200000  s=0.0139  S_inf=1/s=72.09
+  p       T_ms     iqr     S_p     E_p  Amdahl      dS
+  1     699.27    2.97   1.000   1.000   1.000       -
+  2     360.72    1.25   1.939   0.969   1.973   0.939
+  3     258.96    7.32   2.700   0.900   2.919   0.762
+  4     205.79    4.58   3.398   0.849   3.840   0.698
+  5     191.36    8.28   3.654   0.731   4.737   0.256
+  6     177.15    6.40   3.947   0.658   5.611   0.293
+  7     167.41    1.43   4.177   0.597   6.462   0.230
+  8     158.21    2.38   4.420   0.552   7.292   0.243
+  9     150.99    3.02   4.631   0.515   8.101   0.211
+ 10     142.71    4.90   4.900   0.490   8.890   0.269
+[2B weak] p= 1 N=   200000: T=   117.40 ms (iqr 0.80)  stageA=1.62 ms stageB=115.78 ms  sum=76804.631470
+[2B weak] p= 2 N=   400000: T=   120.80 ms (iqr 0.72)  stageA=3.25 ms stageB=117.53 ms  sum=153613.377535
+[2B weak] p= 3 N=   600000: T=   127.78 ms (iqr 1.26)  stageA=4.91 ms stageB=122.74 ms  sum=230423.371241
+[2B weak] p= 4 N=   800000: T=   139.63 ms (iqr 1.03)  stageA=6.53 ms stageB=132.85 ms  sum=307228.632774
+[2B weak] p= 5 N=  1000000: T=   167.55 ms (iqr 11.56)  stageA=8.07 ms stageB=159.53 ms  sum=384036.901337
+[2B weak] p= 6 N=  1200000: T=   181.43 ms (iqr 3.72)  stageA=9.70 ms stageB=171.67 ms  sum=460846.751382
+[2B weak] p= 7 N=  1400000: T=   195.09 ms (iqr 5.42)  stageA=11.45 ms stageB=183.57 ms  sum=537652.817888
+[2B weak] p= 8 N=  1600000: T=   211.50 ms (iqr 5.98)  stageA=12.95 ms stageB=198.66 ms  sum=614460.482428
+[2B weak] p= 9 N=  1800000: T=   226.17 ms (iqr 4.70)  stageA=14.77 ms stageB=211.50 ms  sum=691270.145960
+[2B weak] p=10 N=  2000000: T=   239.89 ms (iqr 6.97)  stageA=16.59 ms stageB=223.84 ms  sum=768077.239631
+
+Table 2B — weak scaling, N(p) = p * N0
+  p         N       T_ms     iqr  E_weak   alpha     S_G
+  1    200000     117.40    0.80   1.000  0.0138   1.000
+  2    400000     120.80    0.72   0.972  0.0269   1.973
+  3    600000     127.78    1.26   0.919  0.0384   2.923
+  4    800000     139.63    1.03   0.841  0.0468   3.860
+  5   1000000     167.55   11.56   0.701  0.0482   4.807
+  6   1200000     181.43    3.72   0.647  0.0535   5.733
+  7   1400000     195.09    5.42   0.602  0.0587   6.648
+  8   1600000     211.50    5.98   0.555  0.0612   7.571
+  9   1800000     226.17    4.70   0.519  0.0653   8.478
+ 10   2000000     239.89    6.97   0.489  0.0692   9.377
+
+VERIFY_HASH[PHASE2]: 0DE5376EBE3C1E13 (P_log=10)
+[saved] /Users/akbota/314 суфиян /minimal_lab/results/phase2.json
+### task2_scaling  end   13:50:38
+### task3_roofline_gemm  start 13:50:38
+=== PHASE 3: Roofline + GEMM  P_phys=10 ===
+--- Part 3A: ceilings  P_phys=10  buffers=2x64 MB  FLOPs/worker=6.0e+07  rounds=3
+[BW round 0] median worker copy = 1.121 ms  -> BW(lab formula) = 114.14 GB/s;  all 9 reps x 10 workers wall = 13.189 ms -> BW(wall-clock aggregate) = 87.34 GB/s  verified=True
+    per-worker ms: 0.369 0.613 1.300 0.618 1.248 0.995 1.644 1.267 1.268 0.621
+[BW round 1] median worker copy = 1.285 ms  -> BW(lab formula) = 99.63 GB/s;  all 9 reps x 10 workers wall = 12.213 ms -> BW(wall-clock aggregate) = 94.33 GB/s  verified=True
+    per-worker ms: 1.332 1.270 0.633 0.630 1.309 0.568 1.359 1.440 1.299 0.607
+[BW round 2] median worker copy = 1.193 ms  -> BW(lab formula) = 107.26 GB/s;  all 9 reps x 10 workers wall = 13.104 ms -> BW(wall-clock aggregate) = 87.91 GB/s  verified=True
+    per-worker ms: 1.338 0.637 1.257 1.283 1.297 0.610 1.193 0.622 1.194 0.598
+[FMA round 0] wall = 467.9 ms  -> P = 1.2824 GFLOP/s  checksum=259.483493
+    per-worker GFLOP/s: 0.1372 0.1345 0.1283 0.1338 0.1388 0.1520 0.1283 0.1353 0.1313 0.1391
+[FMA round 1] wall = 471.5 ms  -> P = 1.2724 GFLOP/s  checksum=259.483493
+    per-worker GFLOP/s: 0.1399 0.1454 0.1321 0.1272 0.1308 0.1453 0.1299 0.1364 0.1376 0.1385
+[FMA round 2] wall = 472.4 ms  -> P = 1.2701 GFLOP/s  checksum=259.483493
+    per-worker GFLOP/s: 0.1270 0.1458 0.1374 0.1446 0.1389 0.1358 0.1286 0.1297 0.1317 0.1393
+BW_sustained = 107.26 GB/s (lab formula; wall-clock aggregate of the same round = 87.91 GB/s)   P_sustained = 1.2724 GFLOP/s   ridge point I* = 0.011863 FLOP/Byte
+--- Part 3B: GEMM N=256  footprint=1.57 MB  P_phys=10 warmup=2 timed=7
+numerical check: max|C1-C2|=0.000e+00  max|C3(BS=16)-C2|=0.000e+00  sum(C)=4184016.701801
+[    V1 ijk] med=   161.26 ms iqr=   4.59 -> 0.2081 GFLOP/s
+[    V2 ikj] med=    73.11 ms iqr=   6.48 -> 0.4589 GFLOP/s
+[   V3 BS=8] med=   146.61 ms iqr=  10.94 -> 0.2289 GFLOP/s
+[  V3 BS=16] med=   130.29 ms iqr=   9.82 -> 0.2575 GFLOP/s
+[  V3 BS=32] med=   124.79 ms iqr=   6.22 -> 0.2689 GFLOP/s
+[  V3 BS=64] med=   122.94 ms iqr=   6.55 -> 0.2729 GFLOP/s
+[  V3 BS=96] med=   120.69 ms iqr=   4.72 -> 0.2780 GFLOP/s
+[ V3 BS=128] med=   120.82 ms iqr=   7.76 -> 0.2777 GFLOP/s
+best tile BS*=96 -> 0.2780 GFLOP/s (footprint 221184 B);  V1=0.2081  V2=0.4589 GFLOP/s
+
+VERIFY_HASH[PHASE3]: CB8BCA0533A4AEEA (P_log=10)
+[saved] /Users/akbota/314 суфиян /minimal_lab/results/phase3.json
+### task3_roofline_gemm  end   13:50:49
+### task4_scheduling  start 13:50:49
+=== PHASE 4: scheduling  N=8000  p=10  total inner iterations=106651060  K(0)=1  K(N-1)=39991  warmup=1 timed=5 ===
+[ S1 block static] T_wall med=   1524.9 ms iqr=   33.3  lambda=2.466  workers(ms)=13 58 162 255 386 573 775 961 1215 1491
+[S2 cyclic static] T_wall med=    918.9 ms iqr=    5.1  lambda=1.048  workers(ms)=801 765 800 755 790 852 836 823 808 803
+[  S3 dynamic C=1] T_wall med=    905.1 ms iqr=    2.1  lambda=1.006  workers(ms)=833 828 824 832 831 822 824 833 824 829
+[  S3 dynamic C=8] T_wall med=    916.1 ms iqr=    3.5  lambda=1.017  workers(ms)=831 824 828 842 826 840 837 823 827 833
+[ S3 dynamic C=64] T_wall med=    925.6 ms iqr=   20.0  lambda=1.084  workers(ms)=774 831 717 756 816 878 847 781 794 775
+[S3 dynamic C=512] T_wall med=   1195.4 ms iqr=   29.8  lambda=1.628  workers(ms)=923 357 531 1014 1108 869 438 671 723 286
+
+C* = 1  (T_wall 905.1 ms, lambda 1.006)
+
+VERIFY_HASH[PHASE4]: 0D6D193B95002213 (P_log=10)
+[saved] /Users/akbota/314 суфиян /minimal_lab/results/phase4.json
+### task4_scheduling  end   13:51:28
+### ALL DONE 13:51:28
