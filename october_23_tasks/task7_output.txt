@@ -1,0 +1,21 @@
+TASK 7 - Arithmetic Intensity vs. Memory Bottlenecks
+Machine: arm64 Darwin, 10 cores (Apple M4: 4P + 6E), N = 30,000,000 float64 (240 MB per array), median of 5 runs
+
+Kernel A: copy (memory-bound)
+Cores |  Time (ms) |  Speedup | Efficiency | Effective GB/s
+------------------------------------------------------------
+    1 |       6.70 |    1.00x |    100.0% |           71.6
+    2 |       5.57 |    1.20x |     60.1% |           86.1
+   10 |       5.54 |    1.21x |     12.1% |           86.6
+
+Kernel B: sin*cos+tan (compute-bound)
+Cores |  Time (ms) |  Speedup | Efficiency | Effective GB/s
+------------------------------------------------------------
+    1 |     195.11 |    1.00x |    100.0% |            2.5
+    2 |      99.03 |    1.97x |     98.5% |            4.8
+   10 |      35.77 |    5.45x |     54.5% |           13.4
+
+Verdict
+  Kernel A: copy (memory-bound): efficiency at 10 cores = 12.1% -> STALLED - memory channel saturated
+  Kernel B: sin*cos+tan (compute-bound): efficiency at 10 cores = 54.5% -> scales with cores
+  Kernel A stalls because it does no arithmetic: every element is 16 bytes of DRAM traffic, and the copy tops out at about 87 GB/s, the shared memory bus limit. More cores only add more requests to the same bus. Kernel B does enough math per byte that the bus is never the limit.
