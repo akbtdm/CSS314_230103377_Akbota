@@ -1,0 +1,54 @@
+Backend: omp | Logical Cores: 10 | Student: 230103377
+
+=== TASK 1: race forensics & thread-private histogram ===
+  buggy run  0 @8T: lost= 3089746  max|hist-ref|=  51437  max|wsum-ref|=7.1016e+04
+  buggy run  1 @8T: lost= 3079750  max|hist-ref|=  51160  max|wsum-ref|=7.0781e+04
+  buggy run  2 @8T: lost= 3061408  max|hist-ref|=  50924  max|wsum-ref|=7.0280e+04
+  buggy run  3 @8T: lost= 3079903  max|hist-ref|=  51218  max|wsum-ref|=7.0646e+04
+  buggy run  4 @8T: lost= 3089467  max|hist-ref|=  51429  max|wsum-ref|=7.0961e+04
+  buggy run  5 @8T: lost= 2969543  max|hist-ref|=  49441  max|wsum-ref|=6.8119e+04
+  buggy run  6 @8T: lost= 3022486  max|hist-ref|=  50457  max|wsum-ref|=6.9507e+04
+  buggy run  7 @8T: lost= 3012907  max|hist-ref|=  50062  max|wsum-ref|=6.9172e+04
+  buggy run  8 @8T: lost= 3040450  max|hist-ref|=  50432  max|wsum-ref|=6.9840e+04
+  buggy run  9 @8T: lost= 3063815  max|hist-ref|=  50907  max|wsum-ref|=7.0170e+04
+  safe @1T worker_hits=[4116736]
+  safe @2T worker_hits=[2058368, 2058368]
+  safe @4T worker_hits=[1029184, 1029184, 1029184, 1029184]
+  safe @8T worker_hits=[514592, 514592, 514592, 514592, 514592, 514592, 514592, 514592]
+  safe w_sums bit-identical across 1/2/4/8 threads: True | max|safe-serial float|=1.906e-09
+  safe_hist_omp timings
+    threads=1  time=    18.06 ms  speedup= 1.00x
+    threads=2  time=     9.74 ms  speedup= 1.85x
+    threads=4  time=     5.29 ms  speedup= 3.41x
+    threads=8  time=     5.77 ms  speedup= 3.13x
+
+=== TASK 2: false sharing vs padded state ===
+  threads=1  unpadded=   46.81 ms  padded=   47.77 ms  ratio= 0.98x  | as-given (store hoisted by LLVM)=   46.32 ms  (exact equality OK)
+  threads=2  unpadded=   46.34 ms  padded=   46.31 ms  ratio= 1.00x  | as-given (store hoisted by LLVM)=   46.53 ms  (exact equality OK)
+  threads=4  unpadded=   57.22 ms  padded=   51.88 ms  ratio= 1.10x  | as-given (store hoisted by LLVM)=   51.82 ms  (exact equality OK)
+  threads=8  unpadded=   97.36 ms  padded=   72.08 ms  ratio= 1.35x  | as-given (store hoisted by LLVM)=   56.57 ms  (exact equality OK)
+
+=== TASK 3: workload skew, static vs dynamic chunk scheduler ===
+  threads=1  static=  28.38 ms (time-LIR 1.000, ops-LIR 1.000)  balanced=  28.58 ms (time-LIR 1.000, ops-LIR 1.000)  max|diff|=0.0e+00
+  threads=2  static=  14.62 ms (time-LIR 1.024, ops-LIR 1.000)  balanced=  14.43 ms (time-LIR 1.000, ops-LIR 1.005)  max|diff|=0.0e+00
+  threads=4  static=   7.44 ms (time-LIR 1.038, ops-LIR 1.001)  balanced=   7.33 ms (time-LIR 1.000, ops-LIR 1.008)  max|diff|=0.0e+00
+  threads=8  static=   8.18 ms (time-LIR 2.046, ops-LIR 1.002)  balanced=   5.72 ms (time-LIR 1.001, ops-LIR 3.163)  max|diff|=0.0e+00
+  8T ops per thread static  : [980316, 981948, 979808, 981724, 980780, 979940, 981864, 980928]
+  8T ops per thread balanced: [837630, 1127741, 1121035, 1123239, 836914, 838116, 1491227, 471406]
+  8T finish ticks static    : [112498, 88985, 134419, 154266, 159856, 121597, 98434, 182062]
+  8T finish ticks balanced  : [133839, 133771, 133803, 133813, 133875, 133811, 133762, 133945]
+
+=== TASK 4: Red-Black SOR solver ===
+  threads=1  time=  133.70 ms  speedup= 1.00x  max|U-U1|=0.0e+00  final max_delta=4.992e-02
+  threads=2  time=   69.23 ms  speedup= 1.93x  max|U-U1|=0.0e+00  final max_delta=4.992e-02
+  threads=4  time=   36.21 ms  speedup= 3.69x  max|U-U1|=0.0e+00  final max_delta=4.992e-02
+  threads=8  time=   53.05 ms  speedup= 2.52x  max|U-U1|=0.0e+00  final max_delta=4.992e-02
+=== OPENMP PYTHON LAB VERIFICATION BUNDLE ===
+{
+  "instructor": "Instructor - Sufyan bin Uzayr",
+  "student_name": "Akbota Kutushova",
+  "student_id": 230103377,
+  "omp_layer": "omp",
+  "cpu_cores": 10,
+  "verification_digest": "5E4D5DD5E979B90C720D"
+}

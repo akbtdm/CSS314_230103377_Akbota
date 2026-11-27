@@ -1,0 +1,215 @@
+{
+  "params": {
+    "N_T1": 4116736,
+    "BINS_T1": 61,
+    "ITERS_T2": 39940000,
+    "PAD_STRIDE": 24,
+    "ROWS_T3": 15616,
+    "SKEW_MOD": 38,
+    "GRID_H": 416,
+    "GRID_W": 576,
+    "OMEGA_SOR": 1.855
+  },
+  "t1_buggy_runs": [
+    {
+      "run": 0,
+      "lost": 3089746,
+      "max_count_diff": 51437,
+      "max_wsum_diff": 71015.61570613096
+    },
+    {
+      "run": 1,
+      "lost": 3079750,
+      "max_count_diff": 51160,
+      "max_wsum_diff": 70780.8542147279
+    },
+    {
+      "run": 2,
+      "lost": 3061408,
+      "max_count_diff": 50924,
+      "max_wsum_diff": 70279.96329243225
+    },
+    {
+      "run": 3,
+      "lost": 3079903,
+      "max_count_diff": 51218,
+      "max_wsum_diff": 70645.8747619419
+    },
+    {
+      "run": 4,
+      "lost": 3089467,
+      "max_count_diff": 51429,
+      "max_wsum_diff": 70961.04054626118
+    },
+    {
+      "run": 5,
+      "lost": 2969543,
+      "max_count_diff": 49441,
+      "max_wsum_diff": 68119.22603147924
+    },
+    {
+      "run": 6,
+      "lost": 3022486,
+      "max_count_diff": 50457,
+      "max_wsum_diff": 69507.08330509826
+    },
+    {
+      "run": 7,
+      "lost": 3012907,
+      "max_count_diff": 50062,
+      "max_wsum_diff": 69171.83328252849
+    },
+    {
+      "run": 8,
+      "lost": 3040450,
+      "max_count_diff": 50432,
+      "max_wsum_diff": 69839.84029226315
+    },
+    {
+      "run": 9,
+      "lost": 3063815,
+      "max_count_diff": 50907,
+      "max_wsum_diff": 70170.27227797006
+    }
+  ],
+  "t1_safe": {
+    "times_s": {
+      "1": 0.01806412503356114,
+      "2": 0.009741082962136716,
+      "4": 0.005291333014611155,
+      "8": 0.005767291004303843
+    },
+    "worker_hits": {
+      "1": [
+        4116736
+      ],
+      "2": [
+        2058368,
+        2058368
+      ],
+      "4": [
+        1029184,
+        1029184,
+        1029184,
+        1029184
+      ],
+      "8": [
+        514592,
+        514592,
+        514592,
+        514592,
+        514592,
+        514592,
+        514592,
+        514592
+      ]
+    },
+    "bit_identical": true,
+    "max_abs_vs_serial_float": 1.9063008949160576e-09
+  },
+  "t2": {
+    "unpadded_s": {
+      "1": 0.04681000002892688,
+      "2": 0.04633612500037998,
+      "4": 0.05721979099325836,
+      "8": 0.0973601249861531
+    },
+    "padded_s": {
+      "1": 0.0477651659748517,
+      "2": 0.04631175001850352,
+      "4": 0.05188333400292322,
+      "8": 0.07208333298331127
+    },
+    "as_given_s": {
+      "1": 0.04631862498354167,
+      "2": 0.04653483402216807,
+      "4": 0.051823249959852546,
+      "8": 0.056570000015199184
+    },
+    "padding_speedup_8T": 1.3506607000080575,
+    "cache_line_bytes": 128
+  },
+  "t3": {
+    "static_s": {
+      "1": 0.028382624965161085,
+      "2": 0.014623084047343582,
+      "4": 0.007436957967001945,
+      "8": 0.008178999996744096
+    },
+    "balanced_s": {
+      "1": 0.02857779199257493,
+      "2": 0.014428332971874624,
+      "4": 0.007330624968744814,
+      "8": 0.005721915978938341
+    },
+    "time_lir_static_8T": 2.045985278417711,
+    "time_lir_balanced_8T": 1.0013681015535054,
+    "ops_lir_static_8T": 1.0021841013749633,
+    "ops_lir_balanced_8T": 3.1633602457329775,
+    "ops_static_8T": [
+      980316,
+      981948,
+      979808,
+      981724,
+      980780,
+      979940,
+      981864,
+      980928
+    ],
+    "ops_balanced_8T": [
+      837630,
+      1127741,
+      1121035,
+      1123239,
+      836914,
+      838116,
+      1491227,
+      471406
+    ],
+    "finish_ticks_static_8T": [
+      112498,
+      88985,
+      134419,
+      154266,
+      159856,
+      121597,
+      98434,
+      182062
+    ],
+    "finish_ticks_balanced_8T": [
+      133839,
+      133771,
+      133803,
+      133813,
+      133875,
+      133811,
+      133762,
+      133945
+    ],
+    "total_ops": 7847308,
+    "chunk": 16
+  },
+  "t4": {
+    "times_s": {
+      "1": 0.133698916004505,
+      "2": 0.069227583007887,
+      "4": 0.0362126249819994,
+      "8": 0.053048791945911944
+    },
+    "max_delta_first": 118.79174962026046,
+    "max_delta_last": 0.049920436415106906,
+    "max_delta_at": {
+      "1": 118.79174962026046,
+      "10": 28.396357463121685,
+      "100": 0.3261940270554007,
+      "300": 0.10367920686722698,
+      "600": 0.049920436415106906
+    },
+    "grid_sum": 3400959.356838487
+  },
+  "diagnosis": {
+    "T1": "In 10 runs of buggy_hist_omp at 8 threads between 2969543 and 3089746 of 4116736 increments were lost, because hist[b] += 1 is a load, add, store sequence and two threads can load the same old value before either stores. Even if the integer increment were made atomic, floating-point addition is not associative: (a + b) + c is rounded after each step, so it can differ from a + (b + c) in the last bits. With threads the order in which weights reach w_sums[b] depends on the OpenMP schedule and on timing, so the rounded total changes between runs and between thread counts. safe_hist_omp removes the race with per-thread rows indexed by get_thread_id(), and it removes the order dependence by accumulating each weight as an exact fixed-point integer (w * 2^54 split into two 27-bit limbs); integer sums are associative, so the merged result is bit-identical at 1, 2, 4 and 8 threads.",
+    "T2": "Unpadded, 8 threads took 97.4 ms versus 46.8 ms for 1 thread doing the same per-thread work; the padded version took 72.1 ms at 8 threads, a 1.35x speedup. In the unpadded array all eight int64 slots sit in one cache line (this M4 uses 128-byte lines), so under MESI every store needs the line in the Modified state on the writing core; that invalidates the copies in the other cores, which must then fetch the line again before their own store. The line keeps moving between cores even though no value is shared. With PAD_STRIDE=24 int64 (192 bytes) each thread's slot is on its own line, which stays Modified in one core's L1, so the stores hit the cache and the threads run independently.",
+    "T3": "Static prange gives each thread one contiguous block of rows. Because the cost pattern repeats every 38 rows, the operation counts per block are almost equal (LIR 2.046), but the M4 has 4 performance and 6 efficiency cores, so the threads on slower cores finish their blocks later and the rest wait at the barrier (8.2 ms at 8 threads). balanced_skew_omp starts one worker per thread and each worker claims 16 rows at a time with an atomic fetch-and-add on a shared cursor (LLVM atomicrmw via a Numba intrinsic, no locks). Rows are visited largest-first, so the final claims are small and the tail is short. Faster cores simply claim more chunks; 8-thread time was 5.7 ms with LIR 1.001, and every row score matches static exactly."
+  }
+}
