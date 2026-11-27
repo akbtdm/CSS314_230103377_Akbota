@@ -1,0 +1,4 @@
+C pthreads, 4 threads x 100000000 increments, buffer aligned to 128 B
+stride   8 B:  0.1584s  0.1357s  0.1351s
+stride  64 B:  0.0678s  0.0928s  0.0725s
+stride 128 B:  0.0705s  0.0480s  0.0568s

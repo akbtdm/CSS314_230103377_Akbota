@@ -1,0 +1,2 @@
+$ python3 -c "import sys; print(sys.getsizeof(0), sys.getsizeof(5_000_000), sys.getsizeof([0]*4), sys.getsizeof([0]*64), (sys.getsizeof([0]*64)-sys.getsizeof([0]*4))/60, sys.getsizeof([]))"
+28 28 88 568 8.0 56
