@@ -1,0 +1,31 @@
+=== Task 2 running with N=8 worker threads (pid 82680) ===
+Fri Nov 27 14:18:25 +05 2026
+
+--- top -l 2 (second sample), stats pid/command/cpu/threads ---
+
+PID    COMMAND    %CPU  #TH  STATE  
+82680  python3.13 421.3 18/8 running
+
+--- ps -M (one line per OS thread, CPU% per thread) ---
+USER     PID   TT   %CPU STAT PRI     STIME     UTIME COMMAND
+akbota 82680   ??    0.1 S    31T   0:00.06   0:00.25 python3 task2_scaling.py --demo 8 6
+       82680         0.0 S    31T   0:00.03   0:00.23 
+       82680         0.0 S    31T   0:00.03   0:00.23 
+       82680         0.0 S    31T   0:00.03   0:00.23 
+       82680         0.0 S    31T   0:00.03   0:00.23 
+       82680         0.0 S    31T   0:00.03   0:00.23 
+       82680         0.0 S    31T   0:00.03   0:00.23 
+       82680         0.0 S    31T   0:00.03   0:00.22 
+       82680         0.0 S    31T   0:00.03   0:00.23 
+       82680         0.0 S    31T   0:00.03   0:00.23 
+       82680        33.0 R    31T   0:00.00   0:00.16 
+       82680        33.3 R    31T   0:00.00   0:00.16 
+       82680        35.8 R    31T   0:00.00   0:00.16 
+       82680        33.4 R    31T   0:00.00   0:00.16 
+       82680        34.0 R    31T   0:00.00   0:00.16 
+       82680        32.9 R    31T   0:00.00   0:00.16 
+       82680        33.6 R    31T   0:00.00   0:00.16 
+       82680        33.0 R    31T   0:00.00   0:00.16 
+
+--- top -l 2 CPU usage line (whole machine) ---
+CPU usage: 55.62% user, 3.44% sys, 40.92% idle 
