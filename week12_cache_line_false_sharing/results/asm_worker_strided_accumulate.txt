@@ -1,0 +1,40 @@
+	ldr	x8, [sp, #16]
+	b.lt	LBB0_3
+	ldr	x9, [sp, #24]
+	ldr	x11, [sp, #8]
+	ldr	x12, [x6, x11]
+	eor	x13, x10, x9
+	add	x14, x10, #1
+	add	x10, x12, x13
+	str	x10, [x6, x11]
+	b.ne	LBB0_2
+	str	xzr, [x0]
+	add	x8, sp, #112
+	add	x9, sp, #120
+	add	x8, sp, #128
+	add	x9, sp, #136
+	ldr	x1, [x1, _.const.worker_strided_accumulate@GOTPAGEOFF]
+	ldr	x8, [x8, _PyArg_UnpackTuple@GOTPAGEOFF]
+	str	xzr, [sp, #40]
+	ldr	x8, [x8, __ZN08NumbaEnv8__main__25worker_strided_accumulateB2v1B40c8tJTIeFIjxB2IKSgI4CrvQClQZ6FcpCShpgEU0AE5ArrayIyLi1E1C7mutable7alignedExxy@GOTPAGEOFF]
+	ldr	x8, [x8]
+	ldr	x0, [sp, #136]
+	str	q0, [sp, #80]
+	str	xzr, [sp, #96]
+	ldr	x8, [x8, _NRT_adapt_ndarray_from_python@GOTPAGEOFF]
+	add	x1, sp, #48
+	cbnz	w0, LBB1_13
+	ldr	x8, [sp, #72]
+	b.ne	LBB1_13
+	ldr	x19, [sp, #48]
+	ldr	x20, [sp, #80]
+	ldr	x0, [sp, #128]
+	ldr	x24, [x24, _PyNumber_Long@GOTPAGEOFF]
+	ldr	x27, [x27, _PyLong_AsLongLong@GOTPAGEOFF]
+	ldr	x25, [x25, _Py_DecRef@GOTPAGEOFF]
+	ldr	x26, [x26, _PyErr_Occurred@GOTPAGEOFF]
+	cbnz	x0, LBB1_18
+	ldr	x0, [sp, #120]
+	cbnz	x0, LBB1_18
+	ldr	x0, [sp, #112]
+	ldr	x8, [x8, _PyLong_AsUnsignedLongLong@GOTPAGEOFF]

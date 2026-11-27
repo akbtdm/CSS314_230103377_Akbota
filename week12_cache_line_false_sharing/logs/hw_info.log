@@ -1,0 +1,8 @@
+date: Fri Nov 27 15:37:23 +05 2026
+cpu: Apple M4
+cores: 10 physical (4 P + 6 E), logical 10
+hw.cachelinesize: 128 B; L1d P/E: 131072/65536 B; L2 P/E: 16777216/4194304 B
+memory: 17179869184 B; pagesize: 16384 B
+os: macOS 15.5 (24.5.0)
+python: 3.13.5 numpy 2.1.3 numba 0.61.0
+load before run: 2.41 2.21 2.42

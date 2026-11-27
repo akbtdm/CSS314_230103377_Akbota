@@ -1,0 +1,302 @@
+### 2026-11-27 15:37:24 $ python3 false_sharing_lab.py 
+[Task 1] system context
+  git_username           akbtdm
+  cpu_brand              Apple M4
+  cpu_signature          arm64::arm::10
+  logical_cores          10
+  perf_cores             4
+  eff_cores              6
+  cache_line_size_bytes  128
+  instance_seed_hex      0x3534e2b2b188f263
+  affinity_note          macOS exposes no hard thread-to-core affinity (no sched_setaffinity; thread_policy_set affinity tags are ignored on Apple Silicon), so each worker thread only sets QoS USER_INTERACTIVE (pthread_set_qos_class_self_np), which steers it towards the P-cores; placement is still decided by the scheduler
+
+[Task 3/4] T=4 threads, 60,000,000 updates per thread, 15 reps
+  rep 1/15 T=4 stride_1                   wall      87.6 ms  per-thread ms [87.4, 87.4, 87.5, 87.4]  csw v/iv 0/19
+  rep 1/15 T=4 stride_4                   wall      87.4 ms  per-thread ms [87.4, 87.3, 87.4, 87.4]  csw v/iv 0/15
+  rep 1/15 T=4 stride_8                   wall      63.7 ms  per-thread ms [29.9, 31.7, 63.6, 31.7]  csw v/iv 0/13
+  rep 1/15 T=4 stride_16                  wall      55.3 ms  per-thread ms [55.3, 30.3, 47.1, 23.5]  csw v/iv 0/9
+  rep 1/15 T=4 stride_32                  wall      54.2 ms  per-thread ms [21.4, 39.9, 54.2, 39.7]  csw v/iv 0/13
+  rep 1/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/21
+  rep 1/15 T=4 plain_nonatomic_stride_1   wall      10.7 ms  per-thread ms [10.6, 10.0, 8.1, 9.0]  csw v/iv 0/366
+  rep 2/15 T=4 stride_1                   wall      94.8 ms  per-thread ms [94.7, 91.6, 93.1, 91.9]  csw v/iv 0/1071
+  rep 2/15 T=4 stride_4                   wall      87.6 ms  per-thread ms [87.4, 87.5, 87.3, 87.3]  csw v/iv 0/17
+  rep 2/15 T=4 stride_8                   wall      38.8 ms  per-thread ms [30.9, 23.5, 38.7, 23.5]  csw v/iv 0/11
+  rep 2/15 T=4 stride_16                  wall      39.1 ms  per-thread ms [31.7, 39.1, 31.7, 31.7]  csw v/iv 0/10
+  rep 2/15 T=4 stride_32                  wall      41.3 ms  per-thread ms [39.1, 31.7, 31.7, 41.2]  csw v/iv 0/13
+  rep 2/15 T=4 private                    wall       8.1 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/15
+  rep 2/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/16
+  rep 3/15 T=4 stride_1                   wall      87.5 ms  per-thread ms [87.4, 87.3, 87.4, 87.3]  csw v/iv 0/9
+  rep 3/15 T=4 stride_4                   wall      87.5 ms  per-thread ms [87.4, 87.5, 87.3, 87.3]  csw v/iv 0/15
+  rep 3/15 T=4 stride_8                   wall      29.0 ms  per-thread ms [23.5, 29.0, 28.9, 23.5]  csw v/iv 0/10
+  rep 3/15 T=4 stride_16                  wall      43.3 ms  per-thread ms [43.3, 26.0, 21.4, 27.9]  csw v/iv 0/193
+  rep 3/15 T=4 stride_32                  wall      48.4 ms  per-thread ms [24.7, 45.0, 48.3, 34.1]  csw v/iv 0/493
+  rep 3/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/16
+  rep 3/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.2, 8.1, 8.1]  csw v/iv 0/19
+  rep 4/15 T=4 stride_1                   wall      89.7 ms  per-thread ms [88.4, 88.4, 88.3, 89.6]  csw v/iv 0/35
+  rep 4/15 T=4 stride_4                   wall      87.5 ms  per-thread ms [87.4, 87.3, 87.4, 87.4]  csw v/iv 0/14
+  rep 4/15 T=4 stride_8                   wall      47.1 ms  per-thread ms [31.7, 31.7, 39.1, 47.1]  csw v/iv 0/12
+  rep 4/15 T=4 stride_16                  wall      55.7 ms  per-thread ms [55.7, 31.7, 31.7, 23.5]  csw v/iv 0/10
+  rep 4/15 T=4 stride_32                  wall      47.0 ms  per-thread ms [47.0, 28.0, 31.3, 25.5]  csw v/iv 0/9
+  rep 4/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/19
+  rep 4/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/15
+  rep 5/15 T=4 stride_1                   wall      87.6 ms  per-thread ms [87.5, 87.3, 87.4, 87.4]  csw v/iv 0/8
+  rep 5/15 T=4 stride_4                   wall      95.5 ms  per-thread ms [94.7, 95.5, 94.0, 94.7]  csw v/iv 0/1481
+  rep 5/15 T=4 stride_8                   wall      53.8 ms  per-thread ms [31.7, 34.8, 53.7, 27.9]  csw v/iv 0/34
+  rep 5/15 T=4 stride_16                  wall      47.2 ms  per-thread ms [23.5, 39.4, 39.9, 47.2]  csw v/iv 0/14
+  rep 5/15 T=4 stride_32                  wall      47.4 ms  per-thread ms [31.7, 47.3, 31.7, 23.5]  csw v/iv 0/17
+  rep 5/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/14
+  rep 5/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.2, 8.1, 8.1]  csw v/iv 0/15
+  rep 6/15 T=4 stride_1                   wall      87.5 ms  per-thread ms [87.5, 87.4, 87.3, 87.4]  csw v/iv 0/9
+  rep 6/15 T=4 stride_4                   wall      87.5 ms  per-thread ms [87.4, 87.5, 87.3, 87.4]  csw v/iv 0/11
+  rep 6/15 T=4 stride_8                   wall      38.8 ms  per-thread ms [31.8, 31.7, 31.7, 38.8]  csw v/iv 0/14
+  rep 6/15 T=4 stride_16                  wall      31.5 ms  per-thread ms [30.7, 31.4, 23.5, 23.5]  csw v/iv 0/11
+  rep 6/15 T=4 stride_32                  wall      47.2 ms  per-thread ms [28.2, 47.2, 31.7, 47.1]  csw v/iv 0/12
+  rep 6/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/11
+  rep 6/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/16
+  rep 7/15 T=4 stride_1                   wall      97.0 ms  per-thread ms [93.7, 93.2, 96.2, 97.0]  csw v/iv 0/1449
+  rep 7/15 T=4 stride_4                   wall      87.5 ms  per-thread ms [87.4, 87.5, 87.4, 87.3]  csw v/iv 0/27
+  rep 7/15 T=4 stride_8                   wall      30.9 ms  per-thread ms [28.9, 30.9, 23.5, 23.5]  csw v/iv 0/9
+  rep 7/15 T=4 stride_16                  wall      39.1 ms  per-thread ms [39.1, 23.5, 37.2, 31.7]  csw v/iv 0/9
+  rep 7/15 T=4 stride_32                  wall      47.9 ms  per-thread ms [43.4, 31.6, 31.9, 47.9]  csw v/iv 0/47
+  rep 7/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/10
+  rep 7/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/11
+  rep 8/15 T=4 stride_1                   wall      87.5 ms  per-thread ms [87.5, 87.4, 87.3, 87.5]  csw v/iv 0/9
+  rep 8/15 T=4 stride_4                   wall      87.5 ms  per-thread ms [87.4, 87.3, 87.5, 87.4]  csw v/iv 0/15
+  rep 8/15 T=4 stride_8                   wall      39.2 ms  per-thread ms [39.1, 31.7, 31.7, 39.1]  csw v/iv 0/10
+  rep 8/15 T=4 stride_16                  wall      53.3 ms  per-thread ms [30.9, 23.5, 23.5, 53.3]  csw v/iv 0/12
+  rep 8/15 T=4 stride_32                  wall      71.1 ms  per-thread ms [71.0, 31.7, 55.8, 55.6]  csw v/iv 0/727
+  rep 8/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/19
+  rep 8/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/14
+  rep 9/15 T=4 stride_1                   wall      87.6 ms  per-thread ms [87.5, 87.5, 87.6, 87.3]  csw v/iv 0/23
+  rep 9/15 T=4 stride_4                   wall      87.5 ms  per-thread ms [87.5, 87.4, 87.2, 87.4]  csw v/iv 0/8
+  rep 9/15 T=4 stride_8                   wall      39.2 ms  per-thread ms [39.2, 23.5, 23.5, 27.5]  csw v/iv 0/13
+  rep 9/15 T=4 stride_16                  wall      38.9 ms  per-thread ms [31.4, 38.8, 23.5, 23.5]  csw v/iv 0/11
+  rep 9/15 T=4 stride_32                  wall      38.8 ms  per-thread ms [38.8, 23.8, 35.1, 21.4]  csw v/iv 0/10
+  rep 9/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/15
+  rep 9/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/15
+  rep 10/15 T=4 stride_1                   wall      87.5 ms  per-thread ms [87.4, 87.5, 87.4, 87.3]  csw v/iv 0/14
+  rep 10/15 T=4 stride_4                   wall      96.2 ms  per-thread ms [96.2, 93.1, 94.6, 94.6]  csw v/iv 0/1436
+  rep 10/15 T=4 stride_8                   wall      52.2 ms  per-thread ms [52.2, 27.1, 50.3, 40.5]  csw v/iv 0/36
+  rep 10/15 T=4 stride_16                  wall      48.4 ms  per-thread ms [48.3, 19.2, 31.7, 31.7]  csw v/iv 0/21
+  rep 10/15 T=4 stride_32                  wall      39.1 ms  per-thread ms [31.7, 39.0, 31.7, 23.5]  csw v/iv 0/11
+  rep 10/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/14
+  rep 10/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/15
+  rep 11/15 T=4 stride_1                   wall      87.5 ms  per-thread ms [87.4, 87.3, 87.4, 87.4]  csw v/iv 0/10
+  rep 11/15 T=4 stride_4                   wall      87.6 ms  per-thread ms [87.3, 87.5, 87.3, 87.3]  csw v/iv 0/18
+  rep 11/15 T=4 stride_8                   wall      30.7 ms  per-thread ms [30.6, 21.4, 30.6, 21.4]  csw v/iv 0/11
+  rep 11/15 T=4 stride_16                  wall      30.9 ms  per-thread ms [27.0, 30.9, 23.5, 21.4]  csw v/iv 0/10
+  rep 11/15 T=4 stride_32                  wall      43.5 ms  per-thread ms [23.5, 43.5, 31.5, 29.7]  csw v/iv 0/14
+  rep 11/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/13
+  rep 11/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/12
+  rep 12/15 T=4 stride_1                   wall      96.4 ms  per-thread ms [94.9, 95.2, 96.4, 95.0]  csw v/iv 0/1436
+  rep 12/15 T=4 stride_4                   wall      87.6 ms  per-thread ms [87.5, 87.4, 87.5, 87.5]  csw v/iv 0/59
+  rep 12/15 T=4 stride_8                   wall      38.9 ms  per-thread ms [38.8, 23.5, 23.5, 38.8]  csw v/iv 0/12
+  rep 12/15 T=4 stride_16                  wall      50.7 ms  per-thread ms [50.7, 29.6, 31.7, 38.8]  csw v/iv 0/14
+  rep 12/15 T=4 stride_32                  wall      40.1 ms  per-thread ms [31.7, 40.1, 31.7, 37.3]  csw v/iv 0/10
+  rep 12/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/11
+  rep 12/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/9
+  rep 13/15 T=4 stride_1                   wall      87.4 ms  per-thread ms [87.4, 87.3, 87.3, 87.4]  csw v/iv 0/13
+  rep 13/15 T=4 stride_4                   wall      87.4 ms  per-thread ms [87.3, 87.2, 87.4, 87.4]  csw v/iv 0/14
+  rep 13/15 T=4 stride_8                   wall      31.9 ms  per-thread ms [31.7, 31.7, 31.9, 23.5]  csw v/iv 0/13
+  rep 13/15 T=4 stride_16                  wall      31.8 ms  per-thread ms [31.7, 31.7, 23.5, 31.7]  csw v/iv 0/10
+  rep 13/15 T=4 stride_32                  wall      50.8 ms  per-thread ms [39.6, 23.5, 45.8, 50.7]  csw v/iv 0/150
+  rep 13/15 T=4 private                    wall      10.3 ms  per-thread ms [10.3, 8.1, 10.1, 9.2]  csw v/iv 0/426
+  rep 13/15 T=4 plain_nonatomic_stride_1   wall       9.8 ms  per-thread ms [8.2, 8.1, 9.7, 9.3]  csw v/iv 0/256
+  rep 14/15 T=4 stride_1                   wall      87.8 ms  per-thread ms [87.7, 87.6, 87.5, 87.5]  csw v/iv 0/64
+  rep 14/15 T=4 stride_4                   wall      87.5 ms  per-thread ms [87.4, 87.5, 87.3, 87.4]  csw v/iv 0/11
+  rep 14/15 T=4 stride_8                   wall      39.0 ms  per-thread ms [32.9, 38.9, 23.5, 23.5]  csw v/iv 0/11
+  rep 14/15 T=4 stride_16                  wall      41.6 ms  per-thread ms [40.7, 31.5, 39.9, 31.7]  csw v/iv 0/11
+  rep 14/15 T=4 stride_32                  wall      34.6 ms  per-thread ms [30.9, 23.5, 23.5, 34.5]  csw v/iv 0/11
+  rep 14/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/12
+  rep 14/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/13
+  rep 15/15 T=4 stride_1                   wall      87.6 ms  per-thread ms [87.4, 87.5, 87.3, 87.5]  csw v/iv 0/13
+  rep 15/15 T=4 stride_4                   wall      87.5 ms  per-thread ms [87.3, 87.3, 87.5, 87.3]  csw v/iv 0/14
+  rep 15/15 T=4 stride_8                   wall      52.6 ms  per-thread ms [29.6, 33.4, 39.6, 52.6]  csw v/iv 0/102
+  rep 15/15 T=4 stride_16                  wall      57.6 ms  per-thread ms [49.0, 23.8, 40.5, 57.5]  csw v/iv 0/518
+  rep 15/15 T=4 stride_32                  wall      46.5 ms  per-thread ms [30.7, 39.7, 26.0, 46.4]  csw v/iv 0/35
+  rep 15/15 T=4 private                    wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/13
+  rep 15/15 T=4 plain_nonatomic_stride_1   wall       8.2 ms  per-thread ms [8.1, 8.1, 8.1, 8.1]  csw v/iv 0/15
+
+  layout                     B apart        64B lines       128B lines  median ms   min ms ns/upd/thr      vs stride_8      vs stride_16
+  stride_1                         8     [0, 0, 0, 0]     [0, 0, 0, 0]       87.6     87.4      1.460             2.25              2.02
+  stride_4                        32     [0, 0, 1, 1]     [0, 0, 0, 0]       87.5     87.4      1.458             2.25              2.02
+  stride_8                        64     [0, 1, 2, 3]     [0, 0, 1, 1]       39.0     29.0      0.649             1.00              0.90
+  stride_16                      128     [0, 2, 4, 6]     [0, 1, 2, 3]       43.3     30.9      0.722             1.11              1.00
+  stride_32                      256    [0, 4, 8, 12]     [0, 2, 4, 6]       47.0     34.6      0.784             1.21              1.09
+  private                         64     [0, 1, 2, 3]     [0, 0, 1, 1]        8.2      8.1      0.136             0.21              0.19
+  plain_nonatomic_stride_1         8     [0, 0, 0, 0]     [0, 0, 0, 0]        8.2      8.2      0.136             0.21              0.19
+
+[Extra] latency-bound LCG update, T=4
+  rep 1/7 T=4 lcg_stride_1               wall     126.3 ms  per-thread ms [126.1, 126.2, 126.0, 126.1]  csw v/iv 0/9
+  rep 1/7 T=4 lcg_stride_4               wall     126.2 ms  per-thread ms [126.1, 126.2, 126.1, 126.1]  csw v/iv 0/16
+  rep 1/7 T=4 lcg_stride_8               wall     125.4 ms  per-thread ms [125.2, 125.3, 125.3, 125.2]  csw v/iv 0/18
+  rep 1/7 T=4 lcg_stride_16              wall     130.7 ms  per-thread ms [130.7, 128.5, 126.9, 130.0]  csw v/iv 0/1438
+  rep 1/7 T=4 lcg_private                wall      62.2 ms  per-thread ms [62.1, 61.6, 61.9, 61.0]  csw v/iv 0/22
+  rep 2/7 T=4 lcg_stride_1               wall     126.3 ms  per-thread ms [126.3, 126.1, 126.0, 126.1]  csw v/iv 0/12
+  rep 2/7 T=4 lcg_stride_4               wall     126.4 ms  per-thread ms [126.2, 126.1, 126.4, 125.9]  csw v/iv 0/24
+  rep 2/7 T=4 lcg_stride_8               wall     125.3 ms  per-thread ms [125.3, 125.3, 125.2, 125.2]  csw v/iv 0/13
+  rep 2/7 T=4 lcg_stride_16              wall     130.4 ms  per-thread ms [130.2, 130.4, 127.5, 127.1]  csw v/iv 0/1483
+  rep 2/7 T=4 lcg_private                wall      61.9 ms  per-thread ms [61.5, 61.3, 61.9, 61.6]  csw v/iv 0/129
+  rep 3/7 T=4 lcg_stride_1               wall     126.3 ms  per-thread ms [126.0, 126.1, 126.0, 126.3]  csw v/iv 0/13
+  rep 3/7 T=4 lcg_stride_4               wall     126.5 ms  per-thread ms [126.1, 126.2, 126.1, 126.4]  csw v/iv 0/23
+  rep 3/7 T=4 lcg_stride_8               wall     128.4 ms  per-thread ms [128.4, 127.6, 125.3, 127.9]  csw v/iv 0/785
+  rep 3/7 T=4 lcg_stride_16              wall     128.2 ms  per-thread ms [126.5, 125.5, 126.9, 128.1]  csw v/iv 0/637
+  rep 3/7 T=4 lcg_private                wall      62.0 ms  per-thread ms [61.6, 61.9, 61.0, 61.6]  csw v/iv 0/12
+  rep 4/7 T=4 lcg_stride_1               wall     126.1 ms  per-thread ms [126.0, 126.1, 126.1, 126.1]  csw v/iv 0/16
+  rep 4/7 T=4 lcg_stride_4               wall     126.2 ms  per-thread ms [126.2, 126.1, 126.0, 126.0]  csw v/iv 0/10
+  rep 4/7 T=4 lcg_stride_8               wall     130.7 ms  per-thread ms [130.7, 126.6, 128.7, 129.4]  csw v/iv 0/1427
+  rep 4/7 T=4 lcg_stride_16              wall     125.7 ms  per-thread ms [125.6, 125.3, 125.3, 125.3]  csw v/iv 0/60
+  rep 4/7 T=4 lcg_private                wall      61.6 ms  per-thread ms [61.6, 61.6, 61.4, 61.0]  csw v/iv 0/10
+  rep 5/7 T=4 lcg_stride_1               wall     126.2 ms  per-thread ms [126.0, 126.1, 126.1, 126.0]  csw v/iv 0/11
+  rep 5/7 T=4 lcg_stride_4               wall     126.1 ms  per-thread ms [126.1, 126.1, 126.0, 126.0]  csw v/iv 0/12
+  rep 5/7 T=4 lcg_stride_8               wall     130.2 ms  per-thread ms [127.6, 130.1, 128.8, 129.0]  csw v/iv 0/1440
+  rep 5/7 T=4 lcg_stride_16              wall     126.7 ms  per-thread ms [126.6, 125.3, 125.3, 125.3]  csw v/iv 0/49
+  rep 5/7 T=4 lcg_private                wall      61.7 ms  per-thread ms [61.1, 61.7, 61.6, 61.6]  csw v/iv 0/12
+  rep 6/7 T=4 lcg_stride_1               wall     126.1 ms  per-thread ms [125.9, 126.1, 126.1, 126.0]  csw v/iv 0/12
+  rep 6/7 T=4 lcg_stride_4               wall     126.2 ms  per-thread ms [126.2, 126.1, 126.0, 126.1]  csw v/iv 0/12
+  rep 6/7 T=4 lcg_stride_8               wall     130.3 ms  per-thread ms [130.2, 129.4, 126.6, 129.7]  csw v/iv 0/1461
+  rep 6/7 T=4 lcg_stride_16              wall     125.5 ms  per-thread ms [125.3, 125.3, 125.2, 125.4]  csw v/iv 0/31
+  rep 6/7 T=4 lcg_private                wall      61.5 ms  per-thread ms [61.1, 61.4, 61.4, 61.3]  csw v/iv 0/14
+  rep 7/7 T=4 lcg_stride_1               wall     126.2 ms  per-thread ms [126.1, 126.1, 126.1, 126.0]  csw v/iv 0/20
+  rep 7/7 T=4 lcg_stride_4               wall     126.8 ms  per-thread ms [126.3, 126.8, 126.2, 126.2]  csw v/iv 0/21
+  rep 7/7 T=4 lcg_stride_8               wall     131.8 ms  per-thread ms [126.4, 126.9, 129.9, 131.8]  csw v/iv 0/1449
+  rep 7/7 T=4 lcg_stride_16              wall     125.4 ms  per-thread ms [125.3, 125.2, 125.3, 125.3]  csw v/iv 0/19
+  rep 7/7 T=4 lcg_private                wall      61.7 ms  per-thread ms [61.7, 61.4, 61.3, 61.0]  csw v/iv 0/12
+
+  layout                     B apart        64B lines       128B lines  median ms   min ms ns/upd/thr  vs lcg_stride_8  vs lcg_stride_16
+  lcg_stride_1                     8     [0, 0, 0, 0]     [0, 0, 0, 0]      126.2    126.1      2.103             0.97              1.00
+  lcg_stride_4                    32     [0, 0, 1, 1]     [0, 0, 0, 0]      126.2    126.1      2.104             0.97              1.00
+  lcg_stride_8                    64     [0, 1, 2, 3]     [0, 0, 1, 1]      130.2    125.3      2.169             1.00              1.03
+  lcg_stride_16                  128     [0, 2, 4, 6]     [0, 1, 2, 3]      126.7    125.4      2.111             0.97              1.00
+  lcg_private                     64     [0, 1, 2, 3]     [0, 0, 1, 1]       61.7     61.5      1.029             0.47              0.49
+
+[Extra] store-throughput-bound kernel (no load), T=4
+  rep 1/7 T=4 store_stride_1             wall      40.2 ms  per-thread ms [38.9, 40.1, 38.9, 39.8]  csw v/iv 0/10
+  rep 1/7 T=4 store_stride_4             wall      19.2 ms  per-thread ms [18.6, 19.2, 17.8, 18.3]  csw v/iv 0/11
+  rep 1/7 T=4 store_stride_8             wall      15.3 ms  per-thread ms [15.3, 15.3, 15.2, 15.3]  csw v/iv 0/14
+  rep 1/7 T=4 store_stride_16            wall      15.3 ms  per-thread ms [15.3, 15.3, 15.2, 15.3]  csw v/iv 0/11
+  rep 1/7 T=4 store_stride_32            wall      15.4 ms  per-thread ms [15.2, 15.3, 15.3, 15.2]  csw v/iv 0/16
+  rep 2/7 T=4 store_stride_1             wall      40.5 ms  per-thread ms [37.3, 40.5, 40.2, 36.8]  csw v/iv 0/14
+  rep 2/7 T=4 store_stride_4             wall      18.5 ms  per-thread ms [17.8, 18.0, 18.5, 18.5]  csw v/iv 0/16
+  rep 2/7 T=4 store_stride_8             wall      15.3 ms  per-thread ms [15.3, 15.3, 15.3, 15.3]  csw v/iv 0/13
+  rep 2/7 T=4 store_stride_16            wall      15.3 ms  per-thread ms [15.3, 15.2, 15.3, 15.3]  csw v/iv 0/18
+  rep 2/7 T=4 store_stride_32            wall      15.3 ms  per-thread ms [15.3, 15.3, 15.3, 15.3]  csw v/iv 0/13
+  rep 3/7 T=4 store_stride_1             wall      40.2 ms  per-thread ms [38.9, 39.8, 40.1, 38.9]  csw v/iv 0/12
+  rep 3/7 T=4 store_stride_4             wall      24.1 ms  per-thread ms [24.0, 23.0, 23.5, 22.2]  csw v/iv 0/446
+  rep 3/7 T=4 store_stride_8             wall      24.6 ms  per-thread ms [24.5, 21.5, 21.8, 22.2]  csw v/iv 0/924
+  rep 3/7 T=4 store_stride_16            wall      15.4 ms  per-thread ms [15.3, 15.3, 15.3, 15.3]  csw v/iv 0/23
+  rep 3/7 T=4 store_stride_32            wall      15.4 ms  per-thread ms [15.3, 15.3, 15.3, 15.3]  csw v/iv 0/24
+  rep 4/7 T=4 store_stride_1             wall      40.5 ms  per-thread ms [39.9, 40.5, 37.1, 37.6]  csw v/iv 0/38
+  rep 4/7 T=4 store_stride_4             wall      18.5 ms  per-thread ms [18.0, 17.9, 18.5, 18.5]  csw v/iv 0/15
+  rep 4/7 T=4 store_stride_8             wall      15.4 ms  per-thread ms [15.3, 15.3, 15.3, 15.3]  csw v/iv 0/15
+  rep 4/7 T=4 store_stride_16            wall      15.3 ms  per-thread ms [15.3, 15.3, 15.3, 15.3]  csw v/iv 0/15
+  rep 4/7 T=4 store_stride_32            wall      15.3 ms  per-thread ms [15.3, 15.3, 15.3, 15.3]  csw v/iv 0/15
+  rep 5/7 T=4 store_stride_1             wall      40.5 ms  per-thread ms [36.7, 40.1, 40.4, 37.1]  csw v/iv 0/12
+  rep 5/7 T=4 store_stride_4             wall      18.6 ms  per-thread ms [17.6, 18.6, 17.3, 18.4]  csw v/iv 0/10
+  rep 5/7 T=4 store_stride_8             wall      15.3 ms  per-thread ms [15.3, 15.3, 15.3, 15.2]  csw v/iv 0/13
+  rep 5/7 T=4 store_stride_16            wall      15.3 ms  per-thread ms [15.3, 15.3, 15.2, 15.3]  csw v/iv 0/13
+  rep 5/7 T=4 store_stride_32            wall      15.5 ms  per-thread ms [15.3, 15.4, 15.3, 15.3]  csw v/iv 0/16
+  rep 6/7 T=4 store_stride_1             wall      40.2 ms  per-thread ms [39.8, 38.9, 40.1, 38.9]  csw v/iv 0/11
+  rep 6/7 T=4 store_stride_4             wall      18.4 ms  per-thread ms [18.3, 18.0, 18.2, 17.8]  csw v/iv 0/11
+  rep 6/7 T=4 store_stride_8             wall      15.3 ms  per-thread ms [15.3, 15.3, 15.3, 15.3]  csw v/iv 0/14
+  rep 6/7 T=4 store_stride_16            wall      15.3 ms  per-thread ms [15.3, 15.3, 15.2, 15.3]  csw v/iv 0/12
+  rep 6/7 T=4 store_stride_32            wall      15.4 ms  per-thread ms [15.3, 15.3, 15.2, 15.3]  csw v/iv 0/13
+  rep 7/7 T=4 store_stride_1             wall      40.2 ms  per-thread ms [38.9, 39.8, 40.1, 38.9]  csw v/iv 0/12
+  rep 7/7 T=4 store_stride_4             wall      18.4 ms  per-thread ms [18.3, 18.0, 18.2, 17.8]  csw v/iv 0/9
+  rep 7/7 T=4 store_stride_8             wall      15.3 ms  per-thread ms [15.3, 15.3, 15.3, 15.3]  csw v/iv 0/11
+  rep 7/7 T=4 store_stride_16            wall      15.3 ms  per-thread ms [15.3, 15.3, 15.3, 15.3]  csw v/iv 0/15
+  rep 7/7 T=4 store_stride_32            wall      15.3 ms  per-thread ms [15.3, 15.3, 15.2, 15.3]  csw v/iv 0/11
+
+  layout                     B apart        64B lines       128B lines  median ms   min ms ns/upd/thr vs store_stride_8 vs store_stride_16
+  store_stride_1                   8     [0, 0, 0, 0]     [0, 0, 0, 0]       40.2     40.2      0.669             2.62              2.62
+  store_stride_4                  32     [0, 0, 1, 1]     [0, 0, 0, 0]       18.5     18.4      0.309             1.21              1.21
+  store_stride_8                  64     [0, 1, 2, 3]     [0, 0, 1, 1]       15.3     15.3      0.256             1.00              1.00
+  store_stride_16                128     [0, 2, 4, 6]     [0, 1, 2, 3]       15.3     15.3      0.256             1.00              1.00
+  store_stride_32                256    [0, 4, 8, 12]     [0, 2, 4, 6]       15.4     15.3      0.256             1.00              1.00
+
+[Extra] thread-count sweep, stride 1 vs stride 16 (Task 2 kernel)
+  rep 1/7 T=2 stride_1                   wall      80.9 ms  per-thread ms [80.6, 80.8]  csw v/iv 0/13
+  rep 1/7 T=2 stride_8                   wall      56.6 ms  per-thread ms [56.6, 18.7]  csw v/iv 0/13
+  rep 1/7 T=2 stride_16                  wall      24.6 ms  per-thread ms [24.5, 22.0]  csw v/iv 0/5
+  rep 2/7 T=2 stride_1                   wall      79.4 ms  per-thread ms [78.9, 79.3]  csw v/iv 0/4
+  rep 2/7 T=2 stride_8                   wall      30.2 ms  per-thread ms [30.2, 30.1]  csw v/iv 0/4
+  rep 2/7 T=2 stride_16                  wall      34.5 ms  per-thread ms [31.9, 34.5]  csw v/iv 0/6
+  rep 3/7 T=2 stride_1                   wall      79.1 ms  per-thread ms [79.0, 79.1]  csw v/iv 0/4
+  rep 3/7 T=2 stride_8                   wall      38.5 ms  per-thread ms [33.1, 38.5]  csw v/iv 0/4
+  rep 3/7 T=2 stride_16                  wall      37.5 ms  per-thread ms [37.5, 21.9]  csw v/iv 0/3
+  rep 4/7 T=2 stride_1                   wall      78.9 ms  per-thread ms [78.8, 78.8]  csw v/iv 0/5
+  rep 4/7 T=2 stride_8                   wall      51.9 ms  per-thread ms [51.9, 46.5]  csw v/iv 0/3
+  rep 4/7 T=2 stride_16                  wall      39.2 ms  per-thread ms [37.5, 39.1]  csw v/iv 0/11
+  rep 5/7 T=2 stride_1                   wall      81.3 ms  per-thread ms [81.1, 81.2]  csw v/iv 0/14
+  rep 5/7 T=2 stride_8                   wall      34.0 ms  per-thread ms [22.6, 34.0]  csw v/iv 0/5
+  rep 5/7 T=2 stride_16                  wall      22.0 ms  per-thread ms [22.0, 19.5]  csw v/iv 0/3
+  rep 6/7 T=2 stride_1                   wall      79.1 ms  per-thread ms [79.0, 78.9]  csw v/iv 0/3
+  rep 6/7 T=2 stride_8                   wall      46.6 ms  per-thread ms [46.6, 30.1]  csw v/iv 0/4
+  rep 6/7 T=2 stride_16                  wall      30.2 ms  per-thread ms [21.9, 30.1]  csw v/iv 0/5
+  rep 7/7 T=2 stride_1                   wall      79.3 ms  per-thread ms [79.1, 79.2]  csw v/iv 0/4
+  rep 7/7 T=2 stride_8                   wall      38.4 ms  per-thread ms [38.3, 30.9]  csw v/iv 0/3
+  rep 7/7 T=2 stride_16                  wall      31.2 ms  per-thread ms [31.2, 28.9]  csw v/iv 0/3
+
+  layout                     B apart        64B lines       128B lines  median ms   min ms ns/upd/thr      vs stride_8      vs stride_16
+  stride_1                         8           [0, 0]           [0, 0]       79.3     78.9      1.321             2.06              2.54
+  stride_8                        64           [0, 1]           [0, 0]       38.5     30.2      0.642             1.00              1.24
+  stride_16                      128           [0, 2]           [0, 1]       31.2     22.0      0.520             0.81              1.00
+  rep 1/7 T=8 stride_1                   wall     147.1 ms  per-thread ms [140.7, 138.6, 143.6, 142.8, 142.4, 144.9, 146.8, 142.8]  csw v/iv 0/3434
+  rep 1/7 T=8 stride_8                   wall      85.8 ms  per-thread ms [68.7, 68.8, 85.6, 60.4, 77.5, 83.7, 75.4, 51.4]  csw v/iv 0/204
+  rep 1/7 T=8 stride_16                  wall      73.0 ms  per-thread ms [73.0, 66.5, 58.2, 66.5, 49.3, 49.3, 49.4, 49.4]  csw v/iv 0/84
+  rep 2/7 T=8 stride_1                   wall     143.7 ms  per-thread ms [139.3, 140.6, 138.4, 135.8, 140.8, 143.6, 141.8, 143.4]  csw v/iv 0/347
+  rep 2/7 T=8 stride_8                   wall     107.8 ms  per-thread ms [101.0, 106.7, 105.3, 107.6, 80.3, 79.0, 104.6, 100.6]  csw v/iv 0/1770
+  rep 2/7 T=8 stride_16                  wall      75.6 ms  per-thread ms [74.7, 65.9, 42.7, 74.9, 75.6, 32.3, 67.3, 51.3]  csw v/iv 0/121
+  rep 3/7 T=8 stride_1                   wall     144.9 ms  per-thread ms [135.0, 144.3, 144.8, 141.3, 141.5, 144.6, 143.9, 137.5]  csw v/iv 0/3473
+  rep 3/7 T=8 stride_8                   wall      93.3 ms  per-thread ms [93.1, 92.2, 83.5, 50.1, 75.8, 75.7, 90.6, 92.8]  csw v/iv 0/152
+  rep 3/7 T=8 stride_16                  wall      58.1 ms  per-thread ms [55.6, 49.2, 57.7, 58.1, 57.6, 41.3, 49.4, 54.4]  csw v/iv 0/109
+  rep 4/7 T=8 stride_1                   wall     143.0 ms  per-thread ms [138.9, 138.4, 140.1, 142.9, 142.6, 140.9, 141.0, 140.5]  csw v/iv 0/228
+  rep 4/7 T=8 stride_8                   wall     113.2 ms  per-thread ms [109.0, 110.4, 113.2, 110.4, 46.9, 100.8, 106.9, 107.0]  csw v/iv 0/158
+  rep 4/7 T=8 stride_16                  wall      76.0 ms  per-thread ms [65.5, 75.8, 57.0, 66.0, 69.0, 55.3, 44.7, 26.3]  csw v/iv 0/2997
+  rep 5/7 T=8 stride_1                   wall     142.7 ms  per-thread ms [131.5, 132.8, 140.2, 141.2, 140.9, 138.6, 142.5, 137.7]  csw v/iv 0/272
+  rep 5/7 T=8 stride_8                   wall     113.1 ms  per-thread ms [113.0, 110.5, 110.9, 108.5, 106.8, 108.3, 66.5, 102.1]  csw v/iv 0/169
+  rep 5/7 T=8 stride_16                  wall      74.1 ms  per-thread ms [74.0, 58.1, 38.6, 58.2, 57.6, 49.4, 66.2, 47.3]  csw v/iv 0/94
+  rep 6/7 T=8 stride_1                   wall     143.3 ms  per-thread ms [140.7, 141.1, 143.1, 139.4, 138.6, 141.5, 139.0, 139.0]  csw v/iv 0/227
+  rep 6/7 T=8 stride_8                   wall     107.6 ms  per-thread ms [97.0, 107.5, 100.1, 102.2, 90.5, 104.4, 105.1, 76.6]  csw v/iv 0/3446
+  rep 6/7 T=8 stride_16                  wall      66.0 ms  per-thread ms [48.8, 43.4, 65.8, 50.7, 43.9, 61.2, 45.3, 65.7]  csw v/iv 0/117
+  rep 7/7 T=8 stride_1                   wall     143.4 ms  per-thread ms [142.7, 139.9, 139.6, 136.2, 139.7, 143.3, 140.4, 140.2]  csw v/iv 0/264
+  rep 7/7 T=8 stride_8                   wall     117.1 ms  per-thread ms [106.4, 102.5, 85.5, 84.9, 103.7, 107.5, 104.0, 116.9]  csw v/iv 0/420
+  rep 7/7 T=8 stride_16                  wall      83.1 ms  per-thread ms [64.4, 70.5, 49.5, 83.0, 70.6, 74.4, 66.5, 41.3]  csw v/iv 0/119
+
+  layout                     B apart        64B lines       128B lines  median ms   min ms ns/upd/thr      vs stride_8      vs stride_16
+  stride_1                         8 [0, 0, 0, 0, 0, 0, 0, 0] [0, 0, 0, 0, 0, 0, 0, 0]      143.4    142.7      2.389             1.33              1.94
+  stride_8                        64 [0, 1, 2, 3, 4, 5, 6, 7] [0, 0, 1, 1, 2, 2, 3, 3]      107.8     85.8      1.797             1.00              1.46
+  stride_16                      128 [0, 2, 4, 6, 8, 10, 12, 14] [0, 1, 2, 3, 4, 5, 6, 7]       74.1     58.1      1.235             0.69              1.00
+
+[Reference] single thread, no contention
+  strided_1thread            median wall      30.2 ms  0.503 ns/update  runs ms [21.9, 21.9, 25.0, 30.2, 38.5, 57.5, 62.4]
+  private_1thread            median wall       7.2 ms  0.121 ns/update  runs ms [7.2, 7.2, 7.2, 7.2, 7.2, 7.2, 7.3]
+
+[Q5 extra] GIL experiment, stride 1
+  numba_with_gil   T=1  iters/thread 30,000,000  median wall     28.8 ms     0.958 ns/update (aggregate)  per-thread ms [28.7]  csw v/iv 0/2
+  numba_nogil      T=1  iters/thread 30,000,000  median wall     23.3 ms     0.777 ns/update (aggregate)  per-thread ms [23.3]  csw v/iv 0/2
+  python_bytecode  T=1  iters/thread    300,000  median wall     33.4 ms   111.389 ns/update (aggregate)  per-thread ms [33.4]  csw v/iv 0/2
+  numba_with_gil   T=2  iters/thread 30,000,000  median wall     65.3 ms     1.088 ns/update (aggregate)  per-thread ms [65.2, 49.2]  csw v/iv 0/18
+  numba_nogil      T=2  iters/thread 30,000,000  median wall     39.6 ms     0.660 ns/update (aggregate)  per-thread ms [39.5, 39.5]  csw v/iv 0/3
+  python_bytecode  T=2  iters/thread    300,000  median wall     66.5 ms   110.841 ns/update (aggregate)  per-thread ms [63.1, 59.0]  csw v/iv 0/37
+  numba_with_gil   T=4  iters/thread 30,000,000  median wall     85.1 ms     0.709 ns/update (aggregate)  per-thread ms [63.5, 77.4, 21.5, 39.0]  csw v/iv 0/61
+  numba_nogil      T=4  iters/thread 30,000,000  median wall     43.8 ms     0.365 ns/update (aggregate)  per-thread ms [43.6, 43.8, 43.7, 43.7]  csw v/iv 0/13
+  python_bytecode  T=4  iters/thread    300,000  median wall    132.8 ms   110.645 ns/update (aggregate)  per-thread ms [132.7, 111.4, 122.6, 92.8]  csw v/iv 0/111
+
+[Task 5] parity + LLVM IR audit
+  expected finals: ['0x283e52b91e60bc80', '0x7b733e4e64acbc80', '0xcea855d9c328bc80', '0x21d0a6250174bc80']
+  parity per layout: {'stride_1': True, 'stride_4': True, 'stride_8': True, 'stride_16': True, 'stride_32': True, 'private': True, 'plain_nonatomic_stride_1': True, 'lcg_stride_1': True, 'lcg_stride_4': True, 'lcg_stride_8': True, 'lcg_stride_16': True, 'lcg_private': True, 'store_stride_1': True, 'store_stride_4': True, 'store_stride_8': True, 'store_stride_16': True, 'store_stride_32': True, 'T2_stride_1': True, 'T2_stride_8': True, 'T2_stride_16': True, 'T8_stride_1': True, 'T8_stride_8': True, 'T8_stride_16': True}
+  python reference check (200,000 iters): True
+  worker_strided_accumulate: i64 stores 1, inside loop 1, atomic monotonic load/store 1/1, python API calls none
+      [B30 LOOP] store atomic i64 %.166, i64* %1 monotonic, align 8
+  worker_private_accumulate: i64 stores 1, inside loop 0, atomic monotonic load/store 0/0, python API calls none
+      [common.ret] store i64 %acc.2.0.lcssa, i64* %9, align 8
+  worker_plain_accumulate: i64 stores 1, inside loop 0, atomic monotonic load/store 0/0, python API calls none
+      [B26.common.ret_crit_edge] store i64 %.177.lcssa, i64* %8, align 8
+  worker_strided_lcg: i64 stores 1, inside loop 1, atomic monotonic load/store 1/1, python API calls none
+      [B30 LOOP] store atomic i64 %.167, i64* %1 monotonic, align 8
+  worker_strided_store: i64 stores 1, inside loop 1, atomic monotonic load/store 0/1, python API calls none
+      [B30 LOOP] store atomic i64 %.145, i64* %1 monotonic, align 8
+  verification_passed: True
+
+wrote cache_lab_manifest.json; total runtime 15.5 s
