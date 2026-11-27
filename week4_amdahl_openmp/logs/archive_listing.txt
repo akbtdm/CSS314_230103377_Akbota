@@ -1,0 +1,8 @@
+$ tar -tvf lab1_230103377.tar.gz
+drwxr-xr-x  0 akbota wheel       0 Nov 27 14:39 lab1_230103377/
+-rw-r--r--  0 akbota wheel  128427 Nov 27 14:39 lab1_230103377/speedup_plot.png
+-rw-r--r--  0 akbota wheel    8473 Nov 27 14:39 lab1_230103377/collatz.c
+-rw-r--r--  0 akbota wheel     284 Nov 27 14:39 lab1_230103377/hw_info.txt
+-rw-r--r--  0 akbota wheel   19018 Nov 27 14:39 lab1_230103377/README.md
+-rw-r--r--  0 akbota wheel    2285 Nov 27 14:39 lab1_230103377/collatz_seq.c
+-rw-r--r--  0 akbota wheel    2052 Nov 27 14:39 lab1_230103377/results.csv
