@@ -1,0 +1,6 @@
+Run 1: Locked = 2,000,000 in 0.1595s | Lockless = 2,000,000 in 0.0261s | speedup 6.11x
+Run 2: Locked = 2,000,000 in 0.1553s | Lockless = 2,000,000 in 0.0263s | speedup 5.90x
+Run 3: Locked = 2,000,000 in 0.1593s | Lockless = 2,000,000 in 0.0262s | speedup 6.08x
+Run 4: Locked = 2,000,000 in 0.1548s | Lockless = 2,000,000 in 0.0261s | speedup 5.94x
+Run 5: Locked = 2,000,000 in 0.1554s | Lockless = 2,000,000 in 0.0259s | speedup 6.00x
+Median Locked: 0.1554s | Median Lockless: 0.0261s | Speedup: 5.96x | all 5 lockless totals == 2,000,000

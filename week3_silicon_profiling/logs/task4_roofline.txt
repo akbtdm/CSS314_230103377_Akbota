@@ -1,0 +1,9 @@
+=== Compute-Bound Suite (Register Math) ===
+Workers: 1 | Execution Time: 0.4858s
+Workers: 2 | Execution Time: 0.5649s
+Workers: 4 | Execution Time: 0.6289s
+
+=== Memory-Bound Suite (DRAM Bandwidth Saturation) ===
+Workers: 1 | Execution Time: 0.2455s
+Workers: 2 | Execution Time: 0.3770s
+Workers: 4 | Execution Time: 0.8256s

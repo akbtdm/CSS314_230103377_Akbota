@@ -1,0 +1,20 @@
+--- task4_roofline.py repeat 2 ---
+=== Compute-Bound Suite (Register Math) ===
+Workers: 1 | Execution Time: 0.5445s
+Workers: 2 | Execution Time: 0.5929s
+Workers: 4 | Execution Time: 0.7067s
+
+=== Memory-Bound Suite (DRAM Bandwidth Saturation) ===
+Workers: 1 | Execution Time: 0.1513s
+Workers: 2 | Execution Time: 0.2963s
+Workers: 4 | Execution Time: 0.4256s
+--- task4_roofline.py repeat 3 ---
+=== Compute-Bound Suite (Register Math) ===
+Workers: 1 | Execution Time: 0.5208s
+Workers: 2 | Execution Time: 0.5862s
+Workers: 4 | Execution Time: 0.6403s
+
+=== Memory-Bound Suite (DRAM Bandwidth Saturation) ===
+Workers: 1 | Execution Time: 0.1635s
+Workers: 2 | Execution Time: 0.3166s
+Workers: 4 | Execution Time: 0.4537s

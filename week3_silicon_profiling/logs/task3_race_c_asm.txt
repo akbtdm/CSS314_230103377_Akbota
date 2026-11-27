@@ -1,0 +1,13 @@
+_work:                                  ; @work
+	.cfi_startproc
+; %bb.0:
+	mov	w8, #41248                      ; =0xa120
+	movk	w8, #7, lsl #16
+	adrp	x9, _counter@PAGE
+LBB1_1:                                 ; =>This Inner Loop Header: Depth=1
+	ldr	x10, [x9, _counter@PAGEOFF]
+	add	x10, x10, #1
+	str	x10, [x9, _counter@PAGEOFF]
+	subs	x8, x8, #1
+	b.ne	LBB1_1
+; %bb.2:

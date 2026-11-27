@@ -1,0 +1,5 @@
+Run 1: Value = 531458 / 2000000 | lost updates = 1468542
+Run 2: Value = 507838 / 2000000 | lost updates = 1492162
+Run 3: Value = 572646 / 2000000 | lost updates = 1427354
+Run 4: Value = 507303 / 2000000 | lost updates = 1492697
+Run 5: Value = 516925 / 2000000 | lost updates = 1483075

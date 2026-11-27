@@ -1,0 +1,9 @@
+  9           RESUME                   0
+              LOAD_FAST                0 (self)
+              COPY                     1
+              LOAD_ATTR                0 (val)
+              LOAD_CONST               1 (1)
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               0 (val)
+              RETURN_CONST             0 (None)

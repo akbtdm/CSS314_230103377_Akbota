@@ -1,0 +1,5 @@
+Streaming b = a*2.0 over 50,000,000 float64 per worker, 5 passes, 800 MB moved per pass
+Workers: 1 | kernel time (slowest worker): 0.0974s | aggregate bandwidth:   41.1 GB/s | vs 1 worker: 1.00x
+Workers: 2 | kernel time (slowest worker): 0.1298s | aggregate bandwidth:   61.6 GB/s | vs 1 worker: 1.50x
+Workers: 4 | kernel time (slowest worker): 0.4115s | aggregate bandwidth:   38.9 GB/s | vs 1 worker: 0.95x
+Workers: 8 | kernel time (slowest worker): 4.2935s | aggregate bandwidth:    7.5 GB/s | vs 1 worker: 0.18x

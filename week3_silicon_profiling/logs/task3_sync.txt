@@ -1,0 +1,12 @@
+--- Run 1 ---
+Unsafe: Value = 2,000,000 / 2,000,000 | Time: 0.0570s
+Locked: Value = 2,000,000 / 2,000,000 | Time: 0.1545s
+Contention Cost Multiplier: 2.71x
+--- Run 2 ---
+Unsafe: Value = 2,000,000 / 2,000,000 | Time: 0.0522s
+Locked: Value = 2,000,000 / 2,000,000 | Time: 0.1547s
+Contention Cost Multiplier: 2.96x
+--- Run 3 ---
+Unsafe: Value = 2,000,000 / 2,000,000 | Time: 0.0502s
+Locked: Value = 2,000,000 / 2,000,000 | Time: 0.1576s
+Contention Cost Multiplier: 3.14x

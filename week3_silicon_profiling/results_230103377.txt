@@ -1,0 +1,204 @@
+Akbota Kutushova | 230103377 | Silicon Profiling Lab | raw terminal logs
+
+################ logs/hw_audit.txt ################
+== date ==
+Fri Nov 27 14:24:49 +05 2026
+== sysctl -n machdep.cpu.brand_string ==
+Apple M4
+== core topology ==
+hw.perflevel0.physicalcpu: 4
+hw.perflevel1.physicalcpu: 6
+hw.physicalcpu: 10
+hw.logicalcpu: 10
+== caches ==
+hw.l1dcachesize: 65536
+hw.l2cachesize: 4194304
+hw.cachelinesize: 128
+hw.perflevel0.l1dcachesize: 131072
+hw.perflevel0.l2cachesize: 16777216
+hw.perflevel1.l1dcachesize: 65536
+hw.perflevel1.l2cachesize: 4194304
+l3 keys found: 0
+== memory ==
+hw.memsize: 17179869184
+Memory:
+
+      Memory: 16 GB
+      Type: LPDDR5
+      Manufacturer: Micron
+
+== machine ==
+      Model Name: MacBook Pro
+      Model Identifier: Mac16,1
+      Chip: Apple M4
+      Total Number of Cores: 10 (4 performance and 6 efficiency)
+      Memory: 16 GB
+== OS / Python ==
+ProductName:		macOS
+ProductVersion:		15.5
+BuildVersion:		24F74
+Darwin 24.5.0
+Python 3.13.5
+mp start method: spawn
+numpy 2.1.3
+GIL enabled: True
+
+################ logs/task1_amdahl.txt ################
+OS Reported Logical Cores: 10
+Single Process Baseline Time T(1): 1.1830s
+
+Cores | Time(s) | Observed Speedup | Theoretical Linear
+-------------------------------------------------------
+    1 |  1.1603 |             1.02x |               1.00x
+    2 |  0.6043 |             1.96x |               2.00x
+    4 |  0.3298 |             3.59x |               4.00x
+    8 |  0.3115 |             3.80x |               8.00x
+   12 |  0.2765 |             4.28x |              12.00x
+   16 |  0.3081 |             3.84x |              16.00x
+
+################ logs/task1_pool_overhead.txt ################
+Cores | empty Pool time, median of 3 (s)
+    1 | 0.0285
+    2 | 0.0285
+    4 | 0.0317
+    8 | 0.0474
+   12 | 0.0576
+   16 | 0.0972
+
+################ logs/task2_falsesharing.txt ################
+--- Trial 1 ---
+Adjacent Indices (False Sharing): 0.4618s
+Padded Indices (Cache-Aligned): 0.4624s
+Slowdown Factor: 1.00x
+--- Trial 2 ---
+Adjacent Indices (False Sharing): 0.4498s
+Padded Indices (Cache-Aligned): 0.4627s
+Slowdown Factor: 0.97x
+--- Trial 3 ---
+Adjacent Indices (False Sharing): 0.4518s
+Padded Indices (Cache-Aligned): 0.4441s
+Slowdown Factor: 1.02x
+
+################ logs/task2_python_sizes.txt ################
+$ python3 -c "import sys; print(sys.getsizeof(0), sys.getsizeof(5_000_000), sys.getsizeof([0]*4), sys.getsizeof([0]*64), (sys.getsizeof([0]*64)-sys.getsizeof([0]*4))/60, sys.getsizeof([]))"
+28 28 88 568 8.0 56
+
+################ logs/task2_falsesharing_c.txt ################
+C pthreads, 4 threads x 100000000 increments, buffer aligned to 128 B
+stride   8 B:  0.1584s  0.1357s  0.1351s
+stride  64 B:  0.0678s  0.0928s  0.0725s
+stride 128 B:  0.0705s  0.0480s  0.0568s
+
+################ logs/task3_sync.txt ################
+--- Run 1 ---
+Unsafe: Value = 2,000,000 / 2,000,000 | Time: 0.0570s
+Locked: Value = 2,000,000 / 2,000,000 | Time: 0.1545s
+Contention Cost Multiplier: 2.71x
+--- Run 2 ---
+Unsafe: Value = 2,000,000 / 2,000,000 | Time: 0.0522s
+Locked: Value = 2,000,000 / 2,000,000 | Time: 0.1547s
+Contention Cost Multiplier: 2.96x
+--- Run 3 ---
+Unsafe: Value = 2,000,000 / 2,000,000 | Time: 0.0502s
+Locked: Value = 2,000,000 / 2,000,000 | Time: 0.1576s
+Contention Cost Multiplier: 3.14x
+
+################ logs/task3_unsafe_inc_bytecode.txt ################
+  9           RESUME                   0
+              LOAD_FAST                0 (self)
+              COPY                     1
+              LOAD_ATTR                0 (val)
+              LOAD_CONST               1 (1)
+              BINARY_OP               13 (+=)
+              SWAP                     2
+              STORE_ATTR               0 (val)
+              RETURN_CONST             0 (None)
+
+################ logs/task3_race_c.txt ################
+Run 1: Value = 531458 / 2000000 | lost updates = 1468542
+Run 2: Value = 507838 / 2000000 | lost updates = 1492162
+Run 3: Value = 572646 / 2000000 | lost updates = 1427354
+Run 4: Value = 507303 / 2000000 | lost updates = 1492697
+Run 5: Value = 516925 / 2000000 | lost updates = 1483075
+
+################ logs/task3_race_c_asm.txt ################
+_work:                                  ; @work
+	.cfi_startproc
+; %bb.0:
+	mov	w8, #41248                      ; =0xa120
+	movk	w8, #7, lsl #16
+	adrp	x9, _counter@PAGE
+LBB1_1:                                 ; =>This Inner Loop Header: Depth=1
+	ldr	x10, [x9, _counter@PAGEOFF]
+	add	x10, x10, #1
+	str	x10, [x9, _counter@PAGEOFF]
+	subs	x8, x8, #1
+	b.ne	LBB1_1
+; %bb.2:
+
+################ logs/task3_lockless.txt ################
+Run 1: Locked = 2,000,000 in 0.1595s | Lockless = 2,000,000 in 0.0261s | speedup 6.11x
+Run 2: Locked = 2,000,000 in 0.1553s | Lockless = 2,000,000 in 0.0263s | speedup 5.90x
+Run 3: Locked = 2,000,000 in 0.1593s | Lockless = 2,000,000 in 0.0262s | speedup 6.08x
+Run 4: Locked = 2,000,000 in 0.1548s | Lockless = 2,000,000 in 0.0261s | speedup 5.94x
+Run 5: Locked = 2,000,000 in 0.1554s | Lockless = 2,000,000 in 0.0259s | speedup 6.00x
+Median Locked: 0.1554s | Median Lockless: 0.0261s | Speedup: 5.96x | all 5 lockless totals == 2,000,000
+
+################ logs/task4_roofline.txt ################
+=== Compute-Bound Suite (Register Math) ===
+Workers: 1 | Execution Time: 0.4858s
+Workers: 2 | Execution Time: 0.5649s
+Workers: 4 | Execution Time: 0.6289s
+
+=== Memory-Bound Suite (DRAM Bandwidth Saturation) ===
+Workers: 1 | Execution Time: 0.2455s
+Workers: 2 | Execution Time: 0.3770s
+Workers: 4 | Execution Time: 0.8256s
+
+################ logs/task4_roofline_repeats.txt ################
+--- task4_roofline.py repeat 2 ---
+=== Compute-Bound Suite (Register Math) ===
+Workers: 1 | Execution Time: 0.5445s
+Workers: 2 | Execution Time: 0.5929s
+Workers: 4 | Execution Time: 0.7067s
+
+=== Memory-Bound Suite (DRAM Bandwidth Saturation) ===
+Workers: 1 | Execution Time: 0.1513s
+Workers: 2 | Execution Time: 0.2963s
+Workers: 4 | Execution Time: 0.4256s
+--- task4_roofline.py repeat 3 ---
+=== Compute-Bound Suite (Register Math) ===
+Workers: 1 | Execution Time: 0.5208s
+Workers: 2 | Execution Time: 0.5862s
+Workers: 4 | Execution Time: 0.6403s
+
+=== Memory-Bound Suite (DRAM Bandwidth Saturation) ===
+Workers: 1 | Execution Time: 0.1635s
+Workers: 2 | Execution Time: 0.3166s
+Workers: 4 | Execution Time: 0.4537s
+
+################ logs/task4_bandwidth_first_attempt_50M.txt ################
+Streaming b = a*2.0 over 50,000,000 float64 per worker, 5 passes, 800 MB moved per pass
+Workers: 1 | kernel time (slowest worker): 0.0974s | aggregate bandwidth:   41.1 GB/s | vs 1 worker: 1.00x
+Workers: 2 | kernel time (slowest worker): 0.1298s | aggregate bandwidth:   61.6 GB/s | vs 1 worker: 1.50x
+Workers: 4 | kernel time (slowest worker): 0.4115s | aggregate bandwidth:   38.9 GB/s | vs 1 worker: 0.95x
+Workers: 8 | kernel time (slowest worker): 4.2935s | aggregate bandwidth:    7.5 GB/s | vs 1 worker: 0.18x
+
+################ logs/task4_bandwidth.txt ################
+Streaming b = a*2.0 over 16,000,000 float64 per worker, 10 passes, 256 MB moved per pass
+Workers: 1 | kernel time (slowest worker): 0.0599s | aggregate bandwidth:   42.8 GB/s | vs 1 worker: 1.00x
+Workers: 2 | kernel time (slowest worker): 0.0915s | aggregate bandwidth:   55.9 GB/s | vs 1 worker: 1.31x
+Workers: 4 | kernel time (slowest worker): 0.1093s | aggregate bandwidth:   93.7 GB/s | vs 1 worker: 2.19x
+Workers: 8 | kernel time (slowest worker): 0.2333s | aggregate bandwidth:   87.8 GB/s | vs 1 worker: 2.05x
+
+################ logs/bonus_gil_scaling.txt ################
+OS Reported Logical Cores: 10 | total_work = 50,000,000
+    T | threading [s] | Pool [s] | Pool speedup vs T=1
+-------------------------------------------------------
+    1 |        1.0906 |   1.1582 |   1.00x
+    2 |        1.0693 |   0.6120 |   1.89x
+    4 |        1.0733 |   0.3413 |   3.39x
+    8 |        1.1046 |   0.2946 |   3.93x
+   16 |        1.1221 |   0.3417 |   3.39x
+   32 |        1.0761 |   0.4823 |   2.40x
+saved results/bonus_scaling.json and results/bonus_scaling.png
