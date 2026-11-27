@@ -8,7 +8,8 @@ cd "$(dirname "$0")"
   sysctl hw.physicalcpu hw.logicalcpu hw.ncpu hw.cachelinesize hw.memsize hw.nperflevels
   sysctl -a | grep -E '^hw\.perflevel[01]\.'
   echo; echo "=== clock frequency keys (Apple Silicon does not expose them) ==="
-  sysctl hw.cpufrequency hw.cpufrequency_max 2>&1
+  echo "hw.cpufrequency keys found: $(sysctl -a | grep -c cpufrequency)"
+  echo "L3 keys: $(sysctl -a | grep -c l3cache) found"
   echo; echo "=== SIMD / vector extensions ==="
   sysctl -a | grep -E '^hw\.optional\.(neon|AdvSIMD|arm\.FEAT_(SME|SME2|SVE|BF16|FP16|I8MM|DotProd))'
   echo; echo "=== empirical clock probe (dependent add chain) ==="

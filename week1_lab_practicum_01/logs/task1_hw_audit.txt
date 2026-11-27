@@ -38,6 +38,8 @@ hw.perflevel1.cpusperl2: 6
 hw.perflevel1.name: Efficiency
 
 === clock frequency keys (Apple Silicon does not expose them) ===
+hw.cpufrequency keys found: 0
+L3 keys: 0 found
 
 === SIMD / vector extensions ===
 hw.optional.arm.FEAT_DotProd: 1
@@ -53,9 +55,9 @@ hw.optional.neon_hpfp: 1
 hw.optional.neon_fp16: 1
 
 === empirical clock probe (dependent add chain) ===
-performance-core QoS run 1: 4.326 GHz (dependent adds per ns)
-performance-core QoS run 2: 4.330 GHz (dependent adds per ns)
-performance-core QoS run 3: 4.326 GHz (dependent adds per ns)
-efficiency-core QoS run 1: 1.192 GHz (dependent adds per ns)
-efficiency-core QoS run 2: 1.199 GHz (dependent adds per ns)
-efficiency-core QoS run 3: 1.289 GHz (dependent adds per ns)
+performance-core QoS run 1: 4.329 GHz (dependent adds per ns)
+performance-core QoS run 2: 4.325 GHz (dependent adds per ns)
+performance-core QoS run 3: 4.333 GHz (dependent adds per ns)
+efficiency-core QoS run 1: 1.143 GHz (dependent adds per ns)
+efficiency-core QoS run 2: 1.173 GHz (dependent adds per ns)
+efficiency-core QoS run 3: 1.165 GHz (dependent adds per ns)
