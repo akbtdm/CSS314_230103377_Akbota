@@ -1,0 +1,22 @@
+TASK 6 - Synchronization Cost & Data Loss
+Machine: arm64 Darwin, 10 cores, Python 3.13.5, 4 threads x 2,000,000 increments
+
+PART 1 - Python threading.Thread (CPython with GIL)
+  Expected final value         : 8,000,000
+  Actual final value (5 runs)  : 8,000,000, 8,000,000, 8,000,000, 8,000,000, 8,000,000
+  Updates lost (per run)       : 0.00%, 0.00%, 0.00%, 0.00%, 0.00%
+  Worst run lost               : 0 updates = 0.00%
+  threading.Lock result        : 8,000,000, 8,000,000, 8,000,000, 8,000,000, 8,000,000 (all correct: True)
+  Wall-clock, no sync (median) : 126.1 ms
+  Wall-clock, threading.Lock   : 554.2 ms
+  Synchronization penalty      : +428.2 ms (4.40x slower)
+
+PART 2 - native threads (Numba/OpenMP, no GIL)
+  Expected final value         : 8,000,000
+  Actual final value (5 runs)  : 2,287,620, 2,000,156, 2,000,123, 2,318,474, 2,000,072
+  Updates lost (per run)       : 71.40%, 75.00%, 75.00%, 71.02%, 75.00%
+  Worst run lost               : 5,999,928 updates = 75.00%
+  atomic fetch-add result      : 8,000,000, 8,000,000, 8,000,000, 8,000,000, 8,000,000 (all correct: True)
+  Wall-clock, no sync (median) : 3.0 ms
+  Wall-clock, atomic           : 47.9 ms
+  Synchronization penalty      : +45.0 ms (16.16x slower)
