@@ -1,0 +1,42 @@
+### 2026-11-27 15:22:44 $ python3 matrix_sifter.py --compare-copy
+UID=230103377 OFFSET_PAD=0 RING_CAPACITY=16 MAGIC_BYTE=0xa1 TARGET_SEED=1475166987 (0x57ED430B)
+K = os.cpu_count() = 10; segment 'shm_sift_230103377' 200,000,000 B; ru_maxrss unit: bytes (macOS)
+master ru_maxrss before allocation: 31.4 MB
+populated in 123 ms; first bytes [214, 76, 40, 134, 237, 181, 165, 245]; master ru_maxrss now 274.5 MB
+serial reference in master: sum=3,641,372,777 count=28,894,654 in 529.5 ms
+
+=== zero-copy: K=10 workers, wall (barrier -> last join) 138.8 ms ===
+| worker | slice MB | sum (val%7==0) | count | ru_maxrss before MB | ru_maxrss after MB | delta MB | scan ms |
+|---|---|---|---|---|---|---|---|
+| 0 | 20.0 | 364,024,724 | 2,889,148 | 36.9 | 59.2 | 22.3 | 81.0 |
+| 1 | 20.0 | 363,919,206 | 2,889,145 | 36.5 | 58.9 | 22.5 | 110.7 |
+| 2 | 20.0 | 364,321,125 | 2,891,412 | 36.6 | 58.9 | 22.3 | 94.5 |
+| 3 | 20.0 | 364,393,064 | 2,891,624 | 36.7 | 59.0 | 22.2 | 107.2 |
+| 4 | 20.0 | 364,436,037 | 2,891,265 | 37.7 | 60.0 | 22.2 | 85.2 |
+| 5 | 20.0 | 364,046,277 | 2,888,474 | 37.4 | 59.5 | 22.2 | 83.1 |
+| 6 | 20.0 | 364,084,063 | 2,889,424 | 37.5 | 59.6 | 22.2 | 80.9 |
+| 7 | 20.0 | 363,886,551 | 2,886,931 | 37.1 | 59.5 | 22.3 | 111.5 |
+| 8 | 20.0 | 364,016,135 | 2,888,605 | 37.0 | 59.3 | 22.3 | 101.8 |
+| 9 | 20.0 | 364,245,595 | 2,888,626 | 36.5 | 58.9 | 22.4 | 131.3 |
+total sum = 3,641,372,777 (serial reference 3,641,372,777) -> MATCH; count = 28,894,654 (ref 28,894,654)
+sum of worker RSS deltas = 222.9 MB for 200 MB of data; sum of worker baselines (interpreter+numpy, before touching data) = 369.9 MB; sum of raw worker peak RSS = 592.8 MB; master peak RSS = 274.6 MB
+speed-up vs serial scan: 3.82x on 10 processes
+
+=== copy (bytes(shm.buf[a:b]) -- counter-example): K=10 workers, wall (barrier -> last join) 135.2 ms ===
+| worker | slice MB | sum (val%7==0) | count | ru_maxrss before MB | ru_maxrss after MB | delta MB | scan ms |
+|---|---|---|---|---|---|---|---|
+| 0 | 20.0 | 364,024,724 | 2,889,148 | 37.4 | 79.8 | 42.4 | 82.1 |
+| 1 | 20.0 | 363,919,206 | 2,889,145 | 36.2 | 78.5 | 42.3 | 95.2 |
+| 2 | 20.0 | 364,321,125 | 2,891,412 | 36.7 | 79.2 | 42.5 | 104.7 |
+| 3 | 20.0 | 364,393,064 | 2,891,624 | 37.0 | 79.2 | 42.3 | 86.4 |
+| 4 | 20.0 | 364,436,037 | 2,891,265 | 37.2 | 79.5 | 42.3 | 92.6 |
+| 5 | 20.0 | 364,046,277 | 2,888,474 | 37.2 | 79.7 | 42.5 | 115.4 |
+| 6 | 20.0 | 364,084,063 | 2,889,424 | 36.7 | 77.0 | 40.3 | 98.9 |
+| 7 | 20.0 | 363,886,551 | 2,886,931 | 36.2 | 78.5 | 42.3 | 111.7 |
+| 8 | 20.0 | 364,016,135 | 2,888,605 | 36.6 | 78.9 | 42.3 | 114.6 |
+| 9 | 20.0 | 364,245,595 | 2,888,626 | 37.0 | 79.2 | 42.2 | 123.3 |
+total sum = 3,641,372,777 (serial reference 3,641,372,777) -> MATCH; count = 28,894,654 (ref 28,894,654)
+sum of worker RSS deltas = 421.3 MB for 200 MB of data; sum of worker baselines (interpreter+numpy, before touching data) = 368.3 MB; sum of raw worker peak RSS = 789.6 MB; master peak RSS = 274.6 MB
+
+closed and unlinked 'shm_sift_230103377'
+RESULT: PASS

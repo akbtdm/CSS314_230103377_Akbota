@@ -1,0 +1,19 @@
+### 2026-11-27 15:20:12 $ python3 ring_buffer.py --trials 1 --inject-gap
+UID=230103377 OFFSET_PAD=0 RING_CAPACITY=16 MAGIC_BYTE=0xa1 TARGET_SEED=1475166987 (0x57ED430B)
+segment 'shm_ring_230103377': 524 B logical = 12 B header + 16 x 32 B slots (usable capacity 15); full-buffer backoff time.sleep(0.0001)
+--- trial 1/1: 100000 records (gap injected) ---
+Process Process-1:
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akbota/Downloads/CSS314_230103377_Akbota/week8_shared_memory_ipc/ring_buffer.py", line 85, in consumer
+    assert seq == expected, (f"MEMORY CORRUPTION: expected sequence_id {expected}, read {seq} "
+           ^^^^^^^^^^^^^^^
+AssertionError: MEMORY CORRUPTION: expected sequence_id 50000, read 50001 from slot 0
+  [master] consumer aborted -> producer terminated
+  [master] end state head=0 tail=15 dropped_count=892; consumer exit=1 producer exit=-15; total incl. process spawn 155 ms
+RESULT negative test: PASS (consumer aborted on out-of-order id)

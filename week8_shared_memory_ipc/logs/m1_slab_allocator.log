@@ -1,0 +1,31 @@
+### 2026-11-27 15:20:11 $ python3 slab_allocator.py
+UID=230103377 OFFSET_PAD=0 RING_CAPACITY=16 MAGIC_BYTE=0xa1 TARGET_SEED=1475166987 (0x57ED430B)
+record layout (big-endian, base = OFFSET_PAD = 0): magic_header@0, writer_pid@1, timestamp_ns@5, payload_floats@13, checksum_crc@45; record length 47 B; struct header calcsize 45 B
+[master pid=88151] created 'shm_slab_230103377': requested 512 B, kernel mapping 16384 B (macOS rounds shm to the 16 KiB page)
+[master] wrote record in place, checksum 0xB838; raw bytes a10001585718ebdfad39867cf0400921fb54442d184005bf0a8b1457693ff6a09e667f3bcd406cc34edd484513b838
+
+--- run 1: valid record ---
+[worker pid=88154] attached 'shm_slab_230103377' mapped=16384 B
+[worker] magic_header = 0xA1 (expected 0xA1) -> OK
+[worker] checksum_crc = 0xB838, recomputed 0xB838 -> OK
+[worker] writer_pid   = 88151
+[worker] timestamp_ns = 1795774811524726000 (record age when read: 22810.0 us)
+[worker] payload      = 3.14159265359, 2.71828182846, 1.41421356237, 230.103377
+[master] worker exit code 0 (expected 0)
+
+--- run 2: negative test, one payload byte flipped in place ---
+[worker pid=88155] attached 'shm_slab_230103377' mapped=16384 B
+[worker] magic_header = 0xA1 (expected 0xA1) -> OK
+[worker] checksum_crc = 0xB838, recomputed 0x4738 -> MISMATCH
+[worker] REJECTED record (status 3)
+[master] worker exit code 3 (expected 3)
+
+--- run 3: negative test, wrong magic byte ---
+[worker pid=88156] attached 'shm_slab_230103377' mapped=16384 B
+[worker] magic_header = 0x00 (expected 0xA1) -> MISMATCH
+[worker] checksum_crc = 0xB838, recomputed 0x1938 -> MISMATCH
+[worker] REJECTED record (status 2)
+[master] worker exit code 2 (expected 2)
+
+[master] closed and unlinked 'shm_slab_230103377'
+RESULT: PASS

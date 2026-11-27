@@ -1,0 +1,66 @@
+### 2026-11-27 15:22:16 $ python3 cache_collision.py --reps 3
+UID=230103377 OFFSET_PAD=0 RING_CAPACITY=16 MAGIC_BYTE=0xa1 TARGET_SEED=1475166987 (0x57ED430B)
+increments per process = {'python': 10000000, 'numba': 100000000, 'atomic': 10000000}; reps per case = 3
+[python] Solo                   rep1: slowest loop    645.6 ms, fastest    645.6 ms, wall    650.0 ms, base addr mod64=0 mod128=0
+[python] Solo                   rep2: slowest loop    637.4 ms, fastest    637.4 ms, wall    641.8 ms, base addr mod64=0 mod128=0
+[python] Solo                   rep3: slowest loop    643.4 ms, fastest    643.4 ms, wall    647.4 ms, base addr mod64=0 mod128=0
+[python] A adjacent 0/1 (8 B)   rep1: slowest loop    677.0 ms, fastest    630.2 ms, wall    681.6 ms, base addr mod64=0 mod128=0
+[python] A adjacent 0/1 (8 B)   rep2: slowest loop    673.8 ms, fastest    673.3 ms, wall    678.0 ms, base addr mod64=0 mod128=0
+[python] A adjacent 0/1 (8 B)   rep3: slowest loop    679.4 ms, fastest    675.9 ms, wall    683.8 ms, base addr mod64=0 mod128=0
+[python] B handout 0/7 (56 B)   rep1: slowest loop    679.7 ms, fastest    636.9 ms, wall    683.6 ms, base addr mod64=0 mod128=0
+[python] B handout 0/7 (56 B)   rep2: slowest loop    673.7 ms, fastest    668.1 ms, wall    677.8 ms, base addr mod64=0 mod128=0
+[python] B handout 0/7 (56 B)   rep3: slowest loop    669.0 ms, fastest    664.9 ms, wall    672.9 ms, base addr mod64=0 mod128=0
+[python] C 0/8 (64 B)           rep1: slowest loop    654.5 ms, fastest    628.7 ms, wall    658.4 ms, base addr mod64=0 mod128=0
+[python] C 0/8 (64 B)           rep2: slowest loop    659.1 ms, fastest    649.3 ms, wall    663.3 ms, base addr mod64=0 mod128=0
+[python] C 0/8 (64 B)           rep3: slowest loop    656.0 ms, fastest    651.8 ms, wall    659.8 ms, base addr mod64=0 mod128=0
+[python] D 0/16 (128 B)         rep1: slowest loop    649.5 ms, fastest    647.8 ms, wall    654.5 ms, base addr mod64=0 mod128=0
+[python] D 0/16 (128 B)         rep2: slowest loop    654.6 ms, fastest    644.5 ms, wall    658.8 ms, base addr mod64=0 mod128=0
+[python] D 0/16 (128 B)         rep3: slowest loop    656.2 ms, fastest    645.7 ms, wall    660.3 ms, base addr mod64=0 mod128=0
+[numba ] Solo                   rep1: slowest loop     88.1 ms, fastest     88.1 ms, wall    146.2 ms, base addr mod64=0 mod128=0
+[numba ] Solo                   rep2: slowest loop     90.4 ms, fastest     90.4 ms, wall    140.6 ms, base addr mod64=0 mod128=0
+[numba ] Solo                   rep3: slowest loop    109.9 ms, fastest    109.9 ms, wall    158.9 ms, base addr mod64=0 mod128=0
+[numba ] A adjacent 0/1 (8 B)   rep1: slowest loop     94.6 ms, fastest     94.6 ms, wall    166.4 ms, base addr mod64=0 mod128=0
+[numba ] A adjacent 0/1 (8 B)   rep2: slowest loop     96.9 ms, fastest     94.2 ms, wall    170.1 ms, base addr mod64=0 mod128=0
+[numba ] A adjacent 0/1 (8 B)   rep3: slowest loop     94.0 ms, fastest     93.9 ms, wall    165.0 ms, base addr mod64=0 mod128=0
+[numba ] B handout 0/7 (56 B)   rep1: slowest loop     94.3 ms, fastest     94.2 ms, wall    161.1 ms, base addr mod64=0 mod128=0
+[numba ] B handout 0/7 (56 B)   rep2: slowest loop     93.2 ms, fastest     93.0 ms, wall    162.4 ms, base addr mod64=0 mod128=0
+[numba ] B handout 0/7 (56 B)   rep3: slowest loop     93.5 ms, fastest     93.3 ms, wall    176.5 ms, base addr mod64=0 mod128=0
+[numba ] C 0/8 (64 B)           rep1: slowest loop     93.9 ms, fastest     93.0 ms, wall    165.0 ms, base addr mod64=0 mod128=0
+[numba ] C 0/8 (64 B)           rep2: slowest loop     96.8 ms, fastest     91.9 ms, wall    161.2 ms, base addr mod64=0 mod128=0
+[numba ] C 0/8 (64 B)           rep3: slowest loop     93.5 ms, fastest     93.5 ms, wall    161.2 ms, base addr mod64=0 mod128=0
+[numba ] D 0/16 (128 B)         rep1: slowest loop     90.8 ms, fastest     90.8 ms, wall    161.5 ms, base addr mod64=0 mod128=0
+[numba ] D 0/16 (128 B)         rep2: slowest loop     92.1 ms, fastest     92.1 ms, wall    164.6 ms, base addr mod64=0 mod128=0
+[numba ] D 0/16 (128 B)         rep3: slowest loop     92.8 ms, fastest     92.8 ms, wall    162.6 ms, base addr mod64=0 mod128=0
+[atomic] Solo                   rep1: slowest loop     15.8 ms, fastest     15.8 ms, wall     62.3 ms, base addr mod64=0 mod128=0
+[atomic] Solo                   rep2: slowest loop     15.9 ms, fastest     15.9 ms, wall     63.8 ms, base addr mod64=0 mod128=0
+[atomic] Solo                   rep3: slowest loop     15.9 ms, fastest     15.9 ms, wall     65.2 ms, base addr mod64=0 mod128=0
+[atomic] A adjacent 0/1 (8 B)   rep1: slowest loop     55.0 ms, fastest     45.5 ms, wall    128.2 ms, base addr mod64=0 mod128=0
+[atomic] A adjacent 0/1 (8 B)   rep2: slowest loop     72.8 ms, fastest     72.4 ms, wall    145.9 ms, base addr mod64=0 mod128=0
+[atomic] A adjacent 0/1 (8 B)   rep3: slowest loop     64.2 ms, fastest     61.8 ms, wall    140.2 ms, base addr mod64=0 mod128=0
+[atomic] B handout 0/7 (56 B)   rep1: slowest loop     60.1 ms, fastest     54.5 ms, wall    130.3 ms, base addr mod64=0 mod128=0
+[atomic] B handout 0/7 (56 B)   rep2: slowest loop     66.2 ms, fastest     62.1 ms, wall    142.6 ms, base addr mod64=0 mod128=0
+[atomic] B handout 0/7 (56 B)   rep3: slowest loop     72.5 ms, fastest     72.4 ms, wall    144.9 ms, base addr mod64=0 mod128=0
+[atomic] C 0/8 (64 B)           rep1: slowest loop     16.2 ms, fastest     16.1 ms, wall    104.5 ms, base addr mod64=0 mod128=0
+[atomic] C 0/8 (64 B)           rep2: slowest loop     16.3 ms, fastest     16.2 ms, wall     84.5 ms, base addr mod64=0 mod128=0
+[atomic] C 0/8 (64 B)           rep3: slowest loop     16.9 ms, fastest     16.8 ms, wall     84.7 ms, base addr mod64=0 mod128=0
+[atomic] D 0/16 (128 B)         rep1: slowest loop     16.2 ms, fastest     16.0 ms, wall     88.0 ms, base addr mod64=0 mod128=0
+[atomic] D 0/16 (128 B)         rep2: slowest loop     16.1 ms, fastest     16.1 ms, wall     87.4 ms, base addr mod64=0 mod128=0
+[atomic] D 0/16 (128 B)         rep3: slowest loop     17.7 ms, fastest     17.5 ms, wall     90.1 ms, base addr mod64=0 mod128=0
+
+| Engine | Case | median loop ms | min | max | ns per increment | vs Solo | vs Case D |
+|---|---|---|---|---|---|---|---|
+| python | Solo | 643.4 | 637.4 | 645.6 | 64.34 | 1.00x | 0.98x |
+| python | A adjacent 0/1 (8 B) | 677.0 | 673.8 | 679.4 | 67.70 | 1.05x | 1.03x |
+| python | B handout 0/7 (56 B) | 673.7 | 669.0 | 679.7 | 67.37 | 1.05x | 1.03x |
+| python | C 0/8 (64 B) | 656.0 | 654.5 | 659.1 | 65.60 | 1.02x | 1.00x |
+| python | D 0/16 (128 B) | 654.6 | 649.5 | 656.2 | 65.46 | 1.02x | 1.00x |
+| numba | Solo | 90.4 | 88.1 | 109.9 | 0.90 | 1.00x | 0.98x |
+| numba | A adjacent 0/1 (8 B) | 94.6 | 94.0 | 96.9 | 0.95 | 1.05x | 1.03x |
+| numba | B handout 0/7 (56 B) | 93.5 | 93.2 | 94.3 | 0.94 | 1.03x | 1.02x |
+| numba | C 0/8 (64 B) | 93.9 | 93.5 | 96.8 | 0.94 | 1.04x | 1.02x |
+| numba | D 0/16 (128 B) | 92.1 | 90.8 | 92.8 | 0.92 | 1.02x | 1.00x |
+| atomic | Solo | 15.9 | 15.8 | 15.9 | 1.59 | 1.00x | 0.98x |
+| atomic | A adjacent 0/1 (8 B) | 64.2 | 55.0 | 72.8 | 6.42 | 4.05x | 3.96x |
+| atomic | B handout 0/7 (56 B) | 66.2 | 60.1 | 72.5 | 6.62 | 4.18x | 4.09x |
+| atomic | C 0/8 (64 B) | 16.3 | 16.2 | 16.9 | 1.63 | 1.03x | 1.01x |
+| atomic | D 0/16 (128 B) | 16.2 | 16.1 | 17.7 | 1.62 | 1.02x | 1.00x |

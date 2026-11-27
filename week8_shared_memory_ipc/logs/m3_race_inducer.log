@@ -1,0 +1,31 @@
+### 2026-11-27 15:20:12 $ python3 race_inducer.py --workers 1 2 4 8 16 --reps 3 --lock-reps 1
+UID=230103377 OFFSET_PAD=0 RING_CAPACITY=16 MAGIC_BYTE=0xa1 TARGET_SEED=1475166987 (0x57ED430B)
+cpu_count=10 start_method=spawn iterations/worker=1,000,000
+N= 1 unsync rep1: count=1,000,000 loss=0.00% runtime=58.4 ms (slowest worker loop 54.8 ms)
+N= 1 unsync rep2: count=1,000,000 loss=0.00% runtime=64.3 ms (slowest worker loop 60.6 ms)
+N= 1 unsync rep3: count=1,000,000 loss=0.00% runtime=58.4 ms (slowest worker loop 55.0 ms)
+N= 1 lock   rep1: count=1,000,000 runtime=720.8 ms (slowest worker loop 716.8 ms) OK
+N= 2 unsync rep1: count=1,014,397 loss=49.28% runtime=63.3 ms (slowest worker loop 59.4 ms)
+N= 2 unsync rep2: count=1,021,622 loss=48.92% runtime=63.7 ms (slowest worker loop 59.6 ms)
+N= 2 unsync rep3: count=1,019,036 loss=49.05% runtime=64.8 ms (slowest worker loop 60.4 ms)
+N= 2 lock   rep1: count=2,000,000 runtime=7563.0 ms (slowest worker loop 7558.8 ms) OK
+N= 4 unsync rep1: count=1,018,131 loss=74.55% runtime=69.6 ms (slowest worker loop 64.6 ms)
+N= 4 unsync rep2: count=1,028,592 loss=74.29% runtime=79.1 ms (slowest worker loop 75.4 ms)
+N= 4 unsync rep3: count=1,016,976 loss=74.58% runtime=69.8 ms (slowest worker loop 64.8 ms)
+N= 4 lock   rep1: count=4,000,000 runtime=15124.0 ms (slowest worker loop 15118.5 ms) OK
+N= 8 unsync rep1: count=1,442,480 loss=81.97% runtime=127.3 ms (slowest worker loop 123.2 ms)
+N= 8 unsync rep2: count=1,344,451 loss=83.19% runtime=154.7 ms (slowest worker loop 150.6 ms)
+N= 8 unsync rep3: count=1,430,135 loss=82.12% runtime=125.9 ms (slowest worker loop 121.4 ms)
+N= 8 lock   rep1: count=8,000,000 runtime=31036.3 ms (slowest worker loop 31026.4 ms) OK
+N=16 unsync rep1: count=1,987,529 loss=87.58% runtime=245.1 ms (slowest worker loop 240.5 ms)
+N=16 unsync rep2: count=1,846,911 loss=88.46% runtime=223.8 ms (slowest worker loop 218.1 ms)
+N=16 unsync rep3: count=1,878,874 loss=88.26% runtime=232.9 ms (slowest worker loop 219.3 ms)
+N=16 lock   rep1: count=16,000,000 runtime=66326.2 ms (slowest worker loop 66315.2 ms) OK
+
+| Workers (N) | Expected Total | Observed Count (Unsynchronized, median of reps) | Update Loss Rate (%) | Runtime: Unsynchronized (ms) | Runtime: multiprocessing.Lock (ms) | Lock count |
+|---|---|---|---|---|---|---|
+| 1 | 1,000,000 | 1,000,000 (reps: 1,000,000, 1,000,000, 1,000,000) | 0.00% | 58.4 | 720.8 | 1,000,000 |
+| 2 | 2,000,000 | 1,019,036 (reps: 1,014,397, 1,021,622, 1,019,036) | 49.05% | 63.7 | 7563.0 | 2,000,000 |
+| 4 | 4,000,000 | 1,018,131 (reps: 1,018,131, 1,028,592, 1,016,976) | 74.55% | 69.8 | 15124.0 | 4,000,000 |
+| 8 | 8,000,000 | 1,430,135 (reps: 1,442,480, 1,344,451, 1,430,135) | 82.12% | 127.3 | 31036.3 | 8,000,000 |
+| 16 | 16,000,000 | 1,878,874 (reps: 1,987,529, 1,846,911, 1,878,874) | 88.26% | 232.9 | 66326.2 | 16,000,000 |

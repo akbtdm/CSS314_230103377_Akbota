@@ -1,0 +1,36 @@
+### 2026-11-27 15:22:46 $ python3 verify_submission.py
+[PASS] OFFSET_PAD: 0
+[PASS] RING_CAPACITY: 16
+[PASS] MAGIC_BYTE: 0xa1
+[PASS] TARGET_SEED: 1475166987
+[PASS] slab field offsets 0/1/5/13/45: computed [1, 5, 13] + crc@45
+[PASS] slab fits in 512 B
+[PASS] XOR-16 checksum round trip: 0x3E22
+[PASS] single-bit corruption detected
+[PASS] ring size = 12 + 32*C: 524 B
+[PASS] ring slot = 32 B
+[PASS] ring name: shm_ring_230103377
+[PASS] name length 'shm_slab_230103377': 19 chars
+[PASS] no leaked segment 'shm_slab_230103377'
+[PASS] name length 'shm_ring_230103377': 19 chars
+[PASS] no leaked segment 'shm_ring_230103377'
+[PASS] name length 'shm_sift_230103377': 19 chars
+[PASS] no leaked segment 'shm_sift_230103377'
+[PASS] name length 'shm_sres_230103377': 19 chars
+[PASS] no leaked segment 'shm_sres_230103377'
+[PASS] name length 'shm_audit_230103377': 20 chars
+[PASS] no leaked segment 'shm_audit_230103377'
+[PASS] deliverable slab_allocator.py present
+[PASS] slab_allocator.py uses no Queue/Pipe/Manager/pickle
+[PASS] deliverable ring_buffer.py present
+[PASS] ring_buffer.py uses no Queue/Pipe/Manager/pickle
+[PASS] deliverable race_inducer.py present
+[PASS] race_inducer.py uses no Queue/Pipe/Manager/pickle
+[PASS] deliverable cache_collision.py present
+[PASS] cache_collision.py uses no Queue/Pipe/Manager/pickle
+[PASS] deliverable matrix_sifter.py present
+[PASS] matrix_sifter.py uses no Queue/Pipe/Manager/pickle
+
+31/31 checks passed
+NOTE: harness reconstructed (handout listing truncated); token is not the instructor's algorithm.
+VERIFICATION TOKEN: AUTH-CAE348D06F2C
