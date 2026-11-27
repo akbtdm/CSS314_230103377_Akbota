@@ -1,0 +1,14 @@
+T1 = 1.4383 s | T2 = 0.7477 s
+p = 2*(T1-T2)/T1 = 0.9603
+sequential fraction (1-p) = 0.0397
+Amdahl S_max (N->inf) = 1/(1-p) = 25.19x
+Amdahl S_64 = 1/[(1-p)+p/64] = 18.28x
+Gustafson S_64 = (1-p)+64p = 61.50x
+
+Amdahl prediction vs measured Task 2 speedup:
+  N= 1: Amdahl  1.00x  measured  1.00x
+  N= 2: Amdahl  1.92x  measured  1.92x
+  N= 4: Amdahl  3.57x  measured  3.55x
+  N= 8: Amdahl  6.26x  measured  4.01x
+  N=16: Amdahl 10.03x  measured  4.31x
+  N=32: Amdahl 14.35x  measured  4.29x
