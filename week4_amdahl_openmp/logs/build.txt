@@ -1,0 +1,5 @@
+Apple clang version 17.0.0 (clang-1700.0.13.5)
+$ clang -O2 -Wall -Wextra -Xpreprocessor -fopenmp -I/opt/homebrew/opt/libomp/include -L/opt/homebrew/opt/libomp/lib -lomp -Wl,-rpath,/opt/homebrew/opt/libomp/lib collatz_seq.c -o collatz_seq
+$ clang -O2 -Wall -Wextra -Xpreprocessor -fopenmp -I/opt/homebrew/opt/libomp/include -L/opt/homebrew/opt/libomp/lib -lomp -Wl,-rpath,/opt/homebrew/opt/libomp/lib collatz.c -o collatz
+build OK (no warnings printed above means zero warnings)
+libomp 23.1.6

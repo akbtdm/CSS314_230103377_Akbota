@@ -1,0 +1,41 @@
+N=13377000  omp_get_max_threads=10  omp_get_num_procs=10
+sched  static                 k=10 run 1: 0.248038 s  spread=0.057065 s  max=688  checksum=117349995  hits=0
+sched  static                 k=10 run 2: 0.250137 s  spread=0.066227 s  max=688  checksum=117349995  hits=0
+sched  static                 k=10 run 3: 0.248807 s  spread=0.047889 s  max=688  checksum=117349995  hits=0
+sched  static                 k=10 AVG(run2,run3)=0.249472 s  avg_spread=0.057058 s
+sched  static_1000            k=10 run 1: 0.232578 s  spread=0.022733 s  max=688  checksum=117349995  hits=0
+sched  static_1000            k=10 run 2: 0.244785 s  spread=0.042687 s  max=688  checksum=117349995  hits=0
+sched  static_1000            k=10 run 3: 0.245827 s  spread=0.028266 s  max=688  checksum=117349995  hits=0
+sched  static_1000            k=10 AVG(run2,run3)=0.245306 s  avg_spread=0.035476 s
+sched  dynamic_100            k=10 run 1: 0.234759 s  spread=0.000028 s  max=688  checksum=117349995  hits=0
+sched  dynamic_100            k=10 run 2: 0.238104 s  spread=0.000022 s  max=688  checksum=117349995  hits=0
+sched  dynamic_100            k=10 run 3: 0.233858 s  spread=0.000048 s  max=688  checksum=117349995  hits=0
+sched  dynamic_100            k=10 AVG(run2,run3)=0.235981 s  avg_spread=0.000035 s
+sched  dynamic_10000          k=10 run 1: 0.232869 s  spread=0.001432 s  max=688  checksum=117349995  hits=0
+sched  dynamic_10000          k=10 run 2: 0.226108 s  spread=0.000987 s  max=688  checksum=117349995  hits=0
+sched  dynamic_10000          k=10 run 3: 0.222880 s  spread=0.001519 s  max=688  checksum=117349995  hits=0
+sched  dynamic_10000          k=10 AVG(run2,run3)=0.224494 s  avg_spread=0.001253 s
+sched  guided                 k=10 run 1: 0.225773 s  spread=0.000001 s  max=688  checksum=117349995  hits=0
+sched  guided                 k=10 run 2: 0.222636 s  spread=0.000002 s  max=688  checksum=117349995  hits=0
+sched  guided                 k=10 run 3: 0.234806 s  spread=0.000140 s  max=688  checksum=117349995  hits=0
+sched  guided                 k=10 AVG(run2,run3)=0.228721 s  avg_spread=0.000071 s
+sched  dynamic_1              k=10 run 1: 0.720290 s  spread=0.000000 s  max=688  checksum=117349995  hits=0
+sched  dynamic_1              k=10 run 2: 0.719451 s  spread=0.000006 s  max=688  checksum=117349995  hits=0
+sched  dynamic_1              k=10 run 3: 0.720493 s  spread=0.000005 s  max=688  checksum=117349995  hits=0
+sched  dynamic_1              k=10 AVG(run2,run3)=0.719972 s  avg_spread=0.000005 s
+sched  dynamic_10             k=10 run 1: 0.233659 s  spread=0.000002 s  max=688  checksum=117349995  hits=0
+sched  dynamic_10             k=10 run 2: 0.239717 s  spread=0.000003 s  max=688  checksum=117349995  hits=0
+sched  dynamic_10             k=10 run 3: 0.234628 s  spread=0.000001 s  max=688  checksum=117349995  hits=0
+sched  dynamic_10             k=10 AVG(run2,run3)=0.237172 s  avg_spread=0.000002 s
+sched  dynamic_1000           k=10 run 1: 0.222432 s  spread=0.000228 s  max=688  checksum=117349995  hits=0
+sched  dynamic_1000           k=10 run 2: 0.226701 s  spread=0.000174 s  max=688  checksum=117349995  hits=0
+sched  dynamic_1000           k=10 run 3: 0.221293 s  spread=0.000198 s  max=688  checksum=117349995  hits=0
+sched  dynamic_1000           k=10 AVG(run2,run3)=0.223997 s  avg_spread=0.000186 s
+sched  dynamic_100000         k=10 run 1: 0.230328 s  spread=0.009755 s  max=688  checksum=117349995  hits=0
+sched  dynamic_100000         k=10 run 2: 0.224879 s  spread=0.013295 s  max=688  checksum=117349995  hits=0
+sched  dynamic_100000         k=10 run 3: 0.230364 s  spread=0.015140 s  max=688  checksum=117349995  hits=0
+sched  dynamic_100000         k=10 AVG(run2,run3)=0.227622 s  avg_spread=0.014217 s
+sched  dynamic_1000000        k=10 run 1: 0.297732 s  spread=0.131960 s  max=688  checksum=117349995  hits=0
+sched  dynamic_1000000        k=10 run 2: 0.291249 s  spread=0.127212 s  max=688  checksum=117349995  hits=0
+sched  dynamic_1000000        k=10 run 3: 0.296360 s  spread=0.129965 s  max=688  checksum=117349995  hits=0
+sched  dynamic_1000000        k=10 AVG(run2,run3)=0.293805 s  avg_spread=0.128589 s

@@ -1,0 +1,17 @@
+N=13377000  omp_get_max_threads=10  omp_get_num_procs=10
+false  naive_hits[tid]++      k=10 run 1: 0.361226 s  spread=0.000040 s  max=688  checksum=117349995  hits=10794097
+false  naive_hits[tid]++      k=10 run 2: 0.336779 s  spread=0.000043 s  max=688  checksum=117349995  hits=10794097
+false  naive_hits[tid]++      k=10 run 3: 0.331593 s  spread=0.000037 s  max=688  checksum=117349995  hits=10794097
+false  naive_hits[tid]++      k=10 AVG(run2,run3)=0.334186 s  avg_spread=0.000040 s
+false  padded64_struct        k=10 run 1: 0.258438 s  spread=0.000045 s  max=688  checksum=117349995  hits=10794097
+false  padded64_struct        k=10 run 2: 0.284071 s  spread=0.000042 s  max=688  checksum=117349995  hits=10794097
+false  padded64_struct        k=10 run 3: 0.264363 s  spread=0.000036 s  max=688  checksum=117349995  hits=10794097
+false  padded64_struct        k=10 AVG(run2,run3)=0.274217 s  avg_spread=0.000039 s
+false  padded128_struct       k=10 run 1: 0.270690 s  spread=0.000037 s  max=688  checksum=117349995  hits=10794097
+false  padded128_struct       k=10 run 2: 0.252134 s  spread=0.000050 s  max=688  checksum=117349995  hits=10794097
+false  padded128_struct       k=10 run 3: 0.245757 s  spread=0.000041 s  max=688  checksum=117349995  hits=10794097
+false  padded128_struct       k=10 AVG(run2,run3)=0.248945 s  avg_spread=0.000046 s
+false  reduction              k=10 run 1: 0.269833 s  spread=0.000046 s  max=688  checksum=117349995  hits=10794097
+false  reduction              k=10 run 2: 0.245844 s  spread=0.000037 s  max=688  checksum=117349995  hits=10794097
+false  reduction              k=10 run 3: 0.240867 s  spread=0.000059 s  max=688  checksum=117349995  hits=10794097
+false  reduction              k=10 AVG(run2,run3)=0.243355 s  avg_spread=0.000048 s

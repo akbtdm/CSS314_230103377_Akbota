@@ -1,0 +1,25 @@
+N=13377000  omp_get_max_threads=10  omp_get_num_procs=10
+scale  static_default         k= 1 run 1: 1.540091 s  spread=0.000000 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 1 run 2: 1.516730 s  spread=0.000000 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 1 run 3: 1.534560 s  spread=0.000000 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 1 AVG(run2,run3)=1.525645 s  avg_spread=0.000000 s
+scale  static_default         k= 2 run 1: 0.804848 s  spread=0.066416 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 2 run 2: 0.803097 s  spread=0.065663 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 2 run 3: 0.800163 s  spread=0.065472 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 2 AVG(run2,run3)=0.801630 s  avg_spread=0.065567 s
+scale  static_default         k= 4 run 1: 0.445292 s  spread=0.054596 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 4 run 2: 0.448422 s  spread=0.059403 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 4 run 3: 0.451699 s  spread=0.061340 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 4 AVG(run2,run3)=0.450060 s  avg_spread=0.060371 s
+scale  static_default         k= 8 run 1: 0.283129 s  spread=0.000010 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 8 run 2: 0.281389 s  spread=0.000030 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 8 run 3: 0.290940 s  spread=0.000008 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 8 AVG(run2,run3)=0.286165 s  avg_spread=0.000019 s
+scale  static_default         k=10 run 1: 0.250328 s  spread=0.000050 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=10 run 2: 0.241560 s  spread=0.000045 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=10 run 3: 0.251290 s  spread=0.000043 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=10 AVG(run2,run3)=0.246425 s  avg_spread=0.000044 s
+scale  static_default         k=16 run 1: 0.239272 s  spread=0.000075 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=16 run 2: 0.237017 s  spread=0.000072 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=16 run 3: 0.236489 s  spread=0.000060 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=16 AVG(run2,run3)=0.236753 s  avg_spread=0.000066 s

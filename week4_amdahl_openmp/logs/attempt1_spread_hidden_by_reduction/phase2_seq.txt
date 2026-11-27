@@ -1,0 +1,4 @@
+seq run 1: 1.533412 s  max_steps=688 (n=11200681)  checksum=117349995
+seq run 2: 1.511825 s  max_steps=688 (n=11200681)  checksum=117349995
+seq run 3: 1.510888 s  max_steps=688 (n=11200681)  checksum=117349995
+N=13377000  T_seq=(run2+run3)/2=1.511356 s  max_steps=688 at n=11200681  checksum(sum mod 1e9+7)=117349995

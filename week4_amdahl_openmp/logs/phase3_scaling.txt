@@ -1,0 +1,33 @@
+N=13377000  omp_get_max_threads=10  omp_get_num_procs=10
+scale  static_default         k= 1 run 1: 1.567160 s  spread=0.000000 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 1 run 2: 1.533629 s  spread=0.000000 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 1 run 3: 1.532023 s  spread=0.000000 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 1 AVG(run2,run3)=1.532826 s  avg_spread=0.000000 s
+scale  static_default         k= 2 run 1: 0.807686 s  spread=0.070825 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 2 run 2: 0.840338 s  spread=0.066251 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 2 run 3: 0.792771 s  spread=0.066105 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 2 AVG(run2,run3)=0.816554 s  avg_spread=0.066178 s
+scale  static_default         k= 4 run 1: 0.447222 s  spread=0.056619 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 4 run 2: 0.447998 s  spread=0.053691 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 4 run 3: 0.454178 s  spread=0.060057 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 4 AVG(run2,run3)=0.451088 s  avg_spread=0.056874 s
+scale  static_default         k= 6 run 1: 0.339829 s  spread=0.047256 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 6 run 2: 0.339191 s  spread=0.042853 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 6 run 3: 0.337565 s  spread=0.049380 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 6 AVG(run2,run3)=0.338378 s  avg_spread=0.046116 s
+scale  static_default         k= 8 run 1: 0.273624 s  spread=0.050520 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 8 run 2: 0.274296 s  spread=0.045583 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 8 run 3: 0.273687 s  spread=0.050791 s  max=688  checksum=117349995  hits=0
+scale  static_default         k= 8 AVG(run2,run3)=0.273991 s  avg_spread=0.048187 s
+scale  static_default         k=10 run 1: 0.248890 s  spread=0.048121 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=10 run 2: 0.236129 s  spread=0.040108 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=10 run 3: 0.250636 s  spread=0.071449 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=10 AVG(run2,run3)=0.243382 s  avg_spread=0.055779 s
+scale  static_default         k=12 run 1: 0.231475 s  spread=0.039851 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=12 run 2: 0.233557 s  spread=0.095698 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=12 run 3: 0.240897 s  spread=0.122611 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=12 AVG(run2,run3)=0.237227 s  avg_spread=0.109155 s
+scale  static_default         k=16 run 1: 0.234789 s  spread=0.079473 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=16 run 2: 0.275892 s  spread=0.152775 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=16 run 3: 0.275910 s  spread=0.141150 s  max=688  checksum=117349995  hits=0
+scale  static_default         k=16 AVG(run2,run3)=0.275901 s  avg_spread=0.146963 s

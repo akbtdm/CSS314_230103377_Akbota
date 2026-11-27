@@ -1,0 +1,11 @@
+hw.ncpu: 10
+hw.logicalcpu: 10
+hw.logicalcpu_max: 10
+hw.l1icachesize: 131072
+hw.l1dcachesize: 65536
+hw.l2cachesize: 4194304
+machdep.cpu.cores_per_package: 10
+machdep.cpu.core_count: 10
+machdep.cpu.logical_per_package: 10
+machdep.cpu.thread_count: 10
+machdep.cpu.brand_string: Apple M4
