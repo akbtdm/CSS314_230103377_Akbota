@@ -1,0 +1,16 @@
+========================================================================
+Lab 5 Task 5.3: measured Work/Span of the task DAG, N = 5,000,000, K = 50,000
+date: 2026-11-27T15:00:23
+python 3.13.5 | numba 0.61.0 | threading layer requested: omp | NUMBA_NUM_THREADS=10 | os.cpu_count()=10
+========================================================================
+workers=1 : wall 0.3342 s | Work (sum of task times) 0.3335 s | Span (longest path) 0.0383 s | T1/Tinf = 8.70 | leaves 128 merges 127
+workers=10: wall 0.0746 s | Work (sum of task times) 0.4182 s | Span (longest path) 0.0461 s | T1/Tinf = 9.07 | leaves 128 merges 127
+merge level | merges | size per merge | mean merge time (ms)
+          0 |      1 |      5,000,000 |     18.437
+          1 |      2 |      2,500,000 |      9.746
+          2 |      4 |      1,250,000 |      6.098
+          3 |      8 |        625,000 |      2.864
+          4 |     16 |        312,500 |      1.593
+          5 |     32 |        156,250 |      0.768
+          6 |     64 |         78,125 |      0.428
+wrote results/lab5_workspan.csv

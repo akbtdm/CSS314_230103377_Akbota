@@ -1,0 +1,38 @@
+date: 2026-11-27 14:58:06 +0500
+--- CPU / cores / caches (sysctl) ---
+machdep.cpu.brand_string: Apple M4
+hw.model: Mac16,1
+hw.physicalcpu: 10
+hw.logicalcpu: 10
+hw.ncpu: 10
+hw.nperflevels: 2
+hw.perflevel0.name: Performance
+hw.perflevel0.physicalcpu: 4
+hw.perflevel0.logicalcpu: 4
+hw.perflevel0.l1dcachesize: 131072
+hw.perflevel0.l1icachesize: 196608
+hw.perflevel0.l2cachesize: 16777216
+hw.perflevel0.cpusperl2: 4
+hw.perflevel1.name: Efficiency
+hw.perflevel1.physicalcpu: 6
+hw.perflevel1.logicalcpu: 6
+hw.perflevel1.l1dcachesize: 65536
+hw.perflevel1.l1icachesize: 131072
+hw.perflevel1.l2cachesize: 4194304
+hw.perflevel1.cpusperl2: 6
+hw.cachelinesize: 128
+hw.l1dcachesize: 65536
+hw.l2cachesize: 4194304
+hw.memsize: 17179869184
+hw.l3cachesize: not reported by sysctl (no L3 on this chip)
+--- OS ---
+ProductName:		macOS
+ProductVersion:		15.5
+BuildVersion:		24F74
+Darwin MacBook-Pro-akbota.local 24.5.0 Darwin Kernel Version 24.5.0: Tue Apr 22 19:54:43 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T8132 arm64
+--- runtimes ---
+python 3.13.5 (/opt/anaconda3/bin/python3)
+numpy 2.1.3 | numba 0.61.0 | psutil 5.9.0 | matplotlib 3.10.0
+numba threading layer in use: omp | NUMBA_NUM_THREADS default: 10
+GIL enabled: True | multiprocessing start method: spawn
+os.cpu_count(): 10 | platform: macOS-15.5-arm64-arm-64bit-Mach-O

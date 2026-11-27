@@ -1,0 +1,14 @@
+========================================================================
+Lab 5 Tasks 5.1-5.2: task merge sort, N = 5,000,000, 10 worker threads, 3 trials (1 for K <= 10), deadline 60 s
+date: 2026-11-27T14:59:36
+python 3.13.5 | numba 0.61.0 | threading layer requested: omp | NUMBA_NUM_THREADS=10 | os.cpu_count()=10
+========================================================================
+reference np.sort: 0.1271 s | Numba serial merge sort (K=1, no tasks): 0.5480 s
+K=      1: ok             mean  37.2126 s | trials 37.2126 | tasks executed 14,999,998
+K=     10: ok             mean   4.2962 s | trials 4.2962 | tasks executed 1,572,862
+K=    100: ok             mean   0.7032 s | trials 0.7052 0.7021 0.7024 | tasks executed 196,606
+K=   1000: ok             mean   0.1714 s | trials 0.1693 0.1698 0.1750 | tasks executed 24,574
+K=  10000: ok             mean   0.0769 s | trials 0.0771 0.0770 0.0768 | tasks executed 1,534
+K=  50000: ok             mean   0.0767 s | trials 0.0753 0.0747 0.0802 | tasks executed 382
+K= 100000: ok             mean   0.0739 s | trials 0.0742 0.0743 0.0732 | tasks executed 190
+wrote results/lab5_cutoff_sweep.csv, results/lab5_baselines.txt; all finished runs verified sorted (assert)

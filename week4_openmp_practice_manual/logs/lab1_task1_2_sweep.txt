@@ -1,0 +1,15 @@
+========================================================================
+Lab 1 Task 1.2: team create+join cost and oversubscription sweep
+date: 2026-11-27T14:58:11
+python 3.13.5 | numba 0.61.0 | threading layer requested: omp | NUMBA_NUM_THREADS=64 | os.cpu_count()=10
+========================================================================
+  P | Executor us | Thread us | Numba 1st us | Numba us | Numba fixed-work s | Py-threads fixed-work s
+  1 |        66.9 |      36.5 |          4.8 |     0.38 |             0.9744 |                  0.0950
+  2 |        62.3 |      58.8 |         56.5 |     0.73 |             0.4757 |                  0.0914
+  4 |       128.5 |     138.7 |         24.0 |     1.15 |             0.2635 |                  0.0944
+  8 |       208.0 |     267.9 |         57.0 |     4.37 |             0.1790 |                  0.0953
+ 16 |       443.7 |     569.9 |        110.4 |    60.06 |             0.1655 |                  0.0976
+ 32 |       670.5 |    1089.2 |        211.1 |   199.30 |             0.1500 |                  0.1361
+ 64 |      2045.6 |    3156.8 |        870.1 |   496.55 |             0.1725 |                  0.1011
+Numba fixed work = 2,000,000,000 sqrt in total split over P; Python fixed work = 4,000,000 sqrt split over P threads (GIL).
+wrote /Users/akbota/Downloads/CSS314_230103377_Akbota/week4_openmp_practice_manual/lab1/../results/lab1_oversubscription.csv

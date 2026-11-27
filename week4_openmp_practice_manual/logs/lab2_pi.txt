@@ -1,0 +1,55 @@
+========================================================================
+Lab 2 Task 2.1: naive race, N = 100,000,000, 3 trials per P
+date: 2026-11-27T14:58:31
+python 3.13.5 | numba 0.61.0 | threading layer requested: omp | NUMBA_NUM_THREADS=16 | os.cpu_count()=10
+========================================================================
+Numba race  P=1  trial 1: pi = 3.141592653590 | error = 6.333e-13 | 0.1033 s
+Numba race  P=1  trial 2: pi = 3.141592653590 | error = 6.333e-13 | 0.0856 s
+Numba race  P=1  trial 3: pi = 3.141592653590 | error = 6.333e-13 | 0.0838 s
+Numba race  P=2  trial 1: pi = 1.593087005838 | error = 1.549e+00 | 0.0388 s
+Numba race  P=2  trial 2: pi = 1.503801687472 | error = 1.638e+00 | 0.0378 s
+Numba race  P=2  trial 3: pi = 1.507449835296 | error = 1.634e+00 | 0.0396 s
+Numba race  P=4  trial 1: pi = 0.909498080916 | error = 2.232e+00 | 0.0224 s
+Numba race  P=4  trial 2: pi = 0.893735968874 | error = 2.248e+00 | 0.0231 s
+Numba race  P=4  trial 3: pi = 0.939263671816 | error = 2.202e+00 | 0.0218 s
+Numba race  P=8  trial 1: pi = 0.590766921281 | error = 2.551e+00 | 0.0247 s
+Numba race  P=8  trial 2: pi = 0.621694720980 | error = 2.520e+00 | 0.0222 s
+Numba race  P=8  trial 3: pi = 0.650701479298 | error = 2.491e+00 | 0.0241 s
+CPython threads race P=1  (N=2,000,000): pi = 3.141592653590 | error = 2.007e-13 | 0.1008 s
+CPython threads race P=2  (N=2,000,000): pi = 3.141592653590 | error = 6.395e-14 | 0.1034 s
+CPython threads race P=4  (N=2,000,000): pi = 3.141592653590 | error = 1.776e-13 | 0.1030 s
+CPython threads race P=8  (N=2,000,000): pi = 3.141592653590 | error = 2.052e-13 | 0.0996 s
+CPython serial reference N=2,000,000: pi = 3.141592653590 | error = 2.007e-13
+wrote /Users/akbota/Downloads/CSS314_230103377_Akbota/week4_openmp_practice_manual/lab2/../results/lab2_race.csv
+========================================================================
+Lab 2 Task 2.2: critical-section overhead, N = 1,000,000, mean of 5 trials
+date: 2026-11-27T14:58:32
+python 3.13.5 | numba 0.61.0 | threading layer requested: omp | NUMBA_NUM_THREADS=16 | os.cpu_count()=10
+========================================================================
+Numba serial baseline       : pi = 3.141592653590 |     0.873 ms
+numba_critical_spinlock      P=1: pi = 3.141592653590 |     1.155 ms | overhead vs serial =      32.4 %
+numba_critical_spinlock      P=2: pi = 3.141592653590 |    39.134 ms | overhead vs serial =    4385.2 %
+numba_critical_spinlock      P=4: pi = 3.141592653590 |    96.215 ms | overhead vs serial =   10927.4 %
+numba_critical_spinlock      P=8: pi = 3.141592653590 |   234.510 ms | overhead vs serial =   26777.6 %
+numba_atomic                 P=1: pi = 3.141592653590 |     3.618 ms | overhead vs serial =     314.7 %
+numba_atomic                 P=2: pi = 3.141592653590 |     5.491 ms | overhead vs serial =     529.3 %
+numba_atomic                 P=4: pi = 3.141592653590 |    16.316 ms | overhead vs serial =    1770.0 %
+numba_atomic                 P=8: pi = 3.141592653590 |   130.587 ms | overhead vs serial =   14866.8 %
+CPython serial baseline     : pi = 3.141592653590 |    32.776 ms
+cpython_threading_lock       P=1: pi = 3.141592653590 |   109.140 ms | overhead vs serial =     233.0 %
+cpython_threading_lock       P=2: pi = 3.141592653590 |   105.664 ms | overhead vs serial =     222.4 %
+cpython_threading_lock       P=4: pi = 3.141592653590 |   107.579 ms | overhead vs serial =     228.2 %
+cpython_threading_lock       P=8: pi = 3.141592653590 |   108.240 ms | overhead vs serial =     230.2 %
+wrote /Users/akbota/Downloads/CSS314_230103377_Akbota/week4_openmp_practice_manual/lab2/../results/lab2_critical.csv
+========================================================================
+Lab 2 Tasks 2.3-2.4: reduction strong scaling, N = 100,000,000, 5 trials
+date: 2026-11-27T14:58:36
+python 3.13.5 | numba 0.61.0 | threading layer requested: omp | NUMBA_NUM_THREADS=16 | os.cpu_count()=10
+========================================================================
+Numba serial (no prange): pi = 3.141592653590 | 0.0880 s | error = 6.33e-13
+P=1 : T = 0.05591 s (sd 0.00059) | S =  1.00 | E =  1.00 | pi = 3.141592653590 | trials 0.0559 0.0550 0.0558 0.0564 0.0565
+P=2 : T = 0.02820 s (sd 0.00028) | S =  1.98 | E =  0.99 | pi = 3.141592653590 | trials 0.0279 0.0281 0.0283 0.0281 0.0286
+P=4 : T = 0.01619 s (sd 0.00144) | S =  3.45 | E =  0.86 | pi = 3.141592653590 | trials 0.0188 0.0155 0.0156 0.0155 0.0155
+P=8 : T = 0.01126 s (sd 0.00041) | S =  4.97 | E =  0.62 | pi = 3.141592653590 | trials 0.0112 0.0111 0.0108 0.0119 0.0113
+P=16: T = 0.01003 s (sd 0.00046) | S =  5.58 | E =  0.35 | pi = 3.141592653590 | trials 0.0107 0.0096 0.0101 0.0101 0.0096
+wrote /Users/akbota/Downloads/CSS314_230103377_Akbota/week4_openmp_practice_manual/lab2/../results/lab2_scaling.csv

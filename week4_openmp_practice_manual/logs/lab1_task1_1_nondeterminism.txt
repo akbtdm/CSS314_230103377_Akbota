@@ -1,0 +1,80 @@
+##### run 1: starter_fork_join.py
+--- Forking a team of 4 threads ---
+[Master] Logical Rank: 0 of 4 | Native OS TID: 5831386
+[Worker] Logical Rank: 3 of 4 | Native OS TID: 5831388
+[Worker] Logical Rank: 1 of 4 | Native OS TID: 5831386
+[Worker] Logical Rank: 2 of 4 | Native OS TID: 5831387
+--- Joined thread team. Execution returned to serial master ---
+
+##### run 2: starter_fork_join.py
+--- Forking a team of 4 threads ---
+[Master] Logical Rank: 0 of 4 | Native OS TID: 5831396
+[Worker] Logical Rank: 3 of 4 | Native OS TID: 5831398
+[Worker] Logical Rank: 1 of 4 | Native OS TID: 5831396
+[Worker] Logical Rank: 2 of 4 | Native OS TID: 5831397
+--- Joined thread team. Execution returned to serial master ---
+
+##### run 3: starter_fork_join.py
+--- Forking a team of 4 threads ---
+[Master] Logical Rank: 0 of 4 | Native OS TID: 5831406
+[Worker] Logical Rank: 3 of 4 | Native OS TID: 5831408
+[Worker] Logical Rank: 1 of 4 | Native OS TID: 5831406
+[Worker] Logical Rank: 2 of 4 | Native OS TID: 5831407
+--- Joined thread team. Execution returned to serial master ---
+
+##### run 4: starter_fork_join.py
+--- Forking a team of 4 threads ---
+[Master] Logical Rank: 0 of 4 | Native OS TID: 5831416
+[Worker] Logical Rank: 3 of 4 | Native OS TID: 5831418
+[Worker] Logical Rank: 1 of 4 | Native OS TID: 5831416
+[Worker] Logical Rank: 2 of 4 | Native OS TID: 5831417
+--- Joined thread team. Execution returned to serial master ---
+
+##### run 5: starter_fork_join.py
+--- Forking a team of 4 threads ---
+[Master] Logical Rank: 0 of 4 | Native OS TID: 5831426
+[Worker] Logical Rank: 3 of 4 | Native OS TID: 5831428
+[Worker] Logical Rank: 1 of 4 | Native OS TID: 5831426
+[Worker] Logical Rank: 2 of 4 | Native OS TID: 5831427
+--- Joined thread team. Execution returned to serial master ---
+
+##### run 6: starter_fork_join.py
+--- Forking a team of 4 threads ---
+[Worker] Logical Rank: 3 of 4 | Native OS TID: 5831439
+[Master] Logical Rank: 0 of 4 | Native OS TID: 5831436
+[Worker] Logical Rank: 1 of 4 | Native OS TID: 5831437
+[Worker] Logical Rank: 2 of 4 | Native OS TID: 5831438
+--- Joined thread team. Execution returned to serial master ---
+
+##### run 7: starter_fork_join.py
+--- Forking a team of 4 threads ---
+[Worker] Logical Rank: 3 of 4 | Native OS TID: 5831450
+[Master] Logical Rank: 0 of 4 | Native OS TID: 5831447
+[Worker] Logical Rank: 1 of 4 | Native OS TID: 5831448
+[Worker] Logical Rank: 2 of 4 | Native OS TID: 5831449
+--- Joined thread team. Execution returned to serial master ---
+
+##### run 8: starter_fork_join.py
+--- Forking a team of 4 threads ---
+[Master] Logical Rank: 0 of 4 | Native OS TID: 5831458
+[Worker] Logical Rank: 3 of 4 | Native OS TID: 5831460
+[Worker] Logical Rank: 1 of 4 | Native OS TID: 5831459
+[Worker] Logical Rank: 2 of 4 | Native OS TID: 5831458
+--- Joined thread team. Execution returned to serial master ---
+
+##### run 9: starter_fork_join.py
+--- Forking a team of 4 threads ---
+[Master] Logical Rank: 0 of 4 | Native OS TID: 5831468
+[Worker] Logical Rank: 3 of 4 | Native OS TID: 5831470
+[Worker] Logical Rank: 1 of 4 | Native OS TID: 5831468
+[Worker] Logical Rank: 2 of 4 | Native OS TID: 5831469
+--- Joined thread team. Execution returned to serial master ---
+
+##### run 10: starter_fork_join.py
+--- Forking a team of 4 threads ---
+[Master] Logical Rank: 0 of 4 | Native OS TID: 5831478
+[Worker] Logical Rank: 3 of 4 | Native OS TID: 5831480
+[Worker] Logical Rank: 1 of 4 | Native OS TID: 5831478
+[Worker] Logical Rank: 2 of 4 | Native OS TID: 5831479
+--- Joined thread team. Execution returned to serial master ---
+

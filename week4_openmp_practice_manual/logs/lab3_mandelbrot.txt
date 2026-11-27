@@ -1,0 +1,60 @@
+========================================================================
+Lab 3: Mandelbrot 1920x1080, MAX_ITER=1000, 3 runs per cell (after one warm-up render per cell)
+date: 2026-11-27T14:58:37
+python 3.13.5 | numba 0.61.0 | threading layer requested: omp | NUMBA_NUM_THREADS=16 | os.cpu_count()=10
+========================================================================
+serial render: 0.4902 s | total escape iterations = 203,116,879
+block   P=2  C=0  : mean 0.2480 s | runs 0.2494 0.2459 0.2488 | S= 1.98 | imbalance 0.011
+block   P=4  C=0  : mean 0.2666 s | runs 0.2657 0.2673 0.2668 | S= 1.84 | imbalance 1.974
+block   P=8  C=0  : mean 0.2323 s | runs 0.2271 0.2357 0.2341 | S= 2.11 | imbalance 3.262
+block   P=16 C=0  : mean 0.1537 s | runs 0.1627 0.1470 0.1514 | S= 3.19 | imbalance 4.022
+static  P=2  C=1  : mean 0.2475 s | runs 0.2468 0.2493 0.2463 | S= 1.98 | imbalance 0.001
+static  P=2  C=16 : mean 0.2494 s | runs 0.2482 0.2508 0.2492 | S= 1.97 | imbalance 0.014
+static  P=2  C=64 : mean 0.2673 s | runs 0.2652 0.2720 0.2648 | S= 1.83 | imbalance 0.105
+static  P=2  C=256: mean 0.3140 s | runs 0.3107 0.3183 0.3130 | S= 1.56 | imbalance 0.434
+static  P=4  C=1  : mean 0.1385 s | runs 0.1390 0.1388 0.1378 | S= 3.54 | imbalance 0.004
+static  P=4  C=16 : mean 0.1412 s | runs 0.1408 0.1417 0.1412 | S= 3.47 | imbalance 0.040
+static  P=4  C=64 : mean 0.1492 s | runs 0.1492 0.1489 0.1494 | S= 3.29 | imbalance 0.131
+static  P=4  C=256: mean 0.3338 s | runs 0.3332 0.3330 0.3352 | S= 1.47 | imbalance 2.395
+static  P=8  C=1  : mean 0.0920 s | runs 0.0887 0.0927 0.0945 | S= 5.33 | imbalance 0.013
+static  P=8  C=16 : mean 0.0910 s | runs 0.0906 0.0920 0.0903 | S= 5.39 | imbalance 0.161
+static  P=8  C=64 : mean 0.1496 s | runs 0.1500 0.1485 0.1502 | S= 3.28 | imbalance 1.927
+static  P=8  C=256: mean 0.3328 s | runs 0.3322 0.3319 0.3345 | S= 1.47 | imbalance 4.828
+static  P=16 C=1  : mean 0.0787 s | runs 0.0760 0.0749 0.0852 | S= 6.23 | imbalance 0.018
+static  P=16 C=16 : mean 0.0813 s | runs 0.0874 0.0762 0.0802 | S= 6.03 | imbalance 0.310
+static  P=16 C=64 : mean 0.1577 s | runs 0.1659 0.1544 0.1530 | S= 3.11 | imbalance 3.941
+static  P=16 C=256: mean 0.3365 s | runs 0.3298 0.3489 0.3308 | S= 1.46 | imbalance 9.656
+dynamic P=2  C=1  : mean 0.2548 s | runs 0.2562 0.2530 0.2552 | S= 1.92 | imbalance 0.001
+dynamic P=2  C=16 : mean 0.2523 s | runs 0.2507 0.2539 0.2523 | S= 1.94 | imbalance 0.002
+dynamic P=2  C=64 : mean 0.2671 s | runs 0.2665 0.2689 0.2660 | S= 1.84 | imbalance 0.085
+dynamic P=2  C=256: mean 0.3161 s | runs 0.3144 0.3177 0.3160 | S= 1.55 | imbalance 0.431
+dynamic P=4  C=1  : mean 0.1385 s | runs 0.1371 0.1372 0.1411 | S= 3.54 | imbalance 0.010
+dynamic P=4  C=16 : mean 0.1392 s | runs 0.1376 0.1378 0.1422 | S= 3.52 | imbalance 0.008
+dynamic P=4  C=64 : mean 0.1496 s | runs 0.1482 0.1476 0.1532 | S= 3.28 | imbalance 0.121
+dynamic P=4  C=256: mean 0.3295 s | runs 0.3291 0.3294 0.3301 | S= 1.49 | imbalance 2.395
+dynamic P=8  C=1  : mean 0.0853 s | runs 0.0837 0.0881 0.0840 | S= 5.75 | imbalance 0.181
+dynamic P=8  C=16 : mean 0.0892 s | runs 0.0900 0.0879 0.0897 | S= 5.50 | imbalance 0.190
+dynamic P=8  C=64 : mean 0.1495 s | runs 0.1464 0.1536 0.1485 | S= 3.28 | imbalance 1.890
+dynamic P=8  C=256: mean 0.3326 s | runs 0.3328 0.3319 0.3332 | S= 1.47 | imbalance 4.828
+dynamic P=16 C=1  : mean 0.0721 s | runs 0.0720 0.0723 0.0718 | S= 6.80 | imbalance 0.536
+dynamic P=16 C=16 : mean 0.0844 s | runs 0.0770 0.0799 0.0962 | S= 5.81 | imbalance 0.785
+dynamic P=16 C=64 : mean 0.1636 s | runs 0.1664 0.1627 0.1616 | S= 3.00 | imbalance 3.962
+dynamic P=16 C=256: mean 0.3530 s | runs 0.3352 0.3687 0.3551 | S= 1.39 | imbalance 9.656
+guided  P=2  C=1  : mean 0.2614 s | runs 0.2646 0.2581 0.2614 | S= 1.88 | imbalance 0.008
+guided  P=2  C=16 : mean 0.2606 s | runs 0.2626 0.2579 0.2614 | S= 1.88 | imbalance 0.008
+guided  P=2  C=64 : mean 0.2677 s | runs 0.2824 0.2598 0.2608 | S= 1.83 | imbalance 0.008
+guided  P=2  C=256: mean 0.2586 s | runs 0.2588 0.2588 0.2582 | S= 1.90 | imbalance 0.008
+guided  P=4  C=1  : mean 0.2957 s | runs 0.2952 0.2968 0.2950 | S= 1.66 | imbalance 2.058
+guided  P=4  C=16 : mean 0.2962 s | runs 0.2958 0.2962 0.2965 | S= 1.66 | imbalance 2.058
+guided  P=4  C=64 : mean 0.2966 s | runs 0.2966 0.2949 0.2982 | S= 1.65 | imbalance 2.058
+guided  P=4  C=256: mean 0.3014 s | runs 0.3018 0.3013 0.3010 | S= 1.63 | imbalance 2.190
+guided  P=8  C=1  : mean 0.1586 s | runs 0.1597 0.1580 0.1580 | S= 3.09 | imbalance 1.991
+guided  P=8  C=16 : mean 0.1554 s | runs 0.1554 0.1524 0.1584 | S= 3.15 | imbalance 1.992
+guided  P=8  C=64 : mean 0.1558 s | runs 0.1528 0.1593 0.1552 | S= 3.15 | imbalance 2.030
+guided  P=8  C=256: mean 0.3339 s | runs 0.3344 0.3332 0.3342 | S= 1.47 | imbalance 4.828
+guided  P=16 C=1  : mean 0.1023 s | runs 0.1038 0.0950 0.1080 | S= 4.79 | imbalance 2.243
+guided  P=16 C=16 : mean 0.1029 s | runs 0.1034 0.1086 0.0967 | S= 4.76 | imbalance 2.233
+guided  P=16 C=64 : mean 0.1586 s | runs 0.1588 0.1577 0.1592 | S= 3.09 | imbalance 3.952
+guided  P=16 C=256: mean 0.3464 s | runs 0.3403 0.3303 0.3685 | S= 1.42 | imbalance 9.656
+wrote /Users/akbota/Downloads/CSS314_230103377_Akbota/week4_openmp_practice_manual/lab3/../results/lab3_schedule_matrix.csv
+wrote /Users/akbota/Downloads/CSS314_230103377_Akbota/week4_openmp_practice_manual/lab3/../results/lab3_per_thread_work.csv

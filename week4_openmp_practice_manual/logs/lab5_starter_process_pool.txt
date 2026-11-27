@@ -1,0 +1,2 @@
+Parallel Sort Completed (N=1000000): 3.2179s  (assert sorted: OK)
+Sequential pure-Python merge sort (same N, same process): 1.4397s

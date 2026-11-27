@@ -1,0 +1,12 @@
+========================================================================
+Lab 6 bonus: 3-stage pipeline, 120 packets of 512x512 float64, queue maxsize 8
+date: 2026-11-27T15:00:25
+python 3.13.5 | numba 0.61.0 | threading layer requested: omp | NUMBA_NUM_THREADS=10 | os.cpu_count()=10
+========================================================================
+passes=1  W=1: pipeline 0.183 s ( 656.1 pkt/s) vs serial 0.209 s ( 574.7 pkt/s) | latency mean 14.75 ms p95 16.48 ms | q1 occ mean 7.59 max 8 | q2 occ mean 0.00 max 0 | busy: reader 0.07 filter 0.98 writer 0.12 -> bottleneck filter
+passes=1  W=4: pipeline 0.063 s (1913.0 pkt/s) vs serial 0.209 s ( 574.7 pkt/s) | latency mean 6.94 ms p95 8.68 ms | q1 occ mean 6.88 max 8 | q2 occ mean 0.62 max 3 | busy: reader 0.53 filter 0.95 writer 0.78 -> bottleneck filter
+passes=8  W=1: pipeline 1.294 s (  92.7 pkt/s) vs serial 1.275 s (  94.1 pkt/s) | latency mean 104.09 ms p95 119.70 ms | q1 occ mean 7.75 max 8 | q2 occ mean 0.00 max 0 | busy: reader 0.01 filter 0.99 writer 0.02 -> bottleneck filter
+passes=8  W=4: pipeline 0.349 s ( 344.1 pkt/s) vs serial 1.275 s (  94.1 pkt/s) | latency mean 36.23 ms p95 43.24 ms | q1 occ mean 7.65 max 8 | q2 occ mean 0.06 max 2 | busy: reader 0.08 filter 0.98 writer 0.15 -> bottleneck filter
+passes=32 W=1: pipeline 5.177 s (  23.2 pkt/s) vs serial 4.891 s (  24.5 pkt/s) | latency mean 414.93 ms p95 497.65 ms | q1 occ mean 7.76 max 8 | q2 occ mean 0.00 max 1 | busy: reader 0.00 filter 1.00 writer 0.00 -> bottleneck filter
+passes=32 W=4: pipeline 1.320 s (  90.9 pkt/s) vs serial 4.891 s (  24.5 pkt/s) | latency mean 136.69 ms p95 164.52 ms | q1 occ mean 7.77 max 8 | q2 occ mean 0.01 max 1 | busy: reader 0.02 filter 0.99 writer 0.04 -> bottleneck filter
+wrote /Users/akbota/Downloads/CSS314_230103377_Akbota/week4_openmp_practice_manual/lab6/../results/lab6_pipeline.csv; every pipeline run matched the serial results (assert)

@@ -1,0 +1,31 @@
+========================================================================
+Lab 4: false sharing, 100,000,000 increments per thread, 3 trials, counters 128-byte aligned
+date: 2026-11-27T14:59:23
+python 3.13.5 | numba 0.61.0 | threading layer requested: omp | NUMBA_NUM_THREADS=16 | os.cpu_count()=10
+========================================================================
+P=1  unpadded : mean   0.0333 s | trials 0.0317 0.0294 0.0388 |   0.33 ns per increment
+P=1  pad64    : mean   0.0347 s | trials 0.0340 0.0333 0.0368 |   0.35 ns per increment
+P=1  pad128   : mean   0.0315 s | trials 0.0336 0.0305 0.0303 |   0.31 ns per increment
+P=1  local_mem: mean   0.0298 s | trials 0.0305 0.0324 0.0266 |   0.30 ns per increment
+P=1  local_reg: mean   0.0000 s | trials 0.0000 0.0000 0.0000 |   0.00 ns per increment
+P=2  unpadded : mean   0.1319 s | trials 0.1320 0.1329 0.1308 |   1.32 ns per increment
+P=2  pad64    : mean   0.0437 s | trials 0.0442 0.0414 0.0454 |   0.44 ns per increment
+P=2  pad128   : mean   0.0395 s | trials 0.0429 0.0412 0.0345 |   0.40 ns per increment
+P=2  local_mem: mean   0.0340 s | trials 0.0333 0.0385 0.0302 |   0.34 ns per increment
+P=2  local_reg: mean   0.0000 s | trials 0.0000 0.0000 0.0000 |   0.00 ns per increment
+P=4  unpadded : mean   0.1377 s | trials 0.1383 0.1367 0.1382 |   1.38 ns per increment
+P=4  pad64    : mean   0.0791 s | trials 0.0846 0.0816 0.0710 |   0.79 ns per increment
+P=4  pad128   : mean   0.0594 s | trials 0.0606 0.0543 0.0634 |   0.59 ns per increment
+P=4  local_mem: mean   0.0474 s | trials 0.0482 0.0445 0.0496 |   0.47 ns per increment
+P=4  local_reg: mean   0.0000 s | trials 0.0000 0.0000 0.0000 |   0.00 ns per increment
+P=8  unpadded : mean   0.2182 s | trials 0.2192 0.2162 0.2192 |   2.18 ns per increment
+P=8  pad64    : mean   0.1440 s | trials 0.1423 0.1370 0.1529 |   1.44 ns per increment
+P=8  pad128   : mean   0.1063 s | trials 0.1074 0.1114 0.1001 |   1.06 ns per increment
+P=8  local_mem: mean   0.0793 s | trials 0.0800 0.0768 0.0810 |   0.79 ns per increment
+P=8  local_reg: mean   0.0000 s | trials 0.0000 0.0000 0.0000 |   0.00 ns per increment
+P=16 unpadded : mean   0.3809 s | trials 0.3665 0.3820 0.3943 |   3.81 ns per increment
+P=16 pad64    : mean   0.2332 s | trials 0.2551 0.2205 0.2240 |   2.33 ns per increment
+P=16 pad128   : mean   0.1952 s | trials 0.1862 0.1888 0.2106 |   1.95 ns per increment
+P=16 local_mem: mean   0.1295 s | trials 0.1296 0.1234 0.1355 |   1.30 ns per increment
+P=16 local_reg: mean   0.0002 s | trials 0.0003 0.0002 0.0001 |   0.00 ns per increment
+wrote /Users/akbota/Downloads/CSS314_230103377_Akbota/week4_openmp_practice_manual/lab4/../results/lab4_false_sharing.csv

@@ -1,0 +1,4 @@
+variant,wall_s,cpu0_mean_pct,cpu1_mean_pct,cpu2_mean_pct,cpu3_mean_pct,cpu4_mean_pct,cpu5_mean_pct,cpu6_mean_pct,cpu7_mean_pct,cpu8_mean_pct,cpu9_mean_pct,sum_pct
+A: Python threads (GIL),2.248,19.6,17.5,7.2,3.2,1.3,0.5,29.9,29.1,28.3,28.0,164.6
+B: Numba prange OpenMP threads (x150),1.353,99.4,99.3,99.3,99.4,99.4,98.7,100.0,100.0,99.3,100.0,994.6
+C: multiprocessing spawn pool,1.162,94.2,93.2,91.3,91.1,91.0,90.4,96.4,95.9,96.7,96.8,937.0
