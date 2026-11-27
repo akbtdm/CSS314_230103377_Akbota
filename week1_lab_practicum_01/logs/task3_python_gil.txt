@@ -1,0 +1,27 @@
+Python 3.13.5, GIL enabled: True
+
+UNLOCKED: expected 10000000
+run # 1  output= 10000000  error=        0  time=   188.9 ms
+run # 2  output= 10000000  error=        0  time=   187.1 ms
+run # 3  output= 10000000  error=        0  time=   185.9 ms
+run # 4  output= 10000000  error=        0  time=   184.1 ms
+run # 5  output= 10000000  error=        0  time=   187.6 ms
+run # 6  output= 10000000  error=        0  time=   186.0 ms
+run # 7  output= 10000000  error=        0  time=   184.8 ms
+run # 8  output= 10000000  error=        0  time=   188.3 ms
+run # 9  output= 10000000  error=        0  time=   185.6 ms
+run #10  output= 10000000  error=        0  time=   185.2 ms
+mean time = 186.4 ms
+
+LOCKED (threading.Lock): expected 10000000
+run # 1  output= 10000000  error=        0  time=   705.6 ms
+run # 2  output= 10000000  error=        0  time=   710.0 ms
+run # 3  output= 10000000  error=        0  time=   705.1 ms
+run # 4  output= 10000000  error=        0  time=   705.0 ms
+run # 5  output= 10000000  error=        0  time=   714.2 ms
+run # 6  output= 10000000  error=        0  time=   706.7 ms
+run # 7  output= 10000000  error=        0  time=   706.0 ms
+run # 8  output= 10000000  error=        0  time=   705.2 ms
+run # 9  output= 10000000  error=        0  time=   709.0 ms
+run #10  output= 10000000  error=        0  time=   705.6 ms
+mean time = 707.2 ms

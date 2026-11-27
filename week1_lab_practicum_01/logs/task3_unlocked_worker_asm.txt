@@ -1,0 +1,15 @@
+_unlocked_worker:                       ; @unlocked_worker
+	.cfi_startproc
+; %bb.0:
+	mov	w8, #16960                      ; =0x4240
+	movk	w8, #15, lsl #16
+	adrp	x9, _counter@PAGE
+LBB2_1:                                 ; =>This Inner Loop Header: Depth=1
+	ldr	w10, [x9, _counter@PAGEOFF]
+	add	w10, w10, #1
+	str	w10, [x9, _counter@PAGEOFF]
+	subs	w8, w8, #1
+	b.ne	LBB2_1
+; %bb.2:
+	mov	x0, #0                          ; =0x0
+	ret

@@ -1,0 +1,25 @@
+UNLOCKED: 10 threads x 1000000 increments, expected 10000000
+run # 1  output=  1022730  error=  8977270  time=    3.55 ms
+run # 2  output=  1269803  error=  8730197  time=    3.62 ms
+run # 3  output=  1295213  error=  8704787  time=    3.49 ms
+run # 4  output=  1302439  error=  8697561  time=    3.09 ms
+run # 5  output=  1341819  error=  8658181  time=    3.15 ms
+run # 6  output=  1252187  error=  8747813  time=    2.76 ms
+run # 7  output=  1218063  error=  8781937  time=    2.71 ms
+run # 8  output=  1373477  error=  8626523  time=    2.72 ms
+run # 9  output=  1561162  error=  8438838  time=    2.99 ms
+run #10  output=  1474321  error=  8525679  time=    2.65 ms
+
+LOCKED (pthread_mutex): same work
+run # 1  output= 10000000  error=        0  time=  148.28 ms
+run # 2  output= 10000000  error=        0  time=  139.76 ms
+run # 3  output= 10000000  error=        0  time=  144.77 ms
+run # 4  output= 10000000  error=        0  time=  137.60 ms
+run # 5  output= 10000000  error=        0  time=  139.92 ms
+run # 6  output= 10000000  error=        0  time=  140.79 ms
+run # 7  output= 10000000  error=        0  time=  142.91 ms
+run # 8  output= 10000000  error=        0  time=  139.58 ms
+run # 9  output= 10000000  error=        0  time=  138.37 ms
+run #10  output= 10000000  error=        0  time=  139.95 ms
+
+mean unlocked = 3.07 ms, mean locked = 141.19 ms, slowdown = 45.9x
